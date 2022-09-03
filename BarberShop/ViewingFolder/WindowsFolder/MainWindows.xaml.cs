@@ -25,9 +25,19 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             InitializeComponent();
         }
 
+        private void RollUp_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            this.DragMove();
         }
     }
 }

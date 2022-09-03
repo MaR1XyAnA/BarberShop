@@ -16,7 +16,32 @@
             </LinearGradientBrush>
         </Border.Background>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 0">
+                <Button 
+                    Style="{StaticResource SpareButton}"
+                    ToolTip="СВЕРНУТЬ"
+                    x:Name="RollUp"
+                    Click="RollUp_Click"
+                    Content="—"
+                    Height="32"
+                    Width="50"
+                    FontSize="18"/>
+                <Button
+                    Style="{StaticResource SpareButton2}"
+                    x:Name="CloseBtn"
+                    Click="CloseBtn_Click"
+                    Content="✕"
+                    Height="32"
+                    Width="50"
+                    FontSize="18"
+                    ToolTip="ЗАКРЫТЬ"/>
+            </StackPanel>
+        </Grid>
     </Grid>
     </Border>
 </Window>
