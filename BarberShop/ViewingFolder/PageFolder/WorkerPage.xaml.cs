@@ -30,7 +30,9 @@ namespace BarberShop.ViewingFolder.PageFolder
 
         private void ListWorkwrListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem;
+            InformationFrame.Navigate(new InformationsWorkerPage(workerTable));
+            BullshitextBlock.Visibility = Visibility.Collapsed;
         }
     }
 }

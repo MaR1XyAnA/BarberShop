@@ -115,6 +115,9 @@
     <Compile Include="ViewingFolder\PageFolder\InformationsSessionPage.xaml.cs">
       <DependentUpon>InformationsSessionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\PageFolder\InformationsWorkerPage.xaml.cs">
+      <DependentUpon>InformationsWorkerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\PageFolder\WorkerPage.xaml.cs">
       <DependentUpon>WorkerPage.xaml</DependentUpon>
     </Compile>
@@ -179,6 +182,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\PageFolder\InformationsSessionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\InformationsWorkerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
