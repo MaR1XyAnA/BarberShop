@@ -15,33 +15,123 @@
                 <GradientStop Color="#161a1e" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="32"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 0">
-                <Button 
-                    Style="{StaticResource SpareButton}"
-                    ToolTip="СВЕРНУТЬ"
-                    x:Name="RollUp"
-                    Click="RollUp_Click"
-                    Content="—"
-                    Height="32"
-                    Width="50"
-                    FontSize="18"/>
-                <Button
-                    Style="{StaticResource SpareButton2}"
-                    x:Name="CloseBtn"
-                    Click="CloseBtn_Click"
-                    Content="✕"
-                    Height="32"
-                    Width="50"
-                    FontSize="18"
-                    ToolTip="ЗАКРЫТЬ"/>
-            </StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 0">
+                    <Button 
+                        Style="{StaticResource SpareButton}"
+                        ToolTip="СВЕРНУТЬ"
+                        x:Name="RollUp"
+                        Click="RollUp_Click"
+                        Content="—"
+                        Height="32"
+                        Width="50"
+                        FontSize="18"/>
+                    <Button
+                        Style="{StaticResource SpareButton2}"
+                        x:Name="CloseBtn"
+                        Click="CloseBtn_Click"
+                        Content="✕"
+                        Height="32"
+                        Width="50"
+                        FontSize="18"
+                        ToolTip="ЗАКРЫТЬ"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Frame
+                    Margin="10 50 10 10"
+                    x:Name="MainFrame"
+                    NavigationUIVisibility="Hidden"/>
+                <Grid Background="Transparent" Height="50" Width="1400" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <Grid.Style>
+                        <Style TargetType="{x:Type Grid}">
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation 
+                                                    Duration="0:0:0.4"
+                                                    Storyboard.TargetProperty="Height"
+                                                    To="150"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation 
+                                                    Duration="0:0:0.2"
+                                                    Storyboard.TargetProperty="Height"
+                                                    To="50"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                    <Border VerticalAlignment="Center" HorizontalAlignment="Center" Height="90" Width="1100" Margin="0 0 0 50" CornerRadius="30">
+                        <Border.Background>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#FF16213E" Offset="1"/>
+                                <GradientStop Color="#FF252850"/>
+                            </RadialGradientBrush>
+                        </Border.Background>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Button 
+                                Content="СОТРУДНИКИ" 
+                                Height="70"
+                                Width="250"
+                                Margin="0 0 10 0"/>
+                            <Button 
+                                Content="КЛИЕНТЫ" 
+                                Height="70" 
+                                Width="250" 
+                                Margin="10 0 10 0"/>
+                            <Button 
+                                Content="УСЛУГИ"
+                                Height="70"
+                                Width="250" 
+                                Margin="10 0 10 0"/>
+                            <Button 
+                                Content="ОЧЕРЕДЬ" 
+                                Height="70" 
+                                Width="250" 
+                                Margin="10 0 0 0"/>
+                        </StackPanel>
+                    </Border>
+                    <Polygon 
+                        Points="0,0, 100,48, 800,48, 900,0" 
+                        x:Name="PoligonName"
+                        Width="900"
+                        Opacity="1"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center"
+                        Margin="0 0 0 7">
+                        <Polygon.Fill>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#FF16213E" Offset="1"/>
+                                <GradientStop Color="#FF252850"/>
+                            </RadialGradientBrush>
+                        </Polygon.Fill>
+                    </Polygon>
+                    <TextBlock
+                        Style="{StaticResource TextTextBlock}"
+                        Text="МЕНЮ"
+                        FontSize="50"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center"/>
+                </Grid>
+            </Grid>
         </Grid>
-    </Grid>
     </Border>
 </Window>

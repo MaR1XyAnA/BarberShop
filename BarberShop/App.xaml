@@ -17,8 +17,12 @@
         <!--#endregion-->
         <!--#region Page-->
         <Style TargetType="Page" x:Key="PageAutorization">
-            <Setter Property="Width" Value="960"/>
-            <Setter Property="Height" Value="398"/>
+            <Setter Property="Width" Value="680"/>
+            <Setter Property="Height" Value="288"/>
+        </Style>
+        <Style TargetType="Page" x:Key="MainPage">
+            <Setter Property="Width" Value="1800"/>
+            <Setter Property="Height" Value="888"/>
         </Style>
         <!--#endregion-->
         <!--#region Button-->
@@ -108,7 +112,7 @@
             <Setter Property="Foreground" Value="#e94560"/>
             <Setter Property="BorderBrush" Value="#08457e"/>
             <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="FontSize" Value="50"/>
+            <Setter Property="FontSize" Value="40"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontFamily" Value="\ContentFolder\FontsFolder\#Alumni Sans Thin"/>
             <Setter Property="Template">
@@ -137,10 +141,23 @@
             <Setter Property="FontSize" Value="30"/>
         </Style>
         <Style TargetType="TextBlock" x:Key="TextTextBlock">
-            <Setter Property="FontSize" Value="50"/>
             <Setter Property="Foreground" Value="#e94560"/>
             <Setter Property="FontFamily" Value="\ContentFolder\FontsFolder\#Alumni Sans Thin"/>
             <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="InfoDataBaseTextBlockTrue">
+            <Setter Property="Foreground" Value="#e94560"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontFamily" Value="\ContentFolder\FontsFolder\#Alumni Sans Thin"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="7 0 0 0"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="InfoDataBaseTextBlockFalse">
+            <Setter Property="Foreground" Value="#0f3460"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontFamily" Value="\ContentFolder\FontsFolder\#Alumni Sans Thin"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0 0 0 0"/>
         </Style>
         <!--#endregion-->
         <!--#region  TextBox-->
@@ -184,6 +201,96 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        <!--#endregion-->
+        <!--#region ScrollBar-->
+        <Style x:Key="ScrollBarLineButtonStyle" TargetType="{x:Type RepeatButton}">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Canvas Height="18">
+                            <Polygon Fill="Transparent" Points="3,15 15,15 9,3"></Polygon>
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ScrollBarLineButtonBottomStyle" TargetType="{x:Type RepeatButton}">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Canvas Height="18">
+                            <Polygon Fill="Transparent" Points="3,3 9,15 15,3"></Polygon>
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ScrollBarPageButtonStyle" TargetType="{x:Type RepeatButton}">
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Border CornerRadius="10" Background="Transparent" BorderBrush="Transparent"></Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ScrollBarThumbStyle" TargetType="{x:Type Thumb}">
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Margin" Value="2,0,2,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Border CornerRadius="8" Background="#0f3460" BorderBrush="Transparent">
+                            <Rectangle Fill="Transparent" Margin="1"></Rectangle>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
+            <Grid Margin="0 0 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition MaxHeight="1"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition MaxHeight="1"/>
+                </Grid.RowDefinitions>
+                <RepeatButton 
+                    Grid.Row="0" Height="18"
+                    Style="{StaticResource ScrollBarLineButtonStyle}"
+                    Command="ScrollBar.LineUpCommand">
+                </RepeatButton>
+                <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="True">
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton Command="ScrollBar.PageUpCommand" Style="{StaticResource ScrollBarPageButtonStyle}"></RepeatButton>
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb Style="{StaticResource ScrollBarThumbStyle}"></Thumb>
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton Command="ScrollBar.PageDownCommand" Style="{StaticResource ScrollBarPageButtonStyle}"></RepeatButton>
+                    </Track.IncreaseRepeatButton>
+                </Track>
+                <RepeatButton 
+                    Grid.Row="3" Height="18"
+                    Style="{StaticResource ScrollBarLineButtonBottomStyle}"
+                    Command="ScrollBar.LineDownCommand">
+                </RepeatButton>
+            </Grid>
+        </ControlTemplate>
+
+        <Style TargetType="{x:Type ScrollBar}">
+            <Setter Property="Template" Value="{StaticResource VerticalScrollBar}"/>
+            <Setter Property="Margin" Value="0 5 10 5"/>
         </Style>
         <!--#endregion-->
     </Application.Resources>

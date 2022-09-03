@@ -46,8 +46,8 @@ namespace BarberShop.ViewingFolder.WindowsFolder
         {
             TranslateTransform inTheRightBorder = new TranslateTransform();
             InfoAutorizationBorder.RenderTransform = inTheRightBorder;
-            DoubleAnimation doubleAnimationBorder = new DoubleAnimation(460, 0, TimeSpan.FromSeconds(0.2));
-            InfoAutorizationBorder.Width = 460;
+            DoubleAnimation doubleAnimationBorder = new DoubleAnimation(310, 0, TimeSpan.FromSeconds(0.2));
+            InfoAutorizationBorder.Width = 200;
             inTheRightBorder.BeginAnimation(TranslateTransform.XProperty, doubleAnimationBorder);
             MainFrame.Navigate(new AutorizationPage());
         }
@@ -56,8 +56,8 @@ namespace BarberShop.ViewingFolder.WindowsFolder
         {
             TranslateTransform inTheLeftBorder = new TranslateTransform();
             InfoAutorizationBorder.RenderTransform = inTheLeftBorder;
-            DoubleAnimation doubleAnimationBorder = new DoubleAnimation(0, 490, TimeSpan.FromSeconds(0.2));
-            InfoAutorizationBorder.Width = 380;
+            DoubleAnimation doubleAnimationBorder = new DoubleAnimation(0, 290, TimeSpan.FromSeconds(0.2));
+            InfoAutorizationBorder.Width = 250;
             inTheLeftBorder.BeginAnimation(TranslateTransform.XProperty, doubleAnimationBorder);
             MainFrame.Navigate(new InformationsSessionPage());
         }

@@ -1,4 +1,5 @@
 ﻿using BarberShop.ContentFolder.ClassFolder;
+using BarberShop.ViewingFolder.PageFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,10 @@ namespace BarberShop.ViewingFolder.WindowsFolder
     /// </summary>
     public partial class MainWindows : Window
     {
-        public MainWindows()
+        public MainWindows() 
         {
             InitializeComponent();
+            MainFrame.Navigate(new WorkerPage());
         }
 
         private void RollUp_Click(object sender, RoutedEventArgs e)

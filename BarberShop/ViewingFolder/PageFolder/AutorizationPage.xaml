@@ -11,6 +11,7 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 100">
             <StackPanel Orientation="Horizontal" Margin="0 0 0 5" HorizontalAlignment="Right">
                 <TextBlock
+                    FontSize="40"
                     Text="LOGIN"
                     Style="{StaticResource TextTextBlock}"/>
                 <TextBox
@@ -21,6 +22,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
                 <TextBlock
+                    FontSize="40"
                     Text="PASSWORD"
                     Style="{StaticResource TextTextBlock}"/>
                 <TextBox

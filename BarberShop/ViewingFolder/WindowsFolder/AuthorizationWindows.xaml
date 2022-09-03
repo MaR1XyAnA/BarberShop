@@ -8,8 +8,8 @@
         Style="{StaticResource WindowsStyle}"
         WindowStartupLocation="CenterScreen"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        Height="530"
-        Width="980">
+        Height="420"
+        Width="700">
     <Border CornerRadius="15">
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -50,15 +50,15 @@
                     <Button 
                         Name="InfoTextAutorizationButton"
                         Click="InfoTextAutorizationButton_Click"
-                        Content="АВТОРИЗОВАТЬСЯ"
-                        Margin="0 0 40 0" 
+                        Content="ВХОД"
+                        Margin="0 0 80 0" 
                         Style="{StaticResource TextButton}"
                         FontSize="25"/>
                     <Button 
                         Name="InfoTextInformationButton"
                         Click="InfoTextInformationButton_Click"
-                        Content="ИНФОРМАЦИЯ" 
-                        Margin="40 0 0 0" 
+                        Content="СЕССИЯ" 
+                        Margin="80 0 0 0" 
                         Style="{StaticResource TextButton}"
                         FontSize="25"/>
                 </StackPanel>
@@ -66,9 +66,9 @@
                     Name="InfoAutorizationBorder"
                     CornerRadius="4"
                     Height="8"
-                    Width="460"
+                    Width="200"
                     Background="#e94560"
-                    Margin="60 0 0 15"
+                    Margin="80 0 0 15"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Left"/>
             </Grid>

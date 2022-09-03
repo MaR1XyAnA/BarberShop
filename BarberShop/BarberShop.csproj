@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,11 +69,54 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ContentFolder\ClassFolder\HideClass.cs" />
+    <Compile Include="ViewingFolder\DataBaseFolder\AppConnectClass.cs" />
+    <Compile Include="ViewingFolder\DataBaseFolder\ClientTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\HaircutTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\ModelDataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\ModelDataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\ModelDataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\PostTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\ResultTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\sp_helpdiagrams_Result.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\sysdiagrams.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\WorkerTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\PageFolder\AutorizationPage.xaml.cs">
       <DependentUpon>AutorizationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\PageFolder\InformationsSessionPage.xaml.cs">
       <DependentUpon>InformationsSessionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\PageFolder\WorkerPage.xaml.cs">
+      <DependentUpon>WorkerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\WindowsFolder\AuthorizationWindows.xaml.cs">
       <DependentUpon>AuthorizationWindows.xaml</DependentUpon>
@@ -91,6 +143,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="ViewingFolder\DataBaseFolder\ModelDataBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDataBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="ViewingFolder\DataBaseFolder\ModelDataBase.edmx.diagram">
+      <DependentUpon>ModelDataBase.edmx</DependentUpon>
+    </None>
     <Resource Include="ContentFolder\FontsFolder\StalinistOne-Regular.ttf" />
     <Resource Include="ContentFolder\FontsFolder\AlumniSans-Italic-VariableFont_wght.ttf" />
     <None Include="Properties\Settings.settings">
@@ -101,13 +161,28 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ViewingFolder\DataBaseFolder\ModelDataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelDataBase.Context.cs</LastGenOutput>
+      <DependentUpon>ModelDataBase.edmx</DependentUpon>
+    </Content>
+    <Content Include="ViewingFolder\DataBaseFolder\ModelDataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDataBase.edmx</DependentUpon>
+      <LastGenOutput>ModelDataBase.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="ViewingFolder\PageFolder\AutorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\PageFolder\InformationsSessionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\WorkerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,6 +197,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ContentFolder\Image\ImsgeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
