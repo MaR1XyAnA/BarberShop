@@ -1,0 +1,43 @@
+﻿<Page x:Class="BarberShop.ViewingFolder.PageFolder.AutorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BarberShop.ViewingFolder.PageFolder"
+      mc:Ignorable="d" 
+      Style="{StaticResource PageAutorization}"
+      >
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 100">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 5" HorizontalAlignment="Right">
+                <TextBlock
+                    Text="LOGIN"
+                    Style="{StaticResource TextTextBlock}"/>
+                <TextBox
+                    Height="50"
+                    Width="500"
+                    Margin="10 0 0 0"
+                    Name="LoginTextBox"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                <TextBlock
+                    Text="PASSWORD"
+                    Style="{StaticResource TextTextBlock}"/>
+                <TextBox
+                    Height="50"
+                    Width="500"
+                    Margin="10 0 0 0"
+                    Name="PasswordPasswordBox"/>
+            </StackPanel>
+        </StackPanel>
+        <Button
+            Name="NextButton"
+            Click="NextButton_Click"
+            Content="ВОЙТИ"
+            Height="60"
+            Width="450"
+            Margin="0 0 0 20"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center"/>
+    </Grid>
+</Page>

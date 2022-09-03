@@ -1,0 +1,18 @@
+﻿<Page x:Class="BarberShop.ViewingFolder.PageFolder.InformationsSessionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BarberShop.ViewingFolder.PageFolder"
+      mc:Ignorable="d" 
+      Style="{StaticResource PageAutorization}"
+      >
+    <Grid>
+        <Button
+            Content="СЕАНСЫ НА СЕГОДНЯ"
+            Height="80"
+            Width="600"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"/>
+    </Grid>
+</Page>

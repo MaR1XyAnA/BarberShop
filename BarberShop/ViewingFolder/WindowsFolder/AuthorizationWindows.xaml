@@ -1,0 +1,83 @@
+﻿<Window x:Class="BarberShop.ViewingFolder.WindowsFolder.AuthorizationWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShop.ViewingFolder.WindowsFolder"
+        mc:Ignorable="d"
+        Style="{StaticResource WindowsStyle}"
+        WindowStartupLocation="CenterScreen"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Height="530"
+        Width="980">
+    <Border CornerRadius="15">
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#1a1a2e"/>
+                <GradientStop Color="#161a1e" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 0">
+                    <Button 
+                         Style="{StaticResource SpareButton}"
+                         ToolTip="СВЕРНУТЬ"
+                         x:Name="RollUp"
+                         Click="RollUp_Click"
+                         Content="—"
+                         Height="32"
+                         Width="50"
+                         FontSize="18"/>
+                    <Button
+                         Style="{StaticResource SpareButton2}"
+                         x:Name="CloseBtn"
+                         Click="CloseBtn_Click"
+                         Content="✕"
+                         Height="32"
+                         Width="50"
+                         FontSize="18"
+                         ToolTip="ЗАКРЫТЬ"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button 
+                        Name="InfoTextAutorizationButton"
+                        Click="InfoTextAutorizationButton_Click"
+                        Content="АВТОРИЗОВАТЬСЯ"
+                        Margin="0 0 40 0" 
+                        Style="{StaticResource TextButton}"
+                        FontSize="25"/>
+                    <Button 
+                        Name="InfoTextInformationButton"
+                        Click="InfoTextInformationButton_Click"
+                        Content="ИНФОРМАЦИЯ" 
+                        Margin="40 0 0 0" 
+                        Style="{StaticResource TextButton}"
+                        FontSize="25"/>
+                </StackPanel>
+                <Border
+                    Name="InfoAutorizationBorder"
+                    CornerRadius="4"
+                    Height="8"
+                    Width="460"
+                    Background="#e94560"
+                    Margin="60 0 0 15"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Frame
+                    Margin="10"
+                    x:Name="MainFrame"
+                    NavigationUIVisibility="Hidden"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
