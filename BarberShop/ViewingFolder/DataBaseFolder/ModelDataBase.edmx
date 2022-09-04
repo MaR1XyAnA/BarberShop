@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище BarberShopDataBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище BarberShopDataBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ClientTable">
           <Key>
             <PropertyRef Name="PersonalNumberClient" />
@@ -25,6 +25,12 @@
           <Property Name="DescriptionHaircut" Type="nvarchar" MaxLength="500" />
           <Property Name="PriceHaircut" Type="decimal" Precision="5" Scale="0" Nullable="false" />
         </EntityType>
+        <EntityType Name="PaulTable">
+          <Key>
+            <PropertyRef Name="NamePaul" />
+          </Key>
+          <Property Name="NamePaul" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
         <EntityType Name="PostTable">
           <Key>
             <PropertyRef Name="NamePost" />
@@ -42,6 +48,19 @@
           <Property Name="PNHaircut" Type="int" Nullable="false" />
           <Property Name="DataResult" Type="date" Nullable="false" />
         </EntityType>
+        <EntityType Name="ShopTable">
+          <Key>
+            <PropertyRef Name="IDShop" />
+          </Key>
+          <Property Name="IDShop" Type="int" Nullable="false" />
+          <Property Name="NameShop" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusTable">
+          <Key>
+            <PropertyRef Name="NameStatus" />
+          </Key>
+          <Property Name="NameStatus" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -56,7 +75,7 @@
           <Key>
             <PropertyRef Name="PersonalNumberWorker" />
           </Key>
-          <Property Name="PersonalNumberWorker" Type="int" Nullable="false" />
+          <Property Name="PersonalNumberWorker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SurnameWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NameWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MiddleNameWorker" Type="nvarchar" MaxLength="50" />
@@ -66,7 +85,9 @@
           <Property Name="EmailWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LoginWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PasswordWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PaulWorker" Type="bit" Nullable="false" />
+          <Property Name="PaulWorker" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomersServedWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StatusWorker" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="FK_ResultTable_ClientTable">
           <End Role="ClientTable" Type="Self.ClientTable" Multiplicity="1" />
@@ -104,6 +125,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_WorkerTable_PaulTable">
+          <End Role="PaulTable" Type="Self.PaulTable" Multiplicity="1" />
+          <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaulTable">
+              <PropertyRef Name="NamePaul" />
+            </Principal>
+            <Dependent Role="WorkerTable">
+              <PropertyRef Name="PaulWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_WorkerTable_PostTable">
           <End Role="PostTable" Type="Self.PostTable" Multiplicity="1" />
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
@@ -113,6 +146,18 @@
             </Principal>
             <Dependent Role="WorkerTable">
               <PropertyRef Name="PostWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTable_StatusTable">
+          <End Role="StatusTable" Type="Self.StatusTable" Multiplicity="1" />
+          <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusTable">
+              <PropertyRef Name="NameStatus" />
+            </Principal>
+            <Dependent Role="WorkerTable">
+              <PropertyRef Name="StatusWorker" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -150,8 +195,11 @@
         <EntityContainer Name="Хранилище BarberShopDataBaseModelContainer">
           <EntitySet Name="ClientTable" EntityType="Self.ClientTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HaircutTable" EntityType="Self.HaircutTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaulTable" EntityType="Self.PaulTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PostTable" EntityType="Self.PostTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ResultTable" EntityType="Self.ResultTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShopTable" EntityType="Self.ShopTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusTable" EntityType="Self.StatusTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkerTable" EntityType="Self.WorkerTable" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ResultTable_ClientTable" Association="Self.FK_ResultTable_ClientTable">
@@ -166,158 +214,24 @@
             <End Role="WorkerTable" EntitySet="WorkerTable" />
             <End Role="ResultTable" EntitySet="ResultTable" />
           </AssociationSet>
+          <AssociationSet Name="FK_WorkerTable_PaulTable" Association="Self.FK_WorkerTable_PaulTable">
+            <End Role="PaulTable" EntitySet="PaulTable" />
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
+          </AssociationSet>
           <AssociationSet Name="FK_WorkerTable_PostTable" Association="Self.FK_WorkerTable_PostTable">
             <End Role="PostTable" EntitySet="PostTable" />
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTable_StatusTable" Association="Self.FK_WorkerTable_StatusTable">
+            <End Role="StatusTable" EntitySet="StatusTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BarberShopDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="ClientTable">
-          <Key>
-            <PropertyRef Name="PersonalNumberClient" />
-          </Key>
-          <Property Name="PersonalNumberClient" Type="Int32" Nullable="false" />
-          <Property Name="SurnameClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NameClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MiddleNameClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PaulClient" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="ResultTable" Relationship="Self.FK_ResultTable_ClientTable" FromRole="ClientTable" ToRole="ResultTable" />
-        </EntityType>
-        <EntityType Name="HaircutTable">
-          <Key>
-            <PropertyRef Name="PersonalNumberHaircut" />
-          </Key>
-          <Property Name="PersonalNumberHaircut" Type="Int32" Nullable="false" />
-          <Property Name="NameHaircut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TimeHaircut" Type="Time" Nullable="false" Precision="2" />
-          <Property Name="DescriptionHaircut" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="PriceHaircut" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
-          <NavigationProperty Name="ResultTable" Relationship="Self.FK_ResultTable_HaircutTable" FromRole="HaircutTable" ToRole="ResultTable" />
-        </EntityType>
-        <EntityType Name="PostTable">
-          <Key>
-            <PropertyRef Name="NamePost" />
-          </Key>
-          <Property Name="NamePost" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DescriptionPost" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="WorkerTable" Relationship="Self.FK_WorkerTable_PostTable" FromRole="PostTable" ToRole="WorkerTable" />
-        </EntityType>
-        <EntityType Name="ResultTable">
-          <Key>
-            <PropertyRef Name="PersonalNumberResult" />
-          </Key>
-          <Property Name="PersonalNumberResult" Type="Int32" Nullable="false" />
-          <Property Name="PNWorker" Type="Int32" Nullable="false" />
-          <Property Name="PNClient" Type="Int32" Nullable="false" />
-          <Property Name="PNHaircut" Type="Int32" Nullable="false" />
-          <Property Name="DataResult" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="ClientTable" Relationship="Self.FK_ResultTable_ClientTable" FromRole="ResultTable" ToRole="ClientTable" />
-          <NavigationProperty Name="HaircutTable" Relationship="Self.FK_ResultTable_HaircutTable" FromRole="ResultTable" ToRole="HaircutTable" />
-          <NavigationProperty Name="WorkerTable" Relationship="Self.FK_ResultTable_WorkerTable" FromRole="ResultTable" ToRole="WorkerTable" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="WorkerTable">
-          <Key>
-            <PropertyRef Name="PersonalNumberWorker" />
-          </Key>
-          <Property Name="PersonalNumberWorker" Type="Int32" Nullable="false" />
-          <Property Name="SurnameWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NameWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MiddleNameWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DateOfBirthWorker" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="PostWorker" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NumberPhoneWorker" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EmailWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LoginWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PasswordWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PaulWorker" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="PostTable" Relationship="Self.FK_WorkerTable_PostTable" FromRole="WorkerTable" ToRole="PostTable" />
-          <NavigationProperty Name="ResultTable" Relationship="Self.FK_ResultTable_WorkerTable" FromRole="WorkerTable" ToRole="ResultTable" />
-        </EntityType>
-        <Association Name="FK_ResultTable_ClientTable">
-          <End Role="ClientTable" Type="Self.ClientTable" Multiplicity="1" />
-          <End Role="ResultTable" Type="Self.ResultTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ClientTable">
-              <PropertyRef Name="PersonalNumberClient" />
-            </Principal>
-            <Dependent Role="ResultTable">
-              <PropertyRef Name="PNClient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ResultTable_HaircutTable">
-          <End Role="HaircutTable" Type="Self.HaircutTable" Multiplicity="1" />
-          <End Role="ResultTable" Type="Self.ResultTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HaircutTable">
-              <PropertyRef Name="PersonalNumberHaircut" />
-            </Principal>
-            <Dependent Role="ResultTable">
-              <PropertyRef Name="PNHaircut" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_WorkerTable_PostTable">
-          <End Role="PostTable" Type="Self.PostTable" Multiplicity="1" />
-          <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PostTable">
-              <PropertyRef Name="NamePost" />
-            </Principal>
-            <Dependent Role="WorkerTable">
-              <PropertyRef Name="PostWorker" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ResultTable_WorkerTable">
-          <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="1" />
-          <End Role="ResultTable" Type="Self.ResultTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WorkerTable">
-              <PropertyRef Name="PersonalNumberWorker" />
-            </Principal>
-            <Dependent Role="ResultTable">
-              <PropertyRef Name="PNWorker" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="BarberShopDataBaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ClientTable" EntityType="Self.ClientTable" />
-          <EntitySet Name="HaircutTable" EntityType="Self.HaircutTable" />
-          <EntitySet Name="PostTable" EntityType="Self.PostTable" />
-          <EntitySet Name="ResultTable" EntityType="Self.ResultTable" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="WorkerTable" EntityType="Self.WorkerTable" />
-          <AssociationSet Name="FK_ResultTable_ClientTable" Association="Self.FK_ResultTable_ClientTable">
-            <End Role="ClientTable" EntitySet="ClientTable" />
-            <End Role="ResultTable" EntitySet="ResultTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ResultTable_HaircutTable" Association="Self.FK_ResultTable_HaircutTable">
-            <End Role="HaircutTable" EntitySet="HaircutTable" />
-            <End Role="ResultTable" EntitySet="ResultTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_WorkerTable_PostTable" Association="Self.FK_WorkerTable_PostTable">
-            <End Role="PostTable" EntitySet="PostTable" />
-            <End Role="WorkerTable" EntitySet="WorkerTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ResultTable_WorkerTable" Association="Self.FK_ResultTable_WorkerTable">
-            <End Role="WorkerTable" EntitySet="WorkerTable" />
-            <End Role="ResultTable" EntitySet="ResultTable" />
-          </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -348,7 +262,40 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-        </EntityContainer>
+          <EntitySet Name="ClientTable" EntityType="BarberShopDataBaseModel.ClientTable" />
+          <EntitySet Name="HaircutTable" EntityType="BarberShopDataBaseModel.HaircutTable" />
+          <EntitySet Name="PaulTable" EntityType="BarberShopDataBaseModel.PaulTable" />
+          <EntitySet Name="PostTable" EntityType="BarberShopDataBaseModel.PostTable" />
+          <EntitySet Name="ResultTable" EntityType="BarberShopDataBaseModel.ResultTable" />
+          <EntitySet Name="ShopTable" EntityType="BarberShopDataBaseModel.ShopTable" />
+          <EntitySet Name="StatusTable" EntityType="BarberShopDataBaseModel.StatusTable" />
+          <EntitySet Name="sysdiagrams" EntityType="BarberShopDataBaseModel.sysdiagrams" />
+          <EntitySet Name="WorkerTable" EntityType="BarberShopDataBaseModel.WorkerTable" />
+          <AssociationSet Name="FK_ResultTable_ClientTable" Association="BarberShopDataBaseModel.FK_ResultTable_ClientTable">
+            <End Role="ClientTable" EntitySet="ClientTable" />
+            <End Role="ResultTable" EntitySet="ResultTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultTable_HaircutTable" Association="BarberShopDataBaseModel.FK_ResultTable_HaircutTable">
+            <End Role="HaircutTable" EntitySet="HaircutTable" />
+            <End Role="ResultTable" EntitySet="ResultTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTable_PaulTable" Association="BarberShopDataBaseModel.FK_WorkerTable_PaulTable">
+            <End Role="PaulTable" EntitySet="PaulTable" />
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTable_PostTable" Association="BarberShopDataBaseModel.FK_WorkerTable_PostTable">
+            <End Role="PostTable" EntitySet="PostTable" />
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultTable_WorkerTable" Association="BarberShopDataBaseModel.FK_ResultTable_WorkerTable">
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
+            <End Role="ResultTable" EntitySet="ResultTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTable_StatusTable" Association="BarberShopDataBaseModel.FK_WorkerTable_StatusTable">
+            <End Role="StatusTable" EntitySet="StatusTable" />
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
+          </AssociationSet>
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -360,81 +307,180 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-      </Schema>
+        <EntityType Name="ClientTable">
+          <Key>
+            <PropertyRef Name="PersonalNumberClient" />
+          </Key>
+          <Property Name="PersonalNumberClient" Type="Int32" Nullable="false" />
+          <Property Name="SurnameClient" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameClient" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleNameClient" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaulClient" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_ClientTable" FromRole="ClientTable" ToRole="ResultTable" />
+        </EntityType>
+        <EntityType Name="HaircutTable">
+          <Key>
+            <PropertyRef Name="PersonalNumberHaircut" />
+          </Key>
+          <Property Name="PersonalNumberHaircut" Type="Int32" Nullable="false" />
+          <Property Name="NameHaircut" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeHaircut" Type="Time" Nullable="false" Precision="2" />
+          <Property Name="DescriptionHaircut" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PriceHaircut" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_HaircutTable" FromRole="HaircutTable" ToRole="ResultTable" />
+        </EntityType>
+        <EntityType Name="PaulTable">
+          <Key>
+            <PropertyRef Name="NamePaul" />
+          </Key>
+          <Property Name="NamePaul" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PaulTable" FromRole="PaulTable" ToRole="WorkerTable" />
+        </EntityType>
+        <EntityType Name="PostTable">
+          <Key>
+            <PropertyRef Name="NamePost" />
+          </Key>
+          <Property Name="NamePost" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionPost" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PostTable" FromRole="PostTable" ToRole="WorkerTable" />
+        </EntityType>
+        <EntityType Name="ResultTable">
+          <Key>
+            <PropertyRef Name="PersonalNumberResult" />
+          </Key>
+          <Property Name="PersonalNumberResult" Type="Int32" Nullable="false" />
+          <Property Name="PNWorker" Type="Int32" Nullable="false" />
+          <Property Name="PNClient" Type="Int32" Nullable="false" />
+          <Property Name="PNHaircut" Type="Int32" Nullable="false" />
+          <Property Name="DataResult" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="ClientTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_ClientTable" FromRole="ResultTable" ToRole="ClientTable" />
+          <NavigationProperty Name="HaircutTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_HaircutTable" FromRole="ResultTable" ToRole="HaircutTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_WorkerTable" FromRole="ResultTable" ToRole="WorkerTable" />
+        </EntityType>
+        <EntityType Name="ShopTable">
+          <Key>
+            <PropertyRef Name="IDShop" />
+          </Key>
+          <Property Name="IDShop" Type="Int32" Nullable="false" />
+          <Property Name="NameShop" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StatusTable">
+          <Key>
+            <PropertyRef Name="NameStatus" />
+          </Key>
+          <Property Name="NameStatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_StatusTable" FromRole="StatusTable" ToRole="WorkerTable" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="WorkerTable">
+          <Key>
+            <PropertyRef Name="PersonalNumberWorker" />
+          </Key>
+          <Property Name="PersonalNumberWorker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurnameWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleNameWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirthWorker" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PostWorker" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NumberPhoneWorker" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="EmailWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaulWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CustomersServedWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PaulTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PaulTable" FromRole="WorkerTable" ToRole="PaulTable" />
+          <NavigationProperty Name="PostTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PostTable" FromRole="WorkerTable" ToRole="PostTable" />
+          <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_WorkerTable" FromRole="WorkerTable" ToRole="ResultTable" />
+          <NavigationProperty Name="StatusTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
+        </EntityType>
+        <Association Name="FK_ResultTable_ClientTable">
+          <End Type="BarberShopDataBaseModel.ClientTable" Role="ClientTable" Multiplicity="1" />
+          <End Type="BarberShopDataBaseModel.ResultTable" Role="ResultTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientTable">
+              <PropertyRef Name="PersonalNumberClient" />
+            </Principal>
+            <Dependent Role="ResultTable">
+              <PropertyRef Name="PNClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultTable_HaircutTable">
+          <End Type="BarberShopDataBaseModel.HaircutTable" Role="HaircutTable" Multiplicity="1" />
+          <End Type="BarberShopDataBaseModel.ResultTable" Role="ResultTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HaircutTable">
+              <PropertyRef Name="PersonalNumberHaircut" />
+            </Principal>
+            <Dependent Role="ResultTable">
+              <PropertyRef Name="PNHaircut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTable_PaulTable">
+          <End Type="BarberShopDataBaseModel.PaulTable" Role="PaulTable" Multiplicity="1" />
+          <End Type="BarberShopDataBaseModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaulTable">
+              <PropertyRef Name="NamePaul" />
+            </Principal>
+            <Dependent Role="WorkerTable">
+              <PropertyRef Name="PaulWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTable_PostTable">
+          <End Type="BarberShopDataBaseModel.PostTable" Role="PostTable" Multiplicity="1" />
+          <End Type="BarberShopDataBaseModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostTable">
+              <PropertyRef Name="NamePost" />
+            </Principal>
+            <Dependent Role="WorkerTable">
+              <PropertyRef Name="PostWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultTable_WorkerTable">
+          <End Type="BarberShopDataBaseModel.WorkerTable" Role="WorkerTable" Multiplicity="1" />
+          <End Type="BarberShopDataBaseModel.ResultTable" Role="ResultTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkerTable">
+              <PropertyRef Name="PersonalNumberWorker" />
+            </Principal>
+            <Dependent Role="ResultTable">
+              <PropertyRef Name="PNWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTable_StatusTable">
+          <End Type="BarberShopDataBaseModel.StatusTable" Role="StatusTable" Multiplicity="1" />
+          <End Type="BarberShopDataBaseModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusTable">
+              <PropertyRef Name="NameStatus" />
+            </Principal>
+            <Dependent Role="WorkerTable">
+              <PropertyRef Name="StatusWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище BarberShopDataBaseModelContainer" CdmEntityContainer="BarberShopDataBaseEntities">
-          <EntitySetMapping Name="ClientTable">
-            <EntityTypeMapping TypeName="BarberShopDataBaseModel.ClientTable">
-              <MappingFragment StoreEntitySet="ClientTable">
-                <ScalarProperty Name="PersonalNumberClient" ColumnName="PersonalNumberClient" />
-                <ScalarProperty Name="SurnameClient" ColumnName="SurnameClient" />
-                <ScalarProperty Name="NameClient" ColumnName="NameClient" />
-                <ScalarProperty Name="MiddleNameClient" ColumnName="MiddleNameClient" />
-                <ScalarProperty Name="PaulClient" ColumnName="PaulClient" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HaircutTable">
-            <EntityTypeMapping TypeName="BarberShopDataBaseModel.HaircutTable">
-              <MappingFragment StoreEntitySet="HaircutTable">
-                <ScalarProperty Name="PersonalNumberHaircut" ColumnName="PersonalNumberHaircut" />
-                <ScalarProperty Name="NameHaircut" ColumnName="NameHaircut" />
-                <ScalarProperty Name="TimeHaircut" ColumnName="TimeHaircut" />
-                <ScalarProperty Name="DescriptionHaircut" ColumnName="DescriptionHaircut" />
-                <ScalarProperty Name="PriceHaircut" ColumnName="PriceHaircut" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PostTable">
-            <EntityTypeMapping TypeName="BarberShopDataBaseModel.PostTable">
-              <MappingFragment StoreEntitySet="PostTable">
-                <ScalarProperty Name="NamePost" ColumnName="NamePost" />
-                <ScalarProperty Name="DescriptionPost" ColumnName="DescriptionPost" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ResultTable">
-            <EntityTypeMapping TypeName="BarberShopDataBaseModel.ResultTable">
-              <MappingFragment StoreEntitySet="ResultTable">
-                <ScalarProperty Name="PersonalNumberResult" ColumnName="PersonalNumberResult" />
-                <ScalarProperty Name="PNWorker" ColumnName="PNWorker" />
-                <ScalarProperty Name="PNClient" ColumnName="PNClient" />
-                <ScalarProperty Name="PNHaircut" ColumnName="PNHaircut" />
-                <ScalarProperty Name="DataResult" ColumnName="DataResult" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="BarberShopDataBaseModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WorkerTable">
-            <EntityTypeMapping TypeName="BarberShopDataBaseModel.WorkerTable">
-              <MappingFragment StoreEntitySet="WorkerTable">
-                <ScalarProperty Name="PersonalNumberWorker" ColumnName="PersonalNumberWorker" />
-                <ScalarProperty Name="SurnameWorker" ColumnName="SurnameWorker" />
-                <ScalarProperty Name="NameWorker" ColumnName="NameWorker" />
-                <ScalarProperty Name="MiddleNameWorker" ColumnName="MiddleNameWorker" />
-                <ScalarProperty Name="DateOfBirthWorker" ColumnName="DateOfBirthWorker" />
-                <ScalarProperty Name="PostWorker" ColumnName="PostWorker" />
-                <ScalarProperty Name="NumberPhoneWorker" ColumnName="NumberPhoneWorker" />
-                <ScalarProperty Name="EmailWorker" ColumnName="EmailWorker" />
-                <ScalarProperty Name="LoginWorker" ColumnName="LoginWorker" />
-                <ScalarProperty Name="PasswordWorker" ColumnName="PasswordWorker" />
-                <ScalarProperty Name="PaulWorker" ColumnName="PaulWorker" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище BarberShopDataBaseModel.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище BarberShopDataBaseModel.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище BarberShopDataBaseModel.sp_dropdiagram" />
@@ -459,7 +505,100 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище BarberShopDataBaseModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище BarberShopDataBaseModel.sp_upgraddiagrams" />
-        </EntityContainerMapping>
+          <EntitySetMapping Name="ClientTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.ClientTable">
+              <MappingFragment StoreEntitySet="ClientTable">
+                <ScalarProperty Name="PaulClient" ColumnName="PaulClient" />
+                <ScalarProperty Name="MiddleNameClient" ColumnName="MiddleNameClient" />
+                <ScalarProperty Name="NameClient" ColumnName="NameClient" />
+                <ScalarProperty Name="SurnameClient" ColumnName="SurnameClient" />
+                <ScalarProperty Name="PersonalNumberClient" ColumnName="PersonalNumberClient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HaircutTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.HaircutTable">
+              <MappingFragment StoreEntitySet="HaircutTable">
+                <ScalarProperty Name="PriceHaircut" ColumnName="PriceHaircut" />
+                <ScalarProperty Name="DescriptionHaircut" ColumnName="DescriptionHaircut" />
+                <ScalarProperty Name="TimeHaircut" ColumnName="TimeHaircut" />
+                <ScalarProperty Name="NameHaircut" ColumnName="NameHaircut" />
+                <ScalarProperty Name="PersonalNumberHaircut" ColumnName="PersonalNumberHaircut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaulTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.PaulTable">
+              <MappingFragment StoreEntitySet="PaulTable">
+                <ScalarProperty Name="NamePaul" ColumnName="NamePaul" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.PostTable">
+              <MappingFragment StoreEntitySet="PostTable">
+                <ScalarProperty Name="DescriptionPost" ColumnName="DescriptionPost" />
+                <ScalarProperty Name="NamePost" ColumnName="NamePost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResultTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.ResultTable">
+              <MappingFragment StoreEntitySet="ResultTable">
+                <ScalarProperty Name="DataResult" ColumnName="DataResult" />
+                <ScalarProperty Name="PNHaircut" ColumnName="PNHaircut" />
+                <ScalarProperty Name="PNClient" ColumnName="PNClient" />
+                <ScalarProperty Name="PNWorker" ColumnName="PNWorker" />
+                <ScalarProperty Name="PersonalNumberResult" ColumnName="PersonalNumberResult" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.ShopTable">
+              <MappingFragment StoreEntitySet="ShopTable">
+                <ScalarProperty Name="NameShop" ColumnName="NameShop" />
+                <ScalarProperty Name="IDShop" ColumnName="IDShop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.StatusTable">
+              <MappingFragment StoreEntitySet="StatusTable">
+                <ScalarProperty Name="NameStatus" ColumnName="NameStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkerTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.WorkerTable">
+              <MappingFragment StoreEntitySet="WorkerTable">
+                <ScalarProperty Name="StatusWorker" ColumnName="StatusWorker" />
+                <ScalarProperty Name="CustomersServedWorker" ColumnName="CustomersServedWorker" />
+                <ScalarProperty Name="PaulWorker" ColumnName="PaulWorker" />
+                <ScalarProperty Name="PasswordWorker" ColumnName="PasswordWorker" />
+                <ScalarProperty Name="LoginWorker" ColumnName="LoginWorker" />
+                <ScalarProperty Name="EmailWorker" ColumnName="EmailWorker" />
+                <ScalarProperty Name="NumberPhoneWorker" ColumnName="NumberPhoneWorker" />
+                <ScalarProperty Name="PostWorker" ColumnName="PostWorker" />
+                <ScalarProperty Name="DateOfBirthWorker" ColumnName="DateOfBirthWorker" />
+                <ScalarProperty Name="MiddleNameWorker" ColumnName="MiddleNameWorker" />
+                <ScalarProperty Name="NameWorker" ColumnName="NameWorker" />
+                <ScalarProperty Name="SurnameWorker" ColumnName="SurnameWorker" />
+                <ScalarProperty Name="PersonalNumberWorker" ColumnName="PersonalNumberWorker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

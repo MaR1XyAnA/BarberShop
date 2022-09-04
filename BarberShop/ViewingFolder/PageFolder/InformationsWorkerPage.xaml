@@ -33,7 +33,7 @@
                     Text="ПОЛ:"/>
                 <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                    Text="{Binding PaulWorker}"
+                    Text="{Binding PaulTable.NamePaul}"
                     Name="InfoPaulTextBlock"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -55,7 +55,7 @@
             <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                 <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockFalse}"
-                    Text="НОМЕР ТЕЛЕФОНА"/>
+                    Text="НОМЕР ТЕЛЕФОНА:"/>
                 <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockTrue}"
                     Text="{Binding NumberPhoneWorker}"/>
@@ -98,7 +98,7 @@
                     Text="КЛИЕНТОВ ОБСЛУЖИНО:"/>
                 <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                    Text="---"/>
+                    Text="{Binding CustomersServedWorker}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                 <TextBlock 
@@ -106,7 +106,7 @@
                     Text="СТАТУС:"/>
                 <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                    Text="---"/>
+                    Text="{Binding StatusTable.NameStatus}"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0 20 0 0">
                 <Button 

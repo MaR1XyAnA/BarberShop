@@ -25,7 +25,7 @@
                     FontSize="40"
                     Text="PASSWORD"
                     Style="{StaticResource TextTextBlock}"/>
-                <TextBox
+                <PasswordBox
                     Height="50"
                     Width="500"
                     Margin="10 0 0 0"

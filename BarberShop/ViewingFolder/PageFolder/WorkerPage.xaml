@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BarberShop.ViewingFolder.PageFolder"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" IsEnabledChanged="Page_IsEnabledChanged"
       Style="{StaticResource MainPage}">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -94,6 +94,8 @@
         <Border VerticalAlignment="Top" Height="Auto" Grid.Column="1" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button 
+                    Name="AddendumWorkerButton"
+                    Click="AddendumWorkerButton_Click"
                     Content="ДОБАВИТЬ СОТРУДНИКА" 
                     Width="480"
                     Height="60"

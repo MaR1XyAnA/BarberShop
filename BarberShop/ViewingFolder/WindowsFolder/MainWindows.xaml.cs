@@ -1,24 +1,9 @@
-﻿using BarberShop.ContentFolder.ClassFolder;
-using BarberShop.ViewingFolder.PageFolder;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BarberShop.ViewingFolder.PageFolder;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BarberShop.ViewingFolder.WindowsFolder
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindows.xaml
-    /// </summary>
     public partial class MainWindows : Window
     {
         public MainWindows() 
@@ -40,6 +25,26 @@ namespace BarberShop.ViewingFolder.WindowsFolder
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void ListWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new WorkerPage());
+        }
+
+        private void RecordClientButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ServicesListButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new ListShopButtonPage());
+        }
+
+        private void QueueListButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

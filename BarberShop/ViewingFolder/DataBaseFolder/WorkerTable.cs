@@ -30,10 +30,14 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
         public string EmailWorker { get; set; }
         public string LoginWorker { get; set; }
         public string PasswordWorker { get; set; }
-        public bool PaulWorker { get; set; }
+        public string PaulWorker { get; set; }
+        public string CustomersServedWorker { get; set; }
+        public string StatusWorker { get; set; }
     
+        public virtual PaulTable PaulTable { get; set; }
         public virtual PostTable PostTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ResultTable> ResultTable { get; set; }
+        public virtual StatusTable StatusTable { get; set; }
     }
 }

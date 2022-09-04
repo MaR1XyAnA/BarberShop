@@ -29,8 +29,11 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
     
         public virtual DbSet<ClientTable> ClientTable { get; set; }
         public virtual DbSet<HaircutTable> HaircutTable { get; set; }
+        public virtual DbSet<PaulTable> PaulTable { get; set; }
         public virtual DbSet<PostTable> PostTable { get; set; }
         public virtual DbSet<ResultTable> ResultTable { get; set; }
+        public virtual DbSet<ShopTable> ShopTable { get; set; }
+        public virtual DbSet<StatusTable> StatusTable { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<WorkerTable> WorkerTable { get; set; }
     

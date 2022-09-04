@@ -91,10 +91,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDataBase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\PaulTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\PostTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\ResultTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\ShopTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\sp_helpdiagramdefinition_Result.cs">
@@ -103,11 +109,17 @@
     <Compile Include="ViewingFolder\DataBaseFolder\sp_helpdiagrams_Result.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\StatusTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\sysdiagrams.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\WorkerTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\PageFolder\AddendumWorkerPage.xaml.cs">
+      <DependentUpon>AddendumWorkerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\PageFolder\AutorizationPage.xaml.cs">
       <DependentUpon>AutorizationPage.xaml</DependentUpon>
@@ -117,6 +129,9 @@
     </Compile>
     <Compile Include="ViewingFolder\PageFolder\InformationsWorkerPage.xaml.cs">
       <DependentUpon>InformationsWorkerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\PageFolder\ListShopButtonPage.xaml.cs">
+      <DependentUpon>ListShopButtonPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\PageFolder\WorkerPage.xaml.cs">
       <DependentUpon>WorkerPage.xaml</DependentUpon>
@@ -177,6 +192,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ViewingFolder\PageFolder\AddendumWorkerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewingFolder\PageFolder\AutorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\PageFolder\InformationsWorkerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\ListShopButtonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

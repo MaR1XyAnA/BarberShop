@@ -203,6 +203,49 @@
             </Setter>
         </Style>
         <!--#endregion-->
+        <!--#region  PasswordBox-->
+        <Style TargetType="PasswordBox">
+            <Setter Property="Cursor" Value="IBeam"/>
+            <Setter Property="FontFamily" Value="\ContentFolder\FontsFolder\#Alumni Sans Thin"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#e94560"/>
+            <Setter Property="CaretBrush" Value="#e94560"/>
+            <Setter Property="PasswordChar" Value="✂"/>
+            <Setter Property="Padding" Value="10,0,0,0"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+                        <Border 
+                            x:Name="border"
+                            CornerRadius="15"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            Background="#16213e"
+                            >
+                            <ScrollViewer 
+                            x:Name="PART_ContentHost"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Foreground" Value="#d71868" />
+                                <Setter Property="Background" TargetName="border" Value="#252850"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter Property="Foreground" Value="#d5265b" />
+                                <Setter Property="Background" TargetName="border" Value="#1d1e33"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--#endregion-->
         <!--#region ScrollBar-->
         <Style x:Key="ScrollBarLineButtonStyle" TargetType="{x:Type RepeatButton}">
             <Setter Property="Focusable" Value="False"/>
