@@ -20,9 +20,9 @@
             <PropertyRef Name="PersonalNumberHaircut" />
           </Key>
           <Property Name="PersonalNumberHaircut" Type="int" Nullable="false" />
-          <Property Name="NameHaircut" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameHaircut" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="TimeHaircut" Type="time" Precision="2" Nullable="false" />
-          <Property Name="DescriptionHaircut" Type="nvarchar" MaxLength="500" />
+          <Property Name="DescriptionHaircut" Type="nvarchar" MaxLength="2000" />
           <Property Name="PriceHaircut" Type="decimal" Precision="5" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="PaulTable">
@@ -323,9 +323,9 @@
             <PropertyRef Name="PersonalNumberHaircut" />
           </Key>
           <Property Name="PersonalNumberHaircut" Type="Int32" Nullable="false" />
-          <Property Name="NameHaircut" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameHaircut" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TimeHaircut" Type="Time" Nullable="false" Precision="2" />
-          <Property Name="DescriptionHaircut" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionHaircut" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="PriceHaircut" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
           <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_HaircutTable" FromRole="HaircutTable" ToRole="ResultTable" />
         </EntityType>

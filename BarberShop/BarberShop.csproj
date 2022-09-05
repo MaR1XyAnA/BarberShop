@@ -124,6 +124,9 @@
     <Compile Include="ViewingFolder\PageFolder\AutorizationPage.xaml.cs">
       <DependentUpon>AutorizationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\PageFolder\CustomersRecordList.xaml.cs">
+      <DependentUpon>CustomersRecordList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\PageFolder\InformationsSessionPage.xaml.cs">
       <DependentUpon>InformationsSessionPage.xaml</DependentUpon>
     </Compile>
@@ -197,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\PageFolder\AutorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\CustomersRecordList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

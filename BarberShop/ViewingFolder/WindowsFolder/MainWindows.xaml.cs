@@ -34,7 +34,7 @@ namespace BarberShop.ViewingFolder.WindowsFolder
 
         private void RecordClientButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new CustomersRecordList());
         }
 
         private void ServicesListButton_Click(object sender, RoutedEventArgs e)
