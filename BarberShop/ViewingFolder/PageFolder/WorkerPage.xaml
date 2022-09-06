@@ -8,7 +8,7 @@
       Style="{StaticResource MainPage}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1.3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
@@ -47,13 +47,13 @@
                                                     Text="ФИО:"/>
                                             <TextBlock 
                                                     Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                                                    Text="{Binding SurnameWorker}"/>
+                                                    Text="{Binding PassportWorkerTable.SurnameWorker}"/>
                                             <TextBlock 
                                                     Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                                                    Text="{Binding NameWorker}"/>
+                                                    Text="{Binding PassportWorkerTable.NameWorker}"/>
                                             <TextBlock 
                                                     Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                                                    Text="{Binding MiddleNameWorker}"/>
+                                                    Text="{Binding PassportWorkerTable.MiddleNameWorker}"/>
                                         </StackPanel>
                                     </Grid>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0">
@@ -72,7 +72,7 @@
                                             FontSize="20"/>
                                         <TextBlock 
                                             Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                                            Text="{Binding DateOfBirthWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                            Text="{Binding PassportWorkerTable.DateOfBirthWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
                                             FontSize="20"/>
                                         <TextBlock 
                                             Margin="20 0 0 0"
@@ -97,12 +97,12 @@
                     Name="AddendumWorkerButton"
                     Click="AddendumWorkerButton_Click"
                     Content="ДОБАВИТЬ СОТРУДНИКА" 
-                    Width="480"
-                    Height="60"
+                    Width="550"
+                    Height="65"
                     Margin="0 10 0 10"/>
             </StackPanel>
         </Border>
-        <Border VerticalAlignment="Top" MinHeight="80" Height="Auto" Grid.Column="1" Margin="20 150 20 20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
+        <Border VerticalAlignment="Top" MinHeight="150" Height="Auto" Grid.Column="1" Margin="20 150 20 20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
             <Frame
                 x:Name="InformationFrame"
                 Margin="5"
@@ -111,12 +111,13 @@
         <TextBlock
             Visibility="Visible"
             x:Name="BullshitextBlock"
-            Text="ВЫБЕРИТЕ СОТРУДНИКА" 
+            Text="ВЫБЕРИТЕ СОТРУДНИКА ДЛЯ ПРОСМОТРА ПОДРОБНОЙ ИНФОРМАЦИИ О НЁМ" 
             VerticalAlignment="Top"
             HorizontalAlignment="Center"
-            Margin="0 160 0 0"
+            Margin="0 165 0 0"
+            TextWrapping="Wrap"
             Grid.Column="1"
             FontSize="50"
-            Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+            Style="{StaticResource InfoDataBaseTextBlockFalse}" TextAlignment="Center"/>
     </Grid>
 </Page>

@@ -17,12 +17,12 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PaulTable()
         {
-            this.WorkerTable = new HashSet<WorkerTable>();
+            this.PassportWorkerTable = new HashSet<PassportWorkerTable>();
         }
     
         public string NamePaul { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkerTable> WorkerTable { get; set; }
+        public virtual ICollection<PassportWorkerTable> PassportWorkerTable { get; set; }
     }
 }

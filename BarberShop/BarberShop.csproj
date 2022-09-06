@@ -76,6 +76,9 @@
     <Compile Include="ViewingFolder\DataBaseFolder\HaircutTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\ImageWorkerTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\ModelDataBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +94,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDataBase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\PassportWorkerTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\PaulTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
@@ -98,6 +104,9 @@
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\ResultTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\SalaryCardTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\ShopTable.cs">

@@ -12,30 +12,22 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class WorkerTable
+    public partial class SalaryCardTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public WorkerTable()
+        public SalaryCardTable()
         {
-            this.ResultTable = new HashSet<ResultTable>();
+            this.WorkerTable = new HashSet<WorkerTable>();
         }
     
-        public int PersonalNumberWorker { get; set; }
-        public string PSWorker { get; set; }
-        public string PNWorker { get; set; }
-        public string StatusWorker { get; set; }
-        public string PostWorker { get; set; }
-        public string CardNumberWorker { get; set; }
-        public string LoginWorker { get; set; }
-        public string PasswordWorker { get; set; }
-        public string NumberPhoneWorker { get; set; }
-        public string EmailWorker { get; set; }
+        public string CardNumber { get; set; }
+        public string CardValidMonth { get; set; }
+        public string CardValidYears { get; set; }
+        public string CardKeeperName { get; set; }
+        public string CardKeeperSurname { get; set; }
+        public string CardCode { get; set; }
     
-        public virtual PassportWorkerTable PassportWorkerTable { get; set; }
-        public virtual PostTable PostTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ResultTable> ResultTable { get; set; }
-        public virtual SalaryCardTable SalaryCardTable { get; set; }
-        public virtual StatusTable StatusTable { get; set; }
+        public virtual ICollection<WorkerTable> WorkerTable { get; set; }
     }
 }

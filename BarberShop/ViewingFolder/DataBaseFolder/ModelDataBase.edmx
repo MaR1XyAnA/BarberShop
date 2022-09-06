@@ -25,6 +25,37 @@
           <Property Name="DescriptionHaircut" Type="nvarchar" MaxLength="2000" />
           <Property Name="PriceHaircut" Type="decimal" Precision="5" Scale="0" Nullable="false" />
         </EntityType>
+        <EntityType Name="ImageWorkerTable">
+          <Key>
+            <PropertyRef Name="NameImage" />
+          </Key>
+          <Property Name="NameImage" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageBit" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PassportWorkerTable">
+          <Key>
+            <PropertyRef Name="PassportSeriesWorker" />
+            <PropertyRef Name="PassportNumberWorker" />
+          </Key>
+          <Property Name="PassportSeriesWorker" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="PassportNumberWorker" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="SurnameWorker" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="NameWorker" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="MiddleNameWorker" Type="nvarchar" MaxLength="25" />
+          <Property Name="PassportIssuedWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfIssueWorker" Type="date" Nullable="false" />
+          <Property Name="DivisionCodeWorker" Type="nchar" MaxLength="7" Nullable="false" />
+          <Property Name="PaulWorker" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PlaceOfBirthWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ImageWorker" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegistrationRegionWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="RegistrationPointWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="RegistrationStreetWorker" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="RegistrationHouseWorker" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="RegistrationApartmentWorker" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DateOfBirthWorker" Type="date" Nullable="false" />
+          <Property Name="DistrictWorker" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
         <EntityType Name="PaulTable">
           <Key>
             <PropertyRef Name="NamePaul" />
@@ -47,6 +78,17 @@
           <Property Name="PNClient" Type="int" Nullable="false" />
           <Property Name="PNHaircut" Type="int" Nullable="false" />
           <Property Name="DataResult" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalaryCardTable">
+          <Key>
+            <PropertyRef Name="CardNumber" />
+          </Key>
+          <Property Name="CardNumber" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="CardValidMonth" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="CardValidYears" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="CardKeeperName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CardKeeperSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CardCode" Type="nchar" MaxLength="3" Nullable="false" />
         </EntityType>
         <EntityType Name="ShopTable">
           <Key>
@@ -75,20 +117,41 @@
           <Key>
             <PropertyRef Name="PersonalNumberWorker" />
           </Key>
-          <Property Name="PersonalNumberWorker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SurnameWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="NameWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="MiddleNameWorker" Type="nvarchar" MaxLength="50" />
-          <Property Name="DateOfBirthWorker" Type="date" Nullable="false" />
-          <Property Name="PostWorker" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="NumberPhoneWorker" Type="nvarchar" MaxLength="11" Nullable="false" />
-          <Property Name="EmailWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="LoginWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PasswordWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PaulWorker" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="CustomersServedWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PersonalNumberWorker" Type="int" Nullable="false" />
+          <Property Name="PSWorker" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="PNWorker" Type="nchar" MaxLength="6" Nullable="false" />
           <Property Name="StatusWorker" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PostWorker" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CardNumberWorker" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="LoginWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PasswordWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NumberPhoneWorker" Type="nchar" MaxLength="12" Nullable="false" />
+          <Property Name="EmailWorker" Type="nvarchar" MaxLength="70" Nullable="false" />
         </EntityType>
+        <Association Name="FK_PassportWorkerTable_ImageWorkerTable">
+          <End Role="ImageWorkerTable" Type="Self.ImageWorkerTable" Multiplicity="0..1" />
+          <End Role="PassportWorkerTable" Type="Self.PassportWorkerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageWorkerTable">
+              <PropertyRef Name="NameImage" />
+            </Principal>
+            <Dependent Role="PassportWorkerTable">
+              <PropertyRef Name="ImageWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PassportWorkerTable_PaulTable">
+          <End Role="PaulTable" Type="Self.PaulTable" Multiplicity="1" />
+          <End Role="PassportWorkerTable" Type="Self.PassportWorkerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaulTable">
+              <PropertyRef Name="NamePaul" />
+            </Principal>
+            <Dependent Role="PassportWorkerTable">
+              <PropertyRef Name="PaulWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ResultTable_ClientTable">
           <End Role="ClientTable" Type="Self.ClientTable" Multiplicity="1" />
           <End Role="ResultTable" Type="Self.ResultTable" Multiplicity="*" />
@@ -113,7 +176,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ResultTable_WorkerTable">
+        <Association Name="FK_ResultTable_WorkerTable1">
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="1" />
           <End Role="ResultTable" Type="Self.ResultTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -125,15 +188,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTable_PaulTable">
-          <End Role="PaulTable" Type="Self.PaulTable" Multiplicity="1" />
+        <Association Name="FK_WorkerTable_PassportWorkerTable">
+          <End Role="PassportWorkerTable" Type="Self.PassportWorkerTable" Multiplicity="1" />
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PaulTable">
-              <PropertyRef Name="NamePaul" />
+            <Principal Role="PassportWorkerTable">
+              <PropertyRef Name="PassportSeriesWorker" />
+              <PropertyRef Name="PassportNumberWorker" />
             </Principal>
             <Dependent Role="WorkerTable">
-              <PropertyRef Name="PaulWorker" />
+              <PropertyRef Name="PSWorker" />
+              <PropertyRef Name="PNWorker" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -146,6 +211,18 @@
             </Principal>
             <Dependent Role="WorkerTable">
               <PropertyRef Name="PostWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTable_SalaryCardTable">
+          <End Role="SalaryCardTable" Type="Self.SalaryCardTable" Multiplicity="1" />
+          <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryCardTable">
+              <PropertyRef Name="CardNumber" />
+            </Principal>
+            <Dependent Role="WorkerTable">
+              <PropertyRef Name="CardNumberWorker" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -195,13 +272,24 @@
         <EntityContainer Name="Хранилище BarberShopDataBaseModelContainer">
           <EntitySet Name="ClientTable" EntityType="Self.ClientTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HaircutTable" EntityType="Self.HaircutTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImageWorkerTable" EntityType="Self.ImageWorkerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PassportWorkerTable" EntityType="Self.PassportWorkerTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaulTable" EntityType="Self.PaulTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PostTable" EntityType="Self.PostTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ResultTable" EntityType="Self.ResultTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryCardTable" EntityType="Self.SalaryCardTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShopTable" EntityType="Self.ShopTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StatusTable" EntityType="Self.StatusTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkerTable" EntityType="Self.WorkerTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PassportWorkerTable_ImageWorkerTable" Association="Self.FK_PassportWorkerTable_ImageWorkerTable">
+            <End Role="ImageWorkerTable" EntitySet="ImageWorkerTable" />
+            <End Role="PassportWorkerTable" EntitySet="PassportWorkerTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PassportWorkerTable_PaulTable" Association="Self.FK_PassportWorkerTable_PaulTable">
+            <End Role="PaulTable" EntitySet="PaulTable" />
+            <End Role="PassportWorkerTable" EntitySet="PassportWorkerTable" />
+          </AssociationSet>
           <AssociationSet Name="FK_ResultTable_ClientTable" Association="Self.FK_ResultTable_ClientTable">
             <End Role="ClientTable" EntitySet="ClientTable" />
             <End Role="ResultTable" EntitySet="ResultTable" />
@@ -210,16 +298,20 @@
             <End Role="HaircutTable" EntitySet="HaircutTable" />
             <End Role="ResultTable" EntitySet="ResultTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_ResultTable_WorkerTable" Association="Self.FK_ResultTable_WorkerTable">
+          <AssociationSet Name="FK_ResultTable_WorkerTable1" Association="Self.FK_ResultTable_WorkerTable1">
             <End Role="WorkerTable" EntitySet="WorkerTable" />
             <End Role="ResultTable" EntitySet="ResultTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTable_PaulTable" Association="Self.FK_WorkerTable_PaulTable">
-            <End Role="PaulTable" EntitySet="PaulTable" />
+          <AssociationSet Name="FK_WorkerTable_PassportWorkerTable" Association="Self.FK_WorkerTable_PassportWorkerTable">
+            <End Role="PassportWorkerTable" EntitySet="PassportWorkerTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
           <AssociationSet Name="FK_WorkerTable_PostTable" Association="Self.FK_WorkerTable_PostTable">
             <End Role="PostTable" EntitySet="PostTable" />
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTable_SalaryCardTable" Association="Self.FK_WorkerTable_SalaryCardTable">
+            <End Role="SalaryCardTable" EntitySet="SalaryCardTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
           <AssociationSet Name="FK_WorkerTable_StatusTable" Association="Self.FK_WorkerTable_StatusTable">
@@ -264,9 +356,12 @@
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="ClientTable" EntityType="BarberShopDataBaseModel.ClientTable" />
           <EntitySet Name="HaircutTable" EntityType="BarberShopDataBaseModel.HaircutTable" />
+          <EntitySet Name="ImageWorkerTable" EntityType="BarberShopDataBaseModel.ImageWorkerTable" />
+          <EntitySet Name="PassportWorkerTable" EntityType="BarberShopDataBaseModel.PassportWorkerTable" />
           <EntitySet Name="PaulTable" EntityType="BarberShopDataBaseModel.PaulTable" />
           <EntitySet Name="PostTable" EntityType="BarberShopDataBaseModel.PostTable" />
           <EntitySet Name="ResultTable" EntityType="BarberShopDataBaseModel.ResultTable" />
+          <EntitySet Name="SalaryCardTable" EntityType="BarberShopDataBaseModel.SalaryCardTable" />
           <EntitySet Name="ShopTable" EntityType="BarberShopDataBaseModel.ShopTable" />
           <EntitySet Name="StatusTable" EntityType="BarberShopDataBaseModel.StatusTable" />
           <EntitySet Name="sysdiagrams" EntityType="BarberShopDataBaseModel.sysdiagrams" />
@@ -279,17 +374,29 @@
             <End Role="HaircutTable" EntitySet="HaircutTable" />
             <End Role="ResultTable" EntitySet="ResultTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkerTable_PaulTable" Association="BarberShopDataBaseModel.FK_WorkerTable_PaulTable">
+          <AssociationSet Name="FK_PassportWorkerTable_ImageWorkerTable" Association="BarberShopDataBaseModel.FK_PassportWorkerTable_ImageWorkerTable">
+            <End Role="ImageWorkerTable" EntitySet="ImageWorkerTable" />
+            <End Role="PassportWorkerTable" EntitySet="PassportWorkerTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PassportWorkerTable_PaulTable" Association="BarberShopDataBaseModel.FK_PassportWorkerTable_PaulTable">
             <End Role="PaulTable" EntitySet="PaulTable" />
+            <End Role="PassportWorkerTable" EntitySet="PassportWorkerTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTable_PassportWorkerTable" Association="BarberShopDataBaseModel.FK_WorkerTable_PassportWorkerTable">
+            <End Role="PassportWorkerTable" EntitySet="PassportWorkerTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
           <AssociationSet Name="FK_WorkerTable_PostTable" Association="BarberShopDataBaseModel.FK_WorkerTable_PostTable">
             <End Role="PostTable" EntitySet="PostTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
-          <AssociationSet Name="FK_ResultTable_WorkerTable" Association="BarberShopDataBaseModel.FK_ResultTable_WorkerTable">
+          <AssociationSet Name="FK_ResultTable_WorkerTable1" Association="BarberShopDataBaseModel.FK_ResultTable_WorkerTable1">
             <End Role="WorkerTable" EntitySet="WorkerTable" />
             <End Role="ResultTable" EntitySet="ResultTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerTable_SalaryCardTable" Association="BarberShopDataBaseModel.FK_WorkerTable_SalaryCardTable">
+            <End Role="SalaryCardTable" EntitySet="SalaryCardTable" />
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
           </AssociationSet>
           <AssociationSet Name="FK_WorkerTable_StatusTable" Association="BarberShopDataBaseModel.FK_WorkerTable_StatusTable">
             <End Role="StatusTable" EntitySet="StatusTable" />
@@ -329,12 +436,47 @@
           <Property Name="PriceHaircut" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
           <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_HaircutTable" FromRole="HaircutTable" ToRole="ResultTable" />
         </EntityType>
+        <EntityType Name="ImageWorkerTable">
+          <Key>
+            <PropertyRef Name="NameImage" />
+          </Key>
+          <Property Name="NameImage" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageBit" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="PassportWorkerTable" Relationship="BarberShopDataBaseModel.FK_PassportWorkerTable_ImageWorkerTable" FromRole="ImageWorkerTable" ToRole="PassportWorkerTable" />
+        </EntityType>
+        <EntityType Name="PassportWorkerTable">
+          <Key>
+            <PropertyRef Name="PassportSeriesWorker" />
+            <PropertyRef Name="PassportNumberWorker" />
+          </Key>
+          <Property Name="PassportSeriesWorker" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="PassportNumberWorker" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="SurnameWorker" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="NameWorker" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleNameWorker" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PassportIssuedWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfIssueWorker" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DivisionCodeWorker" Type="String" Nullable="false" MaxLength="7" FixedLength="true" Unicode="true" />
+          <Property Name="PaulWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PlaceOfBirthWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ImageWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationRegionWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationPointWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationStreetWorker" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationHouseWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="RegistrationApartmentWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DateOfBirthWorker" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DistrictWorker" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ImageWorkerTable" Relationship="BarberShopDataBaseModel.FK_PassportWorkerTable_ImageWorkerTable" FromRole="PassportWorkerTable" ToRole="ImageWorkerTable" />
+          <NavigationProperty Name="PaulTable" Relationship="BarberShopDataBaseModel.FK_PassportWorkerTable_PaulTable" FromRole="PassportWorkerTable" ToRole="PaulTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PassportWorkerTable" FromRole="PassportWorkerTable" ToRole="WorkerTable" />
+        </EntityType>
         <EntityType Name="PaulTable">
           <Key>
             <PropertyRef Name="NamePaul" />
           </Key>
           <Property Name="NamePaul" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PaulTable" FromRole="PaulTable" ToRole="WorkerTable" />
+          <NavigationProperty Name="PassportWorkerTable" Relationship="BarberShopDataBaseModel.FK_PassportWorkerTable_PaulTable" FromRole="PaulTable" ToRole="PassportWorkerTable" />
         </EntityType>
         <EntityType Name="PostTable">
           <Key>
@@ -355,7 +497,19 @@
           <Property Name="DataResult" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="ClientTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_ClientTable" FromRole="ResultTable" ToRole="ClientTable" />
           <NavigationProperty Name="HaircutTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_HaircutTable" FromRole="ResultTable" ToRole="HaircutTable" />
-          <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_WorkerTable" FromRole="ResultTable" ToRole="WorkerTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_WorkerTable1" FromRole="ResultTable" ToRole="WorkerTable" />
+        </EntityType>
+        <EntityType Name="SalaryCardTable">
+          <Key>
+            <PropertyRef Name="CardNumber" />
+          </Key>
+          <Property Name="CardNumber" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="CardValidMonth" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="CardValidYears" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="CardKeeperName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardKeeperSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardCode" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_SalaryCardTable" FromRole="SalaryCardTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="ShopTable">
           <Key>
@@ -385,22 +539,20 @@
           <Key>
             <PropertyRef Name="PersonalNumberWorker" />
           </Key>
-          <Property Name="PersonalNumberWorker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SurnameWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NameWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MiddleNameWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DateOfBirthWorker" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="PostWorker" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="NumberPhoneWorker" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="EmailWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LoginWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PaulWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="CustomersServedWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalNumberWorker" Type="Int32" Nullable="false" />
+          <Property Name="PSWorker" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="PNWorker" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
           <Property Name="StatusWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PaulTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PaulTable" FromRole="WorkerTable" ToRole="PaulTable" />
+          <Property Name="PostWorker" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CardNumberWorker" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="LoginWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NumberPhoneWorker" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="EmailWorker" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PassportWorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PassportWorkerTable" FromRole="WorkerTable" ToRole="PassportWorkerTable" />
           <NavigationProperty Name="PostTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PostTable" FromRole="WorkerTable" ToRole="PostTable" />
-          <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_WorkerTable" FromRole="WorkerTable" ToRole="ResultTable" />
+          <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_WorkerTable1" FromRole="WorkerTable" ToRole="ResultTable" />
+          <NavigationProperty Name="SalaryCardTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_SalaryCardTable" FromRole="WorkerTable" ToRole="SalaryCardTable" />
           <NavigationProperty Name="StatusTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
         </EntityType>
         <Association Name="FK_ResultTable_ClientTable">
@@ -427,15 +579,41 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkerTable_PaulTable">
+        <Association Name="FK_PassportWorkerTable_ImageWorkerTable">
+          <End Type="BarberShopDataBaseModel.ImageWorkerTable" Role="ImageWorkerTable" Multiplicity="0..1" />
+          <End Type="BarberShopDataBaseModel.PassportWorkerTable" Role="PassportWorkerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageWorkerTable">
+              <PropertyRef Name="NameImage" />
+            </Principal>
+            <Dependent Role="PassportWorkerTable">
+              <PropertyRef Name="ImageWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PassportWorkerTable_PaulTable">
           <End Type="BarberShopDataBaseModel.PaulTable" Role="PaulTable" Multiplicity="1" />
-          <End Type="BarberShopDataBaseModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
+          <End Type="BarberShopDataBaseModel.PassportWorkerTable" Role="PassportWorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PaulTable">
               <PropertyRef Name="NamePaul" />
             </Principal>
-            <Dependent Role="WorkerTable">
+            <Dependent Role="PassportWorkerTable">
               <PropertyRef Name="PaulWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTable_PassportWorkerTable">
+          <End Type="BarberShopDataBaseModel.PassportWorkerTable" Role="PassportWorkerTable" Multiplicity="1" />
+          <End Type="BarberShopDataBaseModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PassportWorkerTable">
+              <PropertyRef Name="PassportSeriesWorker" />
+              <PropertyRef Name="PassportNumberWorker" />
+            </Principal>
+            <Dependent Role="WorkerTable">
+              <PropertyRef Name="PSWorker" />
+              <PropertyRef Name="PNWorker" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -451,7 +629,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ResultTable_WorkerTable">
+        <Association Name="FK_ResultTable_WorkerTable1">
           <End Type="BarberShopDataBaseModel.WorkerTable" Role="WorkerTable" Multiplicity="1" />
           <End Type="BarberShopDataBaseModel.ResultTable" Role="ResultTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -460,6 +638,18 @@
             </Principal>
             <Dependent Role="ResultTable">
               <PropertyRef Name="PNWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerTable_SalaryCardTable">
+          <End Type="BarberShopDataBaseModel.SalaryCardTable" Role="SalaryCardTable" Multiplicity="1" />
+          <End Type="BarberShopDataBaseModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryCardTable">
+              <PropertyRef Name="CardNumber" />
+            </Principal>
+            <Dependent Role="WorkerTable">
+              <PropertyRef Name="CardNumberWorker" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -527,6 +717,38 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ImageWorkerTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.ImageWorkerTable">
+              <MappingFragment StoreEntitySet="ImageWorkerTable">
+                <ScalarProperty Name="ImageBit" ColumnName="ImageBit" />
+                <ScalarProperty Name="NameImage" ColumnName="NameImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassportWorkerTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.PassportWorkerTable">
+              <MappingFragment StoreEntitySet="PassportWorkerTable">
+                <ScalarProperty Name="DistrictWorker" ColumnName="DistrictWorker" />
+                <ScalarProperty Name="DateOfBirthWorker" ColumnName="DateOfBirthWorker" />
+                <ScalarProperty Name="RegistrationApartmentWorker" ColumnName="RegistrationApartmentWorker" />
+                <ScalarProperty Name="RegistrationHouseWorker" ColumnName="RegistrationHouseWorker" />
+                <ScalarProperty Name="RegistrationStreetWorker" ColumnName="RegistrationStreetWorker" />
+                <ScalarProperty Name="RegistrationPointWorker" ColumnName="RegistrationPointWorker" />
+                <ScalarProperty Name="RegistrationRegionWorker" ColumnName="RegistrationRegionWorker" />
+                <ScalarProperty Name="ImageWorker" ColumnName="ImageWorker" />
+                <ScalarProperty Name="PlaceOfBirthWorker" ColumnName="PlaceOfBirthWorker" />
+                <ScalarProperty Name="PaulWorker" ColumnName="PaulWorker" />
+                <ScalarProperty Name="DivisionCodeWorker" ColumnName="DivisionCodeWorker" />
+                <ScalarProperty Name="DateOfIssueWorker" ColumnName="DateOfIssueWorker" />
+                <ScalarProperty Name="PassportIssuedWorker" ColumnName="PassportIssuedWorker" />
+                <ScalarProperty Name="MiddleNameWorker" ColumnName="MiddleNameWorker" />
+                <ScalarProperty Name="NameWorker" ColumnName="NameWorker" />
+                <ScalarProperty Name="SurnameWorker" ColumnName="SurnameWorker" />
+                <ScalarProperty Name="PassportNumberWorker" ColumnName="PassportNumberWorker" />
+                <ScalarProperty Name="PassportSeriesWorker" ColumnName="PassportSeriesWorker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PaulTable">
             <EntityTypeMapping TypeName="BarberShopDataBaseModel.PaulTable">
               <MappingFragment StoreEntitySet="PaulTable">
@@ -550,6 +772,18 @@
                 <ScalarProperty Name="PNClient" ColumnName="PNClient" />
                 <ScalarProperty Name="PNWorker" ColumnName="PNWorker" />
                 <ScalarProperty Name="PersonalNumberResult" ColumnName="PersonalNumberResult" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryCardTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.SalaryCardTable">
+              <MappingFragment StoreEntitySet="SalaryCardTable">
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="CardKeeperSurname" ColumnName="CardKeeperSurname" />
+                <ScalarProperty Name="CardKeeperName" ColumnName="CardKeeperName" />
+                <ScalarProperty Name="CardValidYears" ColumnName="CardValidYears" />
+                <ScalarProperty Name="CardValidMonth" ColumnName="CardValidMonth" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -582,18 +816,15 @@
           <EntitySetMapping Name="WorkerTable">
             <EntityTypeMapping TypeName="BarberShopDataBaseModel.WorkerTable">
               <MappingFragment StoreEntitySet="WorkerTable">
-                <ScalarProperty Name="StatusWorker" ColumnName="StatusWorker" />
-                <ScalarProperty Name="CustomersServedWorker" ColumnName="CustomersServedWorker" />
-                <ScalarProperty Name="PaulWorker" ColumnName="PaulWorker" />
-                <ScalarProperty Name="PasswordWorker" ColumnName="PasswordWorker" />
-                <ScalarProperty Name="LoginWorker" ColumnName="LoginWorker" />
                 <ScalarProperty Name="EmailWorker" ColumnName="EmailWorker" />
                 <ScalarProperty Name="NumberPhoneWorker" ColumnName="NumberPhoneWorker" />
+                <ScalarProperty Name="PasswordWorker" ColumnName="PasswordWorker" />
+                <ScalarProperty Name="LoginWorker" ColumnName="LoginWorker" />
+                <ScalarProperty Name="CardNumberWorker" ColumnName="CardNumberWorker" />
                 <ScalarProperty Name="PostWorker" ColumnName="PostWorker" />
-                <ScalarProperty Name="DateOfBirthWorker" ColumnName="DateOfBirthWorker" />
-                <ScalarProperty Name="MiddleNameWorker" ColumnName="MiddleNameWorker" />
-                <ScalarProperty Name="NameWorker" ColumnName="NameWorker" />
-                <ScalarProperty Name="SurnameWorker" ColumnName="SurnameWorker" />
+                <ScalarProperty Name="StatusWorker" ColumnName="StatusWorker" />
+                <ScalarProperty Name="PNWorker" ColumnName="PNWorker" />
+                <ScalarProperty Name="PSWorker" ColumnName="PSWorker" />
                 <ScalarProperty Name="PersonalNumberWorker" ColumnName="PersonalNumberWorker" />
               </MappingFragment>
             </EntityTypeMapping>
