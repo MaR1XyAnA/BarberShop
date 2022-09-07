@@ -145,21 +145,21 @@
                         VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
-                <TextBlock 
+                    <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockFalse}"
                     Text="НОМЕР ТЕЛЕФОНА:"/>
-                <TextBlock 
+                    <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockTrue}"
                     Text="{Binding NumberPhoneWorker}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
-                <TextBlock 
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                    <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockFalse}"
                     Text="ЭЛЕКТРОННАЯ ПОЧТА:"/>
-                <TextBlock 
+                    <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockTrue}"
                     Text="{Binding EmailWorker}"/>
-            </StackPanel>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                     <Line 
                         X1="0"  X2="305"
@@ -366,5 +366,3 @@
         </ScrollViewer>
     </Grid>
 </Page>
-    
-    <!--TODO: Как-то выгрузить эту информацию ввиде списка\ленты (как новости в Вк)-->

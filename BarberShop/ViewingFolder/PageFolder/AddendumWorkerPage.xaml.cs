@@ -23,26 +23,15 @@ namespace BarberShop.ViewingFolder.PageFolder
         public AddendumWorkerPage()
         {
             InitializeComponent();
-        }
-
-        private void PasswordPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (PasswordTextBox.Text != PasswordPasswordBox.Password || PasswordPasswordBox.Password != PasswordPasswordBox.Password)
+            if(PhotoProfileImage.Source != null)
             {
-                ErrorPasswordTextBlock.Text = "пароли не совподают";
-                ErrorPasswordTextBlock.Visibility = Visibility.Visible;
-                NewWorkerButton.IsEnabled = false;
-            }
-
-            else
-            {
-                ErrorPasswordTextBlock.Visibility = Visibility.Collapsed;
+                UploadingPhotosButton.Content = "ИЗМЕНИТЬ ФОТО";
             }
         }
 
-        private void NewWorkerButton_Click(object sender, RoutedEventArgs e)
+        private void UploadingPhotosButton_Click(object sender, RoutedEventArgs e)
         {
 
-        }    
+        }
     }
 }
