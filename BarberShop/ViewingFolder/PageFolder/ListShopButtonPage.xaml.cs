@@ -30,7 +30,12 @@ namespace BarberShop.ViewingFolder.PageFolder
 
         private void ListShopButtonListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("");
+            DiscriptionBprder.Visibility = Visibility.Visible;
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DiscriptionBprder.Visibility = Visibility.Collapsed;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using BarberShop.ViewingFolder.PageFolder;
+﻿using BarberShop.ContentFolder.ClassFolder;
+using BarberShop.ViewingFolder.PageFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace BarberShop.ViewingFolder.WindowsFolder
 {
@@ -21,10 +23,24 @@ namespace BarberShop.ViewingFolder.WindowsFolder
     /// </summary>
     public partial class AuthorizationWindows : Window
     {
+        private DispatcherTimer dispatcher;
+
         public AuthorizationWindows()
         {
             InitializeComponent();
             MainFrame.Navigate(new AutorizationPage());
+            dispatcher = new DispatcherTimer(); // Подключаю DispatcherTimer
+            dispatcher.Interval = TimeSpan.FromSeconds(5); // Обновляю раз в 1 секунду
+            dispatcher.Tick += Dispatcher_Tick; // Задаю количество раз обновлений
+            dispatcher.Start(); // Запускаю DispatcherTimer
+        }
+
+        private void Dispatcher_Tick(object sender, EventArgs e)
+        {
+            if (HideClass.InfoWindows == 1)
+            {
+                this.Close();
+            }
         }
 
         private void RollUp_Click(object sender, RoutedEventArgs e)

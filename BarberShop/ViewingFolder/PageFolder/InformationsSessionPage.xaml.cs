@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BarberShop.ViewingFolder.WindowsFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace BarberShop.ViewingFolder.PageFolder
         public InformationsSessionPage()
         {
             InitializeComponent();
+        }
+
+        private void SessionsInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            QueueWindows queueWindows = new QueueWindows();
+            queueWindows.Show();
         }
     }
 }

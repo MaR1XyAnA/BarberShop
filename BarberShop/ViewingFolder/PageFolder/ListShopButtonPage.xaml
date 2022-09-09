@@ -8,7 +8,11 @@
       Style="{StaticResource MainPage}">
 
     <Grid>
-        <Border Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.RowSpan="2" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="0">
             <ListBox 
                 Margin="10"
                 Background="Transparent"
@@ -44,7 +48,13 @@
                             </Grid.RowDefinitions>
                             <Border Background="Transparent" Margin="5 0 5 70">
                                 <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent">
-                                    <Border Background="#0f3460" CornerRadius="20" Height="300" Width="450">
+                                    <Border CornerRadius="20" Height="300" Width="450">
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#0f3460"/>
+                                                <GradientStop Color="#FF07172B" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"/>
@@ -77,6 +87,26 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+        </Border>
+        <Border Name="DiscriptionBprder" Visibility="Collapsed" Grid.Row="1" Margin="200 20 200 0" CornerRadius="20" BorderBrush="#0f3460" Background="#1a1a2e" BorderThickness="1">
+            <StackPanel>
+                <Button
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Style="{StaticResource SpareButton2}"
+                    x:Name="CloseBtn"
+                    Click="CloseBtn_Click"
+                    Content="✕"
+                    Height="32"
+                    Width="50"
+                    FontSize="18"
+                    ToolTip="ЗАКРЫТЬ"/>
+                <TextBlock
+                    Style="{StaticResource InfoDataBaseTextBlockTrue}"
+                    Text="{Binding DescriptionHaircut}"
+                    Margin="10 10 0 0"
+                    TextWrapping="Wrap"/>
+            </StackPanel>
         </Border>
     </Grid>
 </Page>

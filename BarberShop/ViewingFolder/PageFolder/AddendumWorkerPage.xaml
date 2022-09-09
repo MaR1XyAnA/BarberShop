@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BarberShop.ViewingFolder.PageFolder"
       mc:Ignorable="d" 
-      d:DesignHeight="1430" d:DesignWidth="727">
+      d:DesignHeight="1470" d:DesignWidth="727">
 
     <Grid>
         <ScrollViewer>
@@ -21,6 +21,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ФАМИЛИЯ:"/>
                             <TextBox
+                                x:Name="SurnameTextBox"
                                 Margin="5 0 0 0"
                                 Width="290"/>
                         </StackPanel>
@@ -29,6 +30,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ИМЯ:"/>
                             <TextBox
+                                x:Name="NameTextBox"
                                 Margin="5 0 0 0"
                                 Width="344"/>
                         </StackPanel>
@@ -37,6 +39,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ОТЧЕСТВО:"/>
                             <TextBox
+                                x:Name="MiddleNameTextBox"
                                 Margin="5 0 0 0"
                                 Width="295"/>
                         </StackPanel>
@@ -45,6 +48,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ПОЛ:"/>
                             <TextBox
+                                x:Name="PaulTextBox"
                                 Margin="5 0 0 0"
                                 Width="346"/>
                         </StackPanel>
@@ -53,6 +57,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ДАТА РОЖДЕНИЯ:"/>
                             <TextBox
+                                x:Name="DateOfBirthTExtBox"
                                 Margin="5 0 0 0"
                                 Width="220"/>
                         </StackPanel>
@@ -61,6 +66,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ДОЛЖНОСТЬ:"/>
                             <TextBox
+                                x:Name="PostTextBox"
                                 Margin="5 0 0 0"
                                 Width="263"/>
                         </StackPanel>
@@ -110,16 +116,18 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ЛОГИН:"/>
                     <TextBox
+                        x:Name="LogintextBox"
                         Margin="5 0 0 0"
-                        Width="555"/>
+                        Width="615"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПАРОЛЬ:"/>
                     <TextBox
+                        Name="PasswordTextBox"
                         Margin="5 0 0 0"
-                        Width="542"/>
+                        Width="603"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                     <Line 
@@ -145,16 +153,18 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР ТЕЛЕФОНА:"/>
                     <TextBox
+                        x:Name="NumberPhoneTextBox"
                         Margin="5 0 0 0"
-                        Width="450"/>
+                        Width="515"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ЭЛЕКТРОННАЯ ПОЧТА:"/>
                     <TextBox
+                        x:Name="EmailTextBox"
                         Margin="5 0 0 0"
-                        Width="420"/>
+                        Width="484"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                     <Line 
@@ -180,48 +190,54 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СЕРИЯ ПАСПОРТА:"/>
                     <TextBox
+                        Name="PassportSeriesTextBox"
                         Margin="5 0 0 0"
-                        Width="450"/>
+                        Width="520"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР ПАСПОРТА:"/>
                     <TextBox
+                        x:Name="PassportNumberTextBox"
                         Margin="5 0 0 0"
-                        Width="446"/>
+                        Width="516"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПАСПОРТ ВЫДАН:"/>
                     <TextBox
+                        x:Name="PassportIssuedTextBox"
                         Margin="5 0 0 0"
-                        Width="450"/>
+                        Width="520"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ДАТА ВЫДАЧИ ПАСПОРТА:"/>
                     <TextBox
+                        x:Name="DatePassportIssuedTextBox"
                         Margin="5 0 0 0"
-                        Width="372"/>
+                        Width="441"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КОД ПОДРАЗДЕЛЕНИЯ:"/>
                     <TextBox
+                        x:Name="DivisionСodeTextBox"
                         Margin="5 0 0 0"
-                        Width="397"/>
+                        Width="465"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="МЕСТО РОЖДЕНИЯ:"/>
                     <TextBox
+                        x:Name="PassportPlaceOfBirthTextBox"
                         Margin="5 0 0 0"
-                        Width="438"/>
+                        Width="506"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                     <Line 
@@ -247,48 +263,54 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="РЕГИОН:"/>
                     <TextBox
+                        x:Name="PassportRegionTextBox"
                         Margin="5 0 0 0"
-                        Width="450"/>
+                        Width="609"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="РАЙОН:"/>
-                    <TextBlock 
-                        Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding PassportWorkerTable.DistrictWorker}"/>
+                    <TextBox
+                        x:Name="PassportDistrictTextBox"
+                        Margin="5 0 0 0"
+                        Width="618"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПУНКТ:"/>
-                    <TextBlock 
-                        Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding PassportWorkerTable.RegistrationPointWorker}"/>
+                    <TextBox
+                        x:Name="PassportPointTextBox"
+                        Margin="5 0 0 0"
+                        Width="620"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="УЛИЦА:"/>
-                    <TextBlock 
-                        Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding PassportWorkerTable.RegistrationStreetWorker}"/>
+                    <TextBox
+                        x:Name="PassportStreetTextBox"
+                        Margin="5 0 0 0"
+                        Width="616"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ДОМ:"/>
-                    <TextBlock 
-                        Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding PassportWorkerTable.RegistrationHouseWorker}"/>
+                    <TextBox
+                        x:Name="PassportHouseTextBox"
+                        Margin="5 0 0 0"
+                        Width="632"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КВАРТИРА:"/>
-                    <TextBlock 
-                        Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding PassportWorkerTable.RegistrationApartmentWorker}"/>
+                    <TextBox
+                        x:Name="PasswortFlatTextBox"
+                        Margin="5 0 0 0"
+                        Width="584"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                     <Line 
@@ -313,50 +335,64 @@
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР КАРТЫ:"/>
-                    <TextBlock 
-                        Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding CardNumberWorker}"/>
+                    <TextBox
+                        x:Name="NumberCardTextBox"
+                        Margin="5 0 0 0"
+                        Width="547"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СРОК КАРТЫ МЕСЯЦ:"/>
-                    <TextBlock 
-                        Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding SalaryCardTable.CardValidMonth}"/>
+                    <TextBox
+                        x:Name="CardValidMonthTextBox"
+                        Margin="5 0 0 0"
+                        Width="491"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СРОК КАРТЫ ГОД:"/>
-                    <TextBlock 
-                        Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding SalaryCardTable.CardValidYears}"/>
+                    <TextBox
+                        x:Name="CardValidYearTextBox"
+                        Margin="5 0 0 0"
+                        Width="516"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ИМЯ ДЕРЖАТЕЛЯ КАРТЫ:"/>
-                    <TextBlock 
-                        Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding SalaryCardTable.CardKeeperName}"/>
+                    <TextBox
+                        x:Name="NameCardHolderTextBox"
+                        Margin="5 0 0 0"
+                        Width="448"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ФАМИЛИЯ ДЕРЖАТЕЛЯ КАРТЫ:"/>
-                    <TextBlock 
-                        Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding SalaryCardTable.CardKeeperSurname}"/>
+                    <TextBox
+                        x:Name="SurnameCardHolderTextBox"
+                        Margin="5 0 0 0"
+                        Width="395"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КОД КАРТЫ:"/>
-                    <TextBlock 
-                        Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding SalaryCardTable.CardCode}"/>
+                    <TextBox
+                        x:Name="CodeCardTextBox"
+                        Margin="5 0 0 0"
+                        Width="567"/>
                 </StackPanel>
+                <Button
+                    x:Name="NewWorkerButton"
+                    Content="ДОБАВИТЬ НОВОГО СОТРУДНИКА"
+                    Height="60"
+                    Width="490"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="10 20 10 5"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

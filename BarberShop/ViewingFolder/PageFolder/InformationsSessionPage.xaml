@@ -9,6 +9,8 @@
       >
     <Grid>
         <Button
+            x:Name="SessionsInfoButton"
+            Click="SessionsInfoButton_Click"
             Content="СЕАНСЫ НА СЕГОДНЯ"
             Height="80"
             Width="600"
