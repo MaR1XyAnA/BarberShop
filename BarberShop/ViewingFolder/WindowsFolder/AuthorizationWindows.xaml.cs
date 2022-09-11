@@ -30,7 +30,7 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             InitializeComponent();
             MainFrame.Navigate(new AutorizationPage());
             dispatcher = new DispatcherTimer(); // Подключаю DispatcherTimer
-            dispatcher.Interval = TimeSpan.FromSeconds(5); // Обновляю раз в 1 секунду
+            dispatcher.Interval = TimeSpan.FromSeconds(0.5); // Обновляю раз в 1 секунду
             dispatcher.Tick += Dispatcher_Tick; // Задаю количество раз обновлений
             dispatcher.Start(); // Запускаю DispatcherTimer
         }
@@ -60,11 +60,11 @@ namespace BarberShop.ViewingFolder.WindowsFolder
 
         private void InfoTextAutorizationButton_Click(object sender, RoutedEventArgs e)
         {
-            TranslateTransform inTheRightBorder = new TranslateTransform();
-            InfoAutorizationBorder.RenderTransform = inTheRightBorder;
+            TranslateTransform inTheCenterBorder = new TranslateTransform();
+            InfoAutorizationBorder.RenderTransform = inTheCenterBorder;
             DoubleAnimation doubleAnimationBorder = new DoubleAnimation(310, 0, TimeSpan.FromSeconds(0.2));
             InfoAutorizationBorder.Width = 200;
-            inTheRightBorder.BeginAnimation(TranslateTransform.XProperty, doubleAnimationBorder);
+            inTheCenterBorder.BeginAnimation(TranslateTransform.XProperty, doubleAnimationBorder);
             MainFrame.Navigate(new AutorizationPage());
         }
 
@@ -72,10 +72,20 @@ namespace BarberShop.ViewingFolder.WindowsFolder
         {
             TranslateTransform inTheLeftBorder = new TranslateTransform();
             InfoAutorizationBorder.RenderTransform = inTheLeftBorder;
-            DoubleAnimation doubleAnimationBorder = new DoubleAnimation(0, 290, TimeSpan.FromSeconds(0.2));
+            DoubleAnimation doubleAnimationBorder = new DoubleAnimation(0, 210, TimeSpan.FromSeconds(0.2));
             InfoAutorizationBorder.Width = 250;
             inTheLeftBorder.BeginAnimation(TranslateTransform.XProperty, doubleAnimationBorder);
             MainFrame.Navigate(new InformationsSessionPage());
+        }
+
+        private void InfoTextEmailButton_Click(object sender, RoutedEventArgs e)
+        {
+            TranslateTransform inTheRightBorder = new TranslateTransform();
+            InfoAutorizationBorder.RenderTransform = inTheRightBorder;
+            DoubleAnimation doubleAnimationBorder = new DoubleAnimation(0, 475, TimeSpan.FromSeconds(0.2));
+            InfoAutorizationBorder.Width = 200;
+            inTheRightBorder.BeginAnimation(TranslateTransform.XProperty, doubleAnimationBorder);
+            MainFrame.Navigate(new EmailPage());
         }
     }
 }

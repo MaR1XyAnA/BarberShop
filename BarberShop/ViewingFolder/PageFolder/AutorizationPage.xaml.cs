@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,7 +32,6 @@ namespace BarberShop.ViewingFolder.PageFolder
             dispatcher.Interval = TimeSpan.FromSeconds(5); // Обновляю раз в 1 секунду
             dispatcher.Tick += Dispatcher_Tick; // Задаю количество раз обновлений
             dispatcher.Start(); // Запускаю DispatcherTimer
-
         }
 
         private void Dispatcher_Tick(object sender, EventArgs e)
@@ -41,8 +41,6 @@ namespace BarberShop.ViewingFolder.PageFolder
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindows mainWindows = new MainWindows();
-            //mainWindows.Show();
             try
             {
                 var AutorizationUser = DataBaseFolder.AppConnectClass.DataBase.WorkerTable.FirstOrDefault
@@ -52,6 +50,11 @@ namespace BarberShop.ViewingFolder.PageFolder
                 {
                     MessageBox.Show("Данного пользователя не существует в базе данных","Ошибка авторизации");
                 }
+                //for (int i = 0; i < 100; i++)
+                //{
+                //    (sender as AutorizationUser).ReportProgress(i);
+                //    Thread.Sleep(100);
+                //}
                 else
                 {
                     switch (AutorizationUser.PostWorker)
@@ -69,7 +72,8 @@ namespace BarberShop.ViewingFolder.PageFolder
                             MessageBox.Show("Парикхмахер");
                             break;
                         case "Системный администратор":
-                            MessageBox.Show("Системный администратор");
+                            MainWindows mainWindows = new MainWindows();
+                            mainWindows.Show();
                             break;
                         case "Уборщик":
                             MessageBox.Show("Уборщик");
@@ -110,6 +114,42 @@ namespace BarberShop.ViewingFolder.PageFolder
             VisebleTruePasswordButton.Visibility = Visibility.Visible;
             ViseblePasswordTextBox.Visibility = Visibility.Collapsed;
             PasswordPasswordBox.Visibility = Visibility.Visible;
+        }
+
+        private void LoginTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (LoginTextBox.Text.Length == 0)
+            {
+                LoginText.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                LoginText.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void PasswordPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (PasswordPasswordBox.Password.Length == 0)
+            {
+                PasswordText.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PasswordText.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void ViseblePasswordTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (ViseblePasswordTextBox.Text.Length == 0)
+            {
+                PasswordText.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PasswordText.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

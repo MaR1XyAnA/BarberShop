@@ -1,4 +1,5 @@
-﻿using BarberShop.ViewingFolder.WindowsFolder;
+﻿using BarberShop.ContentFolder.ClassFolder;
+using BarberShop.ViewingFolder.WindowsFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;

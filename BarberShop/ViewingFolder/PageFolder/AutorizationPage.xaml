@@ -9,75 +9,100 @@
       >
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 100">
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 5" HorizontalAlignment="Right">
+            <Grid Margin="0 0 0 10">
+                <TextBox
+                    Padding="10 0 10 0"
+                    Height="50"
+                    Width="600"
+                    Margin="0 0 0 0"
+                    TextWrapping="NoWrap"
+                    Name="LoginTextBox"
+                    TextChanged="LoginTextBox_TextChanged"/>
                 <TextBlock
+                    Width="70"
+                    HorizontalAlignment="Left"
                     FontSize="40"
                     Text="LOGIN"
+                    Margin="15 0 0 0"
+                    x:Name="LoginText"
                     Style="{StaticResource TextTextBlock}"/>
-                <TextBox
-                    Height="50"
-                    Width="500"
-                    Margin="10 0 0 0"
-                    Name="LoginTextBox"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
-                <TextBlock
-                    FontSize="40"
-                    Text="PASSWORD"
-                    Style="{StaticResource TextTextBlock}"/>
+            </Grid>
+            <Grid Margin="0 10 0 0">
                 <PasswordBox
-                    Padding="10 0 80 0"
+                    PasswordChanged="PasswordPasswordBox_PasswordChanged"
+                    Padding="10 0 50 0"
                     Height="50"
-                    Width="500"
+                    Width="600"
                     Visibility="Visible"
-                    Margin="10 0 0 0"
+                    Margin="0 0 0 0"
                     Name="PasswordPasswordBox"/>
                 <TextBox
+                    TextChanged="ViseblePasswordTextBox_TextChanged"
                     Height="50"
                     Visibility="Collapsed"
-                    Width="500"
-                    Margin="10 0 0 0"
+                    Padding="10 0 50 0"
+                    TextWrapping="NoWrap"
+                    Width="600"
+                    Margin="0 0 0 0"
                     Name="ViseblePasswordTextBox"/>
-            </StackPanel>
+                <TextBlock
+                    x:Name="PasswordText"
+                    Margin="15 0 0 0"
+                    FontSize="40"
+                    Width="140"
+                    HorizontalAlignment="Left"
+                    Text="PASSWORD"
+                    Style="{StaticResource TextTextBlock}"/>
+                <Button
+                    HorizontalAlignment="Right"
+                    Margin="0 0 10 0"
+                    Height="35"
+                    Width="35"
+                    Visibility="Visible"
+                    x:Name="VisebleTruePasswordButton"
+                    Click="VisebleTruePasswordButton_Click">
+                        <Button.Background>
+                            <ImageBrush 
+                        ImageSource="\ContentFolder\Image\ViseblTrue.png" 
+                        TileMode="FlipX" 
+                        Stretch="UniformToFill"/>
+                        </Button.Background>
+                </Button>
+                <Button
+                    HorizontalAlignment="Right"
+                    Margin="0 0 10 0"
+                    Height="35"
+                    Width="35"
+                    Visibility="Collapsed"
+                    x:Name="VisebleFalsePasswordButton"
+                    Click="VisebleFalsePasswordButton_Click">
+                        <Button.Background>
+                            <ImageBrush 
+                        ImageSource="\ContentFolder\Image\VisebalFols.png" 
+                        TileMode="FlipX" 
+                        Stretch="UniformToFill"/>
+                        </Button.Background>
+                </Button>
+            </Grid>
+            <ProgressBar
+                Name="TestProgressBar"
+                Visibility="Collapsed"
+                Minimum="0"
+                Maximum="100"
+                Height="40"
+                Width="500"
+                Margin="0 20 0 0"/>
         </StackPanel>
-        <Button
-            HorizontalAlignment="Right"
-            Margin="0 0 30 40"
-            Height="35"
-            Width="35"
-            Visibility="Visible"
-            x:Name="VisebleTruePasswordButton"
-            Click="VisebleTruePasswordButton_Click">
-            <Button.Background>
-                <ImageBrush 
-                    ImageSource="\ContentFolder\Image\ViseblTrue.png" 
-                    TileMode="FlipX" 
-                    Stretch="UniformToFill"/>
-            </Button.Background>
-        </Button>
-        <Button
-            HorizontalAlignment="Right"
-            Margin="0 0 30 40"
-            Height="35"
-            Width="35"
-            Visibility="Collapsed"
-            x:Name="VisebleFalsePasswordButton"
-            Click="VisebleFalsePasswordButton_Click">
-            <Button.Background>
-                <ImageBrush 
-                    ImageSource="\ContentFolder\Image\VisebalFols.png" 
-                    TileMode="FlipX" 
-                    Stretch="UniformToFill"/>
-            </Button.Background>
-        </Button>
-        <Button
-            Name="NextButton"
-            Click="NextButton_Click"
-            Content="ВОЙТИ"
-            Height="60"
-            Width="450"
-            Margin="0 0 0 20"
-            VerticalAlignment="Bottom"
-            HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 20" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button
+                Name="NextButton"
+                Click="NextButton_Click"
+                Content="ВОЙТИ"
+                Height="60"
+                Width="450"
+                Margin="0 0 10 0"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Page>

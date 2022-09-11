@@ -17,7 +17,7 @@
         <!--#endregion-->
         <!--#region Page-->
         <Style TargetType="Page" x:Key="PageAutorization">
-            <Setter Property="Width" Value="680"/>
+            <Setter Property="Width" Value="780"/>
             <Setter Property="Height" Value="288"/>
         </Style>
         <Style TargetType="Page" x:Key="MainPage">
