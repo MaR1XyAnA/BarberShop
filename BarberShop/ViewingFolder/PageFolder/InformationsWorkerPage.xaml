@@ -112,7 +112,7 @@
                                 Width="226"
                                 Visibility="Collapsed"
                                 Text="{Binding PassportWorkerTable.DateOfBirthWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
-                                x:Name="DateOfBirthWorkerWorkerTextBox"/>
+                                x:Name="DateOfBirthWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                             <TextBlock 
@@ -298,12 +298,12 @@
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.PassportIssuedWorker}"
-                        Name="PassportWorkerTableTextBlock"/>
+                        Name="PassportIssuedWorkerTextBlock"/>
                     <TextBox
                         Width="501"
                         Visibility="Collapsed"
                         Text="{Binding PassportWorkerTable.PassportIssuedWorker}"
-                        x:Name="PassportWorkerTableTextBox"/>
+                        x:Name="PassportIssuedWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
                     <TextBlock 
@@ -312,7 +312,7 @@
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.DateOfIssueWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
-                        Name="DateOfIssueWorkerTableTextBlock"/>
+                        Name="DateOfIssueWorkerTextBlock"/>
                     <TextBox
                         Width="422"
                         Visibility="Collapsed"
@@ -325,7 +325,8 @@
                         Text="КОД ПОДРАЗДЕЛЕНИЯ:"/>
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding PassportWorkerTable.DivisionCodeWorker}"/>
+                        Text="{Binding PassportWorkerTable.DivisionCodeWorker}"
+                        Name="DivisionCodeWorkerTextBlock"/>
                     <TextBox
                         Width="447"
                         Visibility="Collapsed"
