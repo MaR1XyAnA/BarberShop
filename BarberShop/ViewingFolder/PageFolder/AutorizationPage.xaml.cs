@@ -1,20 +1,8 @@
-﻿using BarberShop.ContentFolder.ClassFolder;
-using BarberShop.ViewingFolder.WindowsFolder;
+﻿using BarberShop.ViewingFolder.WindowsFolder;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace BarberShop.ViewingFolder.PageFolder
@@ -40,7 +28,7 @@ namespace BarberShop.ViewingFolder.PageFolder
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
-        {
+        {   
             try
             {
                 var AutorizationUser = DataBaseFolder.AppConnectClass.DataBase.WorkerTable.FirstOrDefault
@@ -50,11 +38,6 @@ namespace BarberShop.ViewingFolder.PageFolder
                 {
                     MessageBox.Show("Данного пользователя не существует в базе данных","Ошибка авторизации");
                 }
-                //for (int i = 0; i < 100; i++)
-                //{
-                //    (sender as AutorizationUser).ReportProgress(i);
-                //    Thread.Sleep(100);
-                //}
                 else
                 {
                     switch (AutorizationUser.PostWorker)

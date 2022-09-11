@@ -21,9 +21,9 @@
                 <TextBlock
                     Width="70"
                     HorizontalAlignment="Left"
-                    FontSize="40"
+                    FontSize="35"
                     Text="LOGIN"
-                    Margin="15 0 0 0"
+                    Margin="15 5 0 0"
                     x:Name="LoginText"
                     Style="{StaticResource TextTextBlock}"/>
             </Grid>
@@ -47,8 +47,8 @@
                     Name="ViseblePasswordTextBox"/>
                 <TextBlock
                     x:Name="PasswordText"
-                    Margin="15 0 0 0"
-                    FontSize="40"
+                    Margin="15 5 0 0"
+                    FontSize="35"
                     Width="140"
                     HorizontalAlignment="Left"
                     Text="PASSWORD"
@@ -63,9 +63,9 @@
                     Click="VisebleTruePasswordButton_Click">
                         <Button.Background>
                             <ImageBrush 
-                        ImageSource="\ContentFolder\Image\ViseblTrue.png" 
-                        TileMode="FlipX" 
-                        Stretch="UniformToFill"/>
+                                ImageSource="\ContentFolder\Image\ViseblTrue.png" 
+                                TileMode="FlipX" 
+                                Stretch="UniformToFill"/>
                         </Button.Background>
                 </Button>
                 <Button
@@ -78,9 +78,9 @@
                     Click="VisebleFalsePasswordButton_Click">
                         <Button.Background>
                             <ImageBrush 
-                        ImageSource="\ContentFolder\Image\VisebalFols.png" 
-                        TileMode="FlipX" 
-                        Stretch="UniformToFill"/>
+                                ImageSource="\ContentFolder\Image\VisebalFols.png" 
+                                TileMode="FlipX" 
+                                Stretch="UniformToFill"/>
                         </Button.Background>
                 </Button>
             </Grid>
@@ -98,6 +98,7 @@
                 Name="NextButton"
                 Click="NextButton_Click"
                 Content="ВОЙТИ"
+                Visibility="Visible"
                 Height="60"
                 Width="450"
                 Margin="0 0 10 0"

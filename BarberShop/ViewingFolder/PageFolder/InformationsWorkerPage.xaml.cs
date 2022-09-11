@@ -31,5 +31,47 @@ namespace BarberShop.ViewingFolder.PageFolder
                 DataContext = workerTable;
             }
         }
+
+        private void EditInformationsWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditInformationsWorkerButton.Visibility = Visibility.Collapsed;
+            DeleteInformationsWokerButton.Visibility = Visibility.Collapsed;
+            SaveInformationsWorkerButton.Visibility = Visibility.Visible;
+            CanselEditInformationsWorkerButton.Visibility = Visibility.Visible;
+            UploadingPhotosButton.Visibility = Visibility.Visible;
+
+            string PersonalNumberWorkerString;
+            PersonalNumberWorkerTextBlock.Visibility = Visibility.Collapsed;
+            PersonalNumberWorkerTextBox.Visibility = Visibility.Visible;
+            PersonalNumberWorkerString = Convert.ToString(PersonalNumberWorkerTextBlock.Text);
+            PersonalNumberWorkerTextBox.Text = PersonalNumberWorkerString;
+        }
+
+        private void DeleteInformationsWokerButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveInformationsWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CanselEditInformationsWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditInformationsWorkerButton.Visibility = Visibility.Visible;
+            DeleteInformationsWokerButton.Visibility = Visibility.Visible;
+            SaveInformationsWorkerButton.Visibility = Visibility.Collapsed;
+            CanselEditInformationsWorkerButton.Visibility = Visibility.Collapsed;
+            UploadingPhotosButton.Visibility = Visibility.Collapsed;
+
+            PersonalNumberWorkerTextBlock.Visibility = Visibility.Visible;
+            PersonalNumberWorkerTextBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void UploadingPhotosButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

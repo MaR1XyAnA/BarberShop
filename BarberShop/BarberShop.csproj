@@ -241,7 +241,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ViewingFolder\HTMLFolder\HtmlMail.html" />
     <Resource Include="ContentFolder\Image\VisebalFols.png" />
     <Resource Include="ContentFolder\Image\ViseblTrue.png" />
     <Content Include="ViewingFolder\DataBaseFolder\ModelDataBase.Context.tt">
