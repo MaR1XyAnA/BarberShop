@@ -26,7 +26,6 @@
                                 x:Name="PersonalNumberWorkerTextBlock"/>
                             <TextBox
                                 Width="170"
-                                Text="{Binding PersonalNumberWorker}"
                                 Visibility="Collapsed"
                                 Name="PersonalNumberWorkerTextBox"/>
                         </StackPanel>
@@ -40,7 +39,6 @@
                                 x:Name="StatusWorkerTextBlock"/>
                             <TextBox
                                 Width="323"
-                                Text="{Binding StatusTable.NameStatus}"
                                 Visibility="Collapsed"
                                 Name="StatusWorkerTextBox"/>
                         </StackPanel>
@@ -55,7 +53,6 @@
                             <TextBox
                                 Width="295"
                                 Visibility="Collapsed"
-                                Text="{Binding PassportWorkerTable.SurnameWorker}"
                                 x:Name="SurnameWorkerWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -69,7 +66,6 @@
                             <TextBox
                                 Width="349"
                                 Visibility="Collapsed"
-                                Text="{Binding PassportWorkerTable.NameWorker}"
                                 x:Name="NameWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -83,7 +79,6 @@
                             <TextBox
                                 Width="300"
                                 Visibility="Collapsed"
-                                Text="{Binding PassportWorkerTable.MiddleNameWorker}"
                                 x:Name="MiddleNameWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -97,7 +92,6 @@
                             <TextBox
                                 Width="351"
                                 Visibility="Collapsed"
-                                Text="{Binding PassportWorkerTable.PaulTable.NamePaul}"
                                 x:Name="PaulWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -111,7 +105,6 @@
                             <TextBox
                                 Width="226"
                                 Visibility="Collapsed"
-                                Text="{Binding PassportWorkerTable.DateOfBirthWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
                                 x:Name="DateOfBirthWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -125,7 +118,6 @@
                             <TextBox
                                 Width="270"
                                 Visibility="Collapsed"
-                                Text="{Binding PostTable.NamePost}"
                                 x:Name="PostWorkerTextBox"/>
                         </StackPanel>
                     </StackPanel>
@@ -180,7 +172,6 @@
                     <TextBox
                         Width="600"
                         Visibility="Collapsed"
-                        Text="{Binding LoginWorker}"
                         x:Name="LoginWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -194,7 +185,6 @@
                     <TextBox
                         Width="587"
                         Visibility="Collapsed"
-                        Text="{Binding PasswordWorker}"
                         x:Name="PasswordWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
@@ -227,7 +217,6 @@
                     <TextBox
                         Width="498"
                         Visibility="Collapsed"
-                        Text="{Binding NumberPhoneWorker}"
                         x:Name="NumberPhoneWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -241,7 +230,6 @@
                     <TextBox
                         Width="467"
                         Visibility="Collapsed"
-                        Text="{Binding EmailWorker}"
                         x:Name="EmailWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
@@ -274,7 +262,6 @@
                     <TextBox
                         Width="502"
                         Visibility="Collapsed"
-                        Text="{Binding PSWorker}"
                         x:Name="PSWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -288,7 +275,6 @@
                     <TextBox
                         Width="498"
                         Visibility="Collapsed"
-                        Text="{Binding PNWorker}"
                         x:Name="PNWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -302,7 +288,6 @@
                     <TextBox
                         Width="501"
                         Visibility="Collapsed"
-                        Text="{Binding PassportWorkerTable.PassportIssuedWorker}"
                         x:Name="PassportIssuedWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -316,7 +301,6 @@
                     <TextBox
                         Width="422"
                         Visibility="Collapsed"
-                        Text="{Binding PassportWorkerTable.DateOfIssueWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
                         x:Name="DateOfIssueWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -330,7 +314,6 @@
                     <TextBox
                         Width="447"
                         Visibility="Collapsed"
-                        Text="{Binding PassportWorkerTable.DivisionCodeWorker}"
                         x:Name="DivisionCodeWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -344,7 +327,6 @@
                     <TextBox
                         Width="488"
                         Visibility="Collapsed"
-                        Text="{Binding PassportWorkerTable.PlaceOfBirthWorker}"
                         x:Name="PlaceOfBirthWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
@@ -377,7 +359,6 @@
                     <TextBox
                         Width="594"
                         Visibility="Collapsed"
-                        Text="{Binding PassportWorkerTable.RegistrationRegionWorker}"
                         x:Name="RegistrationRegionWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -391,7 +372,6 @@
                     <TextBox
                         Width="603"
                         Visibility="Collapsed"
-                        Text="{Binding PassportWorkerTable.DistrictWorker}"
                         x:Name="DistrictWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -405,7 +385,6 @@
                     <TextBox
                         Width="605"
                         Visibility="Collapsed"
-                        Text="{Binding PassportWorkerTable.RegistrationPointWorker}"
                         x:Name="RegistrationPointWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -419,7 +398,6 @@
                     <TextBox
                         Width="601"
                         Visibility="Collapsed"
-                        Text="{Binding PassportWorkerTable.RegistrationStreetWorker}"
                         x:Name="RegistrationStreetWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -433,7 +411,6 @@
                     <TextBox
                         Width="618"
                         Visibility="Collapsed"
-                        Text="{Binding PassportWorkerTable.RegistrationHouseWorker}"
                         x:Name="RegistrationHouseWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -447,7 +424,6 @@
                     <TextBox
                         Width="570"
                         Visibility="Collapsed"
-                        Text="{Binding PassportWorkerTable.RegistrationApartmentWorker}"
                         x:Name="RegistrationApartmentWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
@@ -480,7 +456,6 @@
                     <TextBox
                         Width="536"
                         Visibility="Collapsed"
-                        Text="{Binding CardNumberWorker}"
                         x:Name="CardNumberWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -494,7 +469,6 @@
                     <TextBox
                         Width="481"
                         Visibility="Collapsed"
-                        Text="{Binding SalaryCardTable.CardValidMonth}"
                         x:Name="CardValidMonthTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -508,7 +482,6 @@
                     <TextBox
                         Width="506"
                         Visibility="Collapsed"
-                        Text="{Binding SalaryCardTable.CardValidYears}"
                         x:Name="CardValidYearsTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -522,7 +495,6 @@
                     <TextBox
                         Width="439"
                         Visibility="Collapsed"
-                        Text="{Binding SalaryCardTable.CardKeeperName}"
                         x:Name="CardKeeperNameTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -536,7 +508,6 @@
                     <TextBox
                         Width="386"
                         Visibility="Collapsed"
-                        Text="{Binding SalaryCardTable.CardKeeperSurname}"
                         x:Name="CardKeeperSurnameTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
@@ -550,7 +521,6 @@
                     <TextBox
                         Width="559"
                         Visibility="Collapsed"
-                        Text="{Binding SalaryCardTable.CardCode}"
                         x:Name="CardCodeTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
