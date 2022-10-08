@@ -523,7 +523,7 @@
                         Visibility="Collapsed"
                         x:Name="CardCodeTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Vertical">
+                <StackPanel Visibility="Collapsed" Orientation="Vertical">
                     <Button
                         x:Name="EditInformationsWorkerButton"
                         Click="EditInformationsWorkerButton_Click"

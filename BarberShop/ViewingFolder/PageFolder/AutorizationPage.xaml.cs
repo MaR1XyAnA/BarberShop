@@ -19,16 +19,11 @@ namespace BarberShop.ViewingFolder.PageFolder
             dispatcher = new DispatcherTimer(); // Подключаю DispatcherTimer
             dispatcher.Interval = TimeSpan.FromSeconds(5); // Обновляю раз в 1 секунду
             dispatcher.Tick += Dispatcher_Tick; // Задаю количество раз обновлений
-            dispatcher.Start(); // Запускаю DispatcherTimer
+             // Запускаю DispatcherTimer
         }
 
         private void Dispatcher_Tick(object sender, EventArgs e)
         {
-
-        }
-
-        private void NextButton_Click(object sender, RoutedEventArgs e)
-        {   
             try
             {
                 var AutorizationUser = DataBaseFolder.AppConnectClass.DataBase.WorkerTable.FirstOrDefault
@@ -36,17 +31,18 @@ namespace BarberShop.ViewingFolder.PageFolder
                              data.LoginWorker == LoginTextBox.Text && data.PasswordWorker == ViseblePasswordTextBox.Text);
                 if (AutorizationUser == null)
                 {
-                    MessageBox.Show("Данного пользователя не существует в базе данных","Ошибка авторизации");
+                    MessageBox.Show("Данного пользователя не существует в базе данных", "Ошибка авторизации");
                 }
                 else
                 {
+                    MainWindows mainWindows = new MainWindows();
                     switch (AutorizationUser.PostWorker)
                     {
                         case "Директор":
-                            MessageBox.Show("Директор");
+                            mainWindows.Show();
                             break;
                         case "Кассир":
-                            MessageBox.Show("Кассир");
+                            mainWindows.Show();
                             break;
                         case "Охранник":
                             MessageBox.Show("Охранник");
@@ -55,7 +51,6 @@ namespace BarberShop.ViewingFolder.PageFolder
                             MessageBox.Show("Парикхмахер");
                             break;
                         case "Системный администратор":
-                            MainWindows mainWindows = new MainWindows();
                             mainWindows.Show();
                             break;
                         case "Уборщик":
@@ -73,6 +68,22 @@ namespace BarberShop.ViewingFolder.PageFolder
             {
                 MessageBox.Show("" + EX, "Error EX");
             }
+            dispatcher.Stop();
+            PasswordPasswordBox.IsEnabled = true;
+            ViseblePasswordTextBox.IsEnabled = true;
+            LoginTextBox.IsEnabled = true;
+            NextButton.IsEnabled = true;
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            dispatcher.Start();
+            PasswordPasswordBox.IsEnabled = false;
+            ViseblePasswordTextBox.IsEnabled = false;
+            LoginTextBox.IsEnabled = false;
+            NextButton.IsEnabled = false;
+            //ProgressLoadingWindows progressLoadingWindows = new ProgressLoadingWindows();
+            //progressLoadingWindows.ShowDialog();
         }
 
         private void VisebleTruePasswordButton_Click(object sender, RoutedEventArgs e)

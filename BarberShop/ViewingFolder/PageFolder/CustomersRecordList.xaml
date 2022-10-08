@@ -9,44 +9,58 @@
     <Grid>
         <Grid>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Border  HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="Auto" Margin="0 0 0 10" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
+            <Border  HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Height="Auto" Margin="0 0 0 10" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock 
                         HorizontalAlignment="Center"
-                        FontSize="37"
+                        FontSize="60"
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ИНФОРМАЦИЯ О КЛИЕНТЕ"/>
-                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                    <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
                         <TextBlock 
+                            FontSize="40"
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"
                             Text="ФАМИЛИЯ:"/>
                         <TextBox
+                            x:Name="SurnameTextBox"
+                            Height="50"
                             Margin="5 0 0 0"
-                            Width="387"/>
+                            Width="700"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                         <TextBlock 
+                            FontSize="40"
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"
                             Text="ИМЯ:"/>
                         <TextBox
+                            x:Name="NameTextBox"
+                            Height="50"
                             Margin="5 0 0 0"
-                            Width="439"/>
+                            Width="771"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                         <TextBlock 
+                            FontSize="40"
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"
                             Text="ОТЧЕСТВО:"/>
                         <TextBox
+                            x:Name="MiddlenameTextBox"
+                            Height="50"
                             Margin="5 0 0 0"
-                            Width="391"/>
+                            Width="707"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0 3 0 10">
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                         <TextBlock 
+                            FontSize="40"
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"
                             Text="ПОЛ:"/>
-                        <TextBox
+                        <ComboBox
+                            Name="PaulTextBox"
+                            DisplayMemberPath="NamePaul"
+                            Height="50"
+                            FontSize="18"
                             Margin="5 0 0 0"
-                            Width="442"/>
+                            Width="775"/>
                     </StackPanel>
                  </StackPanel>
             </Border>
@@ -54,35 +68,67 @@
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock 
                         HorizontalAlignment="Center"
-                        FontSize="37"
+                        FontSize="60"
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ИНФОРМАЦИЯ О СТРИЖКЕ"/>
-                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <TextBlock 
+                                Style="{StaticResource InfoDataBaseTextBlockFalse}"
+                                Text="ПАРИКХМАХЕР:"
+                                FontSize="40"/>
+                            <ComboBox
+                                FontSize="18"
+                                Name="NameHairdresserComboBox"
+                                Margin="5 0 0 0"
+                                Width="392"
+                                Height="50"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                         <TextBlock 
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"
-                            Text="СТРИЖКА:"/>
-                        <TextBox
+                            Text="СТРИЖКА:"
+                            FontSize="40"/>
+                        <ComboBox
+                            FontSize="18"
+                            Name="NameHaircutComboBox"
+                            DisplayMemberPath="NameHaircut"
                             Margin="5 0 0 0"
-                            Width="391"/>
+                            Width="450"
+                            Height="50"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                         <TextBlock 
+                            FontSize="40"
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"
                             Text="ДАТА ЗАПИСИ:"/>
                         <TextBox
+                            x:Name="DataRecordTextBox"
+                            MaxLength="8"
+                            Height="50"
                             Margin="5 0 0 0"
                             Width="352"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0 3 0 10">
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                         <TextBlock 
+                            FontSize="40"
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"
                             Text="ВРЕМЯ ЗАПИСИ:"/>
                         <TextBox
+                            x:Name="TimeRecordTextBox"
+                            MaxLength="5"
+                            Height="50"
                             Margin="5 0 0 0"
                             Width="340"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
+                <Button
+                    x:Name="NextButton"
+                    Click="NextButton_Click"
+                    Content="ЗАПИСАТЬ"
+                    Height="60"
+                    Width="460"
+                    Margin="0 20 0 0"/>
             </StackPanel>
         </Grid>
     </Grid>

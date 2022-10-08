@@ -46,7 +46,7 @@ namespace BarberShop.ViewingFolder.WindowsFolder
 
         private void QueueListButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new SessionsPage());
         }
     }
 }

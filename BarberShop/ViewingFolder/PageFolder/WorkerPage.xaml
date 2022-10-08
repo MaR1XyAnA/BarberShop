@@ -23,10 +23,10 @@
                         <Style TargetType="ListBoxItem">
                             <Style.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="20"/>
-                                </Style>
+                                    <Setter Property="CornerRadius" Value="20"/>                                </Style>
                             </Style.Resources>
                         </Style>
+                        
                     </ListBox.ItemContainerStyle>
                     <ListBox.ItemTemplate>
                         <DataTemplate>

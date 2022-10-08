@@ -47,21 +47,21 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button 
+                    <ToggleButton 
                         Name="InfoTextAutorizationButton"
                         Click="InfoTextAutorizationButton_Click"
                         Content="ВХОД"
                         Margin="0 0 40 0" 
                         Style="{StaticResource TextButton}"
                         FontSize="25"/>
-                    <Button 
+                    <ToggleButton 
                         Name="InfoTextInformationButton"
                         Click="InfoTextInformationButton_Click"
                         Content="СЕССИЯ" 
                         Margin="40 0 40 0" 
                         Style="{StaticResource TextButton}"
                         FontSize="25"/>
-                    <Button 
+                    <ToggleButton 
                         Name="InfoTextEmailButton"
                         Click="InfoTextEmailButton_Click"
                         Content="EMAIL" 
@@ -69,15 +69,6 @@
                         Style="{StaticResource TextButton}"
                         FontSize="25"/>
                 </StackPanel>
-                <Border
-                    Name="InfoAutorizationBorder"
-                    CornerRadius="4"
-                    Height="8"
-                    Width="200"
-                    Background="#e94560"
-                    Margin="60 0 0 15"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Left"/>
             </Grid>
             <Grid Grid.Row="2">
                 <Frame

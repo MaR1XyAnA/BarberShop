@@ -46,6 +46,7 @@ namespace BarberShop.ViewingFolder.PageFolder
         {
             InformationFrame.Navigate(new AddendumWorkerPage());
             BullshitextBlock.Visibility = Visibility.Collapsed;
+            AddendumWorkerButton.Visibility = Visibility.Collapsed;
         }
     }
 }

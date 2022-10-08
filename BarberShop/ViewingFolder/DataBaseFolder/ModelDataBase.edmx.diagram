@@ -5,24 +5,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c3c7c6855db0426092c648b380b4b090" Name="Diagram1" ZoomLevel="95">
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.ClientTable" Width="1.5" PointX="5.25" PointY="8" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.HaircutTable" Width="1.5" PointX="5.25" PointY="11.875" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.ImageWorkerTable" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.PassportWorkerTable" Width="1.5" PointX="3" PointY="2" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.PaulTable" Width="1.5" PointX="0.75" PointY="3.875" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.PostTable" Width="1.5" PointX="3" PointY="10.875" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.ResultTable" Width="1.5" PointX="7.5" PointY="3.25" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.SalaryCardTable" Width="1.5" PointX="3" PointY="13.25" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.ShopTable" Width="1.5" PointX="7.75" PointY="6.75" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.StatusTable" Width="1.5" PointX="3" PointY="8.75" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="9.75" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.WorkerTable" Width="1.5" PointX="5.25" PointY="2.625" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.ClientTable" Width="1.5" PointX="5.25" PointY="7.375" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.HaircutTable" Width="1.5" PointX="5.25" PointY="12.5" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.ImageWorkerTable" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.PassportWorkerTable" Width="1.5" PointX="3" PointY="1.875" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.PaulTable" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.PostTable" Width="1.5" PointX="3" PointY="13.875" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.ResultTable" Width="1.5" PointX="7.5" PointY="3" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.SalaryCardTable" Width="1.5" PointX="3" PointY="10.75" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.ShopTable" Width="1.5" PointX="7.75" PointY="7.625" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.StatusResultTable" Width="1.5" PointX="5.25" PointY="10.25" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.StatusTable" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="1.625" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.WorkerTable" Width="1.5" PointX="5.25" PointY="2.5" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.HairdresserView" Width="1.5" PointX="9.75" PointY="4.625" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_ResultTable_ClientTable" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_ResultTable_HaircutTable" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_PassportWorkerTable_ImageWorkerTable" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_PassportWorkerTable_PaulTable" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_WorkerTable_PassportWorkerTable" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_WorkerTable_PostTable" />
+        <AssociationConnector Association="BarberShopDataBaseModel.FK_ResultTable_StatusResultTable" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_ResultTable_WorkerTable1" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_WorkerTable_SalaryCardTable" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_WorkerTable_StatusTable" />

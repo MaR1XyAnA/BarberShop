@@ -1,26 +1,12 @@
 ﻿using BarberShop.ContentFolder.ClassFolder;
 using BarberShop.ViewingFolder.PageFolder;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace BarberShop.ViewingFolder.WindowsFolder
 {
-    /// <summary>
-    /// Логика взаимодействия для AuthorizationWindows.xaml
-    /// </summary>
     public partial class AuthorizationWindows : Window
     {
         private DispatcherTimer dispatcher;
@@ -33,6 +19,7 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             dispatcher.Interval = TimeSpan.FromSeconds(0.5); // Обновляю раз в 1 секунду
             dispatcher.Tick += Dispatcher_Tick; // Задаю количество раз обновлений
             dispatcher.Start(); // Запускаю DispatcherTimer
+            InfoTextAutorizationButton.IsChecked = true;
         }
 
         private void Dispatcher_Tick(object sender, EventArgs e)
@@ -60,32 +47,23 @@ namespace BarberShop.ViewingFolder.WindowsFolder
 
         private void InfoTextAutorizationButton_Click(object sender, RoutedEventArgs e)
         {
-            TranslateTransform inTheCenterBorder = new TranslateTransform();
-            InfoAutorizationBorder.RenderTransform = inTheCenterBorder;
-            DoubleAnimation doubleAnimationBorder = new DoubleAnimation(310, 0, TimeSpan.FromSeconds(0.2));
-            InfoAutorizationBorder.Width = 200;
-            inTheCenterBorder.BeginAnimation(TranslateTransform.XProperty, doubleAnimationBorder);
             MainFrame.Navigate(new AutorizationPage());
+            InfoTextInformationButton.IsChecked = false;
+            InfoTextEmailButton.IsChecked = false;
         }
 
         private void InfoTextInformationButton_Click(object sender, RoutedEventArgs e)
         {
-            TranslateTransform inTheLeftBorder = new TranslateTransform();
-            InfoAutorizationBorder.RenderTransform = inTheLeftBorder;
-            DoubleAnimation doubleAnimationBorder = new DoubleAnimation(0, 210, TimeSpan.FromSeconds(0.2));
-            InfoAutorizationBorder.Width = 250;
-            inTheLeftBorder.BeginAnimation(TranslateTransform.XProperty, doubleAnimationBorder);
             MainFrame.Navigate(new InformationsSessionPage());
+            InfoTextAutorizationButton.IsChecked = false;
+            InfoTextEmailButton.IsChecked = false;
         }
 
         private void InfoTextEmailButton_Click(object sender, RoutedEventArgs e)
         {
-            TranslateTransform inTheRightBorder = new TranslateTransform();
-            InfoAutorizationBorder.RenderTransform = inTheRightBorder;
-            DoubleAnimation doubleAnimationBorder = new DoubleAnimation(0, 475, TimeSpan.FromSeconds(0.2));
-            InfoAutorizationBorder.Width = 200;
-            inTheRightBorder.BeginAnimation(TranslateTransform.XProperty, doubleAnimationBorder);
             MainFrame.Navigate(new EmailPage());
+            InfoTextAutorizationButton.IsChecked = false;
+            InfoTextInformationButton.IsChecked = false;
         }
     }
 }

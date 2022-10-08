@@ -12,21 +12,11 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class ClientTable
+    public partial class HairdresserView
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ClientTable()
-        {
-            this.ResultTable = new HashSet<ResultTable>();
-        }
-    
-        public int PersonalNumberClient { get; set; }
-        public string SurnameClient { get; set; }
-        public string NameClient { get; set; }
-        public string MiddleNameClient { get; set; }
-        public string PaulClient { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ResultTable> ResultTable { get; set; }
+        public string PostWorker { get; set; }
+        public string SurnameWorker { get; set; }
+        public string NameWorker { get; set; }
+        public string MiddleNameWorker { get; set; }
     }
 }

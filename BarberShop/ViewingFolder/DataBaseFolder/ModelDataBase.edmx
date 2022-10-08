@@ -13,7 +13,7 @@
           <Property Name="SurnameClient" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NameClient" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MiddleNameClient" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PaulClient" Type="bit" Nullable="false" />
+          <Property Name="PaulClient" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="HaircutTable">
           <Key>
@@ -78,6 +78,7 @@
           <Property Name="PNClient" Type="int" Nullable="false" />
           <Property Name="PNHaircut" Type="int" Nullable="false" />
           <Property Name="DataResult" Type="date" Nullable="false" />
+          <Property Name="StatusRezult" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="SalaryCardTable">
           <Key>
@@ -96,6 +97,12 @@
           </Key>
           <Property Name="IDShop" Type="int" Nullable="false" />
           <Property Name="NameShop" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusResultTable">
+          <Key>
+            <PropertyRef Name="NameStatus" />
+          </Key>
+          <Property Name="NameStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="StatusTable">
           <Key>
@@ -127,6 +134,19 @@
           <Property Name="PasswordWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="NumberPhoneWorker" Type="nchar" MaxLength="12" Nullable="false" />
           <Property Name="EmailWorker" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "BarberShopDataBase.dbo.HairdresserView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="HairdresserView">
+          <Key>
+            <PropertyRef Name="PostWorker" />
+            <PropertyRef Name="SurnameWorker" />
+            <PropertyRef Name="NameWorker" />
+          </Key>
+          <Property Name="PostWorker" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="SurnameWorker" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="NameWorker" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="MiddleNameWorker" Type="nvarchar" MaxLength="25" />
         </EntityType>
         <Association Name="FK_PassportWorkerTable_ImageWorkerTable">
           <End Role="ImageWorkerTable" Type="Self.ImageWorkerTable" Multiplicity="0..1" />
@@ -173,6 +193,18 @@
             </Principal>
             <Dependent Role="ResultTable">
               <PropertyRef Name="PNHaircut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultTable_StatusResultTable">
+          <End Role="StatusResultTable" Type="Self.StatusResultTable" Multiplicity="1" />
+          <End Role="ResultTable" Type="Self.ResultTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusResultTable">
+              <PropertyRef Name="NameStatus" />
+            </Principal>
+            <Dependent Role="ResultTable">
+              <PropertyRef Name="StatusRezult" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -279,9 +311,18 @@
           <EntitySet Name="ResultTable" EntityType="Self.ResultTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalaryCardTable" EntityType="Self.SalaryCardTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShopTable" EntityType="Self.ShopTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusResultTable" EntityType="Self.StatusResultTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StatusTable" EntityType="Self.StatusTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkerTable" EntityType="Self.WorkerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HairdresserView" EntityType="Self.HairdresserView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [HairdresserView].[PostWorker] AS [PostWorker], 
+    [HairdresserView].[SurnameWorker] AS [SurnameWorker], 
+    [HairdresserView].[NameWorker] AS [NameWorker], 
+    [HairdresserView].[MiddleNameWorker] AS [MiddleNameWorker]
+    FROM [dbo].[HairdresserView] AS [HairdresserView]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_PassportWorkerTable_ImageWorkerTable" Association="Self.FK_PassportWorkerTable_ImageWorkerTable">
             <End Role="ImageWorkerTable" EntitySet="ImageWorkerTable" />
             <End Role="PassportWorkerTable" EntitySet="PassportWorkerTable" />
@@ -296,6 +337,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_ResultTable_HaircutTable" Association="Self.FK_ResultTable_HaircutTable">
             <End Role="HaircutTable" EntitySet="HaircutTable" />
+            <End Role="ResultTable" EntitySet="ResultTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultTable_StatusResultTable" Association="Self.FK_ResultTable_StatusResultTable">
+            <End Role="StatusResultTable" EntitySet="StatusResultTable" />
             <End Role="ResultTable" EntitySet="ResultTable" />
           </AssociationSet>
           <AssociationSet Name="FK_ResultTable_WorkerTable1" Association="Self.FK_ResultTable_WorkerTable1">
@@ -363,9 +408,11 @@
           <EntitySet Name="ResultTable" EntityType="BarberShopDataBaseModel.ResultTable" />
           <EntitySet Name="SalaryCardTable" EntityType="BarberShopDataBaseModel.SalaryCardTable" />
           <EntitySet Name="ShopTable" EntityType="BarberShopDataBaseModel.ShopTable" />
+          <EntitySet Name="StatusResultTable" EntityType="BarberShopDataBaseModel.StatusResultTable" />
           <EntitySet Name="StatusTable" EntityType="BarberShopDataBaseModel.StatusTable" />
           <EntitySet Name="sysdiagrams" EntityType="BarberShopDataBaseModel.sysdiagrams" />
           <EntitySet Name="WorkerTable" EntityType="BarberShopDataBaseModel.WorkerTable" />
+          <EntitySet Name="HairdresserView" EntityType="BarberShopDataBaseModel.HairdresserView" />
           <AssociationSet Name="FK_ResultTable_ClientTable" Association="BarberShopDataBaseModel.FK_ResultTable_ClientTable">
             <End Role="ClientTable" EntitySet="ClientTable" />
             <End Role="ResultTable" EntitySet="ResultTable" />
@@ -389,6 +436,10 @@
           <AssociationSet Name="FK_WorkerTable_PostTable" Association="BarberShopDataBaseModel.FK_WorkerTable_PostTable">
             <End Role="PostTable" EntitySet="PostTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultTable_StatusResultTable" Association="BarberShopDataBaseModel.FK_ResultTable_StatusResultTable">
+            <End Role="StatusResultTable" EntitySet="StatusResultTable" />
+            <End Role="ResultTable" EntitySet="ResultTable" />
           </AssociationSet>
           <AssociationSet Name="FK_ResultTable_WorkerTable1" Association="BarberShopDataBaseModel.FK_ResultTable_WorkerTable1">
             <End Role="WorkerTable" EntitySet="WorkerTable" />
@@ -422,7 +473,7 @@
           <Property Name="SurnameClient" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NameClient" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MiddleNameClient" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PaulClient" Type="Boolean" Nullable="false" />
+          <Property Name="PaulClient" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_ClientTable" FromRole="ClientTable" ToRole="ResultTable" />
         </EntityType>
         <EntityType Name="HaircutTable">
@@ -495,8 +546,10 @@
           <Property Name="PNClient" Type="Int32" Nullable="false" />
           <Property Name="PNHaircut" Type="Int32" Nullable="false" />
           <Property Name="DataResult" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StatusRezult" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ClientTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_ClientTable" FromRole="ResultTable" ToRole="ClientTable" />
           <NavigationProperty Name="HaircutTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_HaircutTable" FromRole="ResultTable" ToRole="HaircutTable" />
+          <NavigationProperty Name="StatusResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_StatusResultTable" FromRole="ResultTable" ToRole="StatusResultTable" />
           <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_WorkerTable1" FromRole="ResultTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="SalaryCardTable">
@@ -517,6 +570,13 @@
           </Key>
           <Property Name="IDShop" Type="Int32" Nullable="false" />
           <Property Name="NameShop" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StatusResultTable">
+          <Key>
+            <PropertyRef Name="NameStatus" />
+          </Key>
+          <Property Name="NameStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_StatusResultTable" FromRole="StatusResultTable" ToRole="ResultTable" />
         </EntityType>
         <EntityType Name="StatusTable">
           <Key>
@@ -554,6 +614,17 @@
           <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_WorkerTable1" FromRole="WorkerTable" ToRole="ResultTable" />
           <NavigationProperty Name="SalaryCardTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_SalaryCardTable" FromRole="WorkerTable" ToRole="SalaryCardTable" />
           <NavigationProperty Name="StatusTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
+        </EntityType>
+        <EntityType Name="HairdresserView">
+          <Key>
+            <PropertyRef Name="PostWorker" />
+            <PropertyRef Name="SurnameWorker" />
+            <PropertyRef Name="NameWorker" />
+          </Key>
+          <Property Name="PostWorker" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SurnameWorker" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="NameWorker" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleNameWorker" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_ResultTable_ClientTable">
           <End Type="BarberShopDataBaseModel.ClientTable" Role="ClientTable" Multiplicity="1" />
@@ -626,6 +697,18 @@
             </Principal>
             <Dependent Role="WorkerTable">
               <PropertyRef Name="PostWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultTable_StatusResultTable">
+          <End Type="BarberShopDataBaseModel.StatusResultTable" Role="StatusResultTable" Multiplicity="1" />
+          <End Type="BarberShopDataBaseModel.ResultTable" Role="ResultTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusResultTable">
+              <PropertyRef Name="NameStatus" />
+            </Principal>
+            <Dependent Role="ResultTable">
+              <PropertyRef Name="StatusRezult" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -767,6 +850,7 @@
           <EntitySetMapping Name="ResultTable">
             <EntityTypeMapping TypeName="BarberShopDataBaseModel.ResultTable">
               <MappingFragment StoreEntitySet="ResultTable">
+                <ScalarProperty Name="StatusRezult" ColumnName="StatusRezult" />
                 <ScalarProperty Name="DataResult" ColumnName="DataResult" />
                 <ScalarProperty Name="PNHaircut" ColumnName="PNHaircut" />
                 <ScalarProperty Name="PNClient" ColumnName="PNClient" />
@@ -792,6 +876,13 @@
               <MappingFragment StoreEntitySet="ShopTable">
                 <ScalarProperty Name="NameShop" ColumnName="NameShop" />
                 <ScalarProperty Name="IDShop" ColumnName="IDShop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusResultTable">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.StatusResultTable">
+              <MappingFragment StoreEntitySet="StatusResultTable">
+                <ScalarProperty Name="NameStatus" ColumnName="NameStatus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -826,6 +917,16 @@
                 <ScalarProperty Name="PNWorker" ColumnName="PNWorker" />
                 <ScalarProperty Name="PSWorker" ColumnName="PSWorker" />
                 <ScalarProperty Name="PersonalNumberWorker" ColumnName="PersonalNumberWorker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HairdresserView">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.HairdresserView">
+              <MappingFragment StoreEntitySet="HairdresserView">
+                <ScalarProperty Name="MiddleNameWorker" ColumnName="MiddleNameWorker" />
+                <ScalarProperty Name="NameWorker" ColumnName="NameWorker" />
+                <ScalarProperty Name="SurnameWorker" ColumnName="SurnameWorker" />
+                <ScalarProperty Name="PostWorker" ColumnName="PostWorker" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

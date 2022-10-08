@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace BarberShop.ViewingFolder.PageFolder
 {
-    /// <summary>
-    /// Логика взаимодействия для InformationsWorkerPage.xaml
-    /// </summary>
     public partial class InformationsWorkerPage : Page
     {
         WorkerTable workerTable = new WorkerTable();

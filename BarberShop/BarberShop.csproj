@@ -119,6 +119,9 @@
     <Compile Include="ViewingFolder\DataBaseFolder\HaircutTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\HairdresserView.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\ImageWorkerTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
@@ -161,6 +164,9 @@
     <Compile Include="ViewingFolder\DataBaseFolder\sp_helpdiagrams_Result.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\StatusResultTable.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\StatusTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
@@ -182,6 +188,9 @@
     <Compile Include="ViewingFolder\PageFolder\EmailPage.xaml.cs">
       <DependentUpon>EmailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\PageFolder\HaircutInfoBorderPage.xaml.cs">
+      <DependentUpon>HaircutInfoBorderPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\PageFolder\InformationsSessionPage.xaml.cs">
       <DependentUpon>InformationsSessionPage.xaml</DependentUpon>
     </Compile>
@@ -191,6 +200,9 @@
     <Compile Include="ViewingFolder\PageFolder\ListShopButtonPage.xaml.cs">
       <DependentUpon>ListShopButtonPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\PageFolder\SessionsPage.xaml.cs">
+      <DependentUpon>SessionsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\PageFolder\WorkerPage.xaml.cs">
       <DependentUpon>WorkerPage.xaml</DependentUpon>
     </Compile>
@@ -199,6 +211,9 @@
     </Compile>
     <Compile Include="ViewingFolder\WindowsFolder\MainWindows.xaml.cs">
       <DependentUpon>MainWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\WindowsFolder\ProgressLoadingWindows.xaml.cs">
+      <DependentUpon>ProgressLoadingWindows.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewingFolder\WindowsFolder\QueueWindows.xaml.cs">
       <DependentUpon>QueueWindows.xaml</DependentUpon>
@@ -271,6 +286,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewingFolder\PageFolder\HaircutInfoBorderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewingFolder\PageFolder\InformationsSessionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -283,6 +302,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewingFolder\PageFolder\SessionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewingFolder\PageFolder\WorkerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -292,6 +315,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\WindowsFolder\MainWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\WindowsFolder\ProgressLoadingWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

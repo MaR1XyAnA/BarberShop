@@ -16,26 +16,27 @@ using System.Windows.Shapes;
 
 namespace BarberShop.ViewingFolder.PageFolder
 {
-    /// <summary>
-    /// Логика взаимодействия для ListShopButtonPage.xaml
-    /// </summary>
     public partial class ListShopButtonPage : Page
     {
         public ListShopButtonPage()
         {
             InitializeComponent();
+            MainFrameHaircut.Visibility = Visibility.Collapsed;
+            
             AppConnectClass.DataBase = new BarberShopDataBaseEntities(); // Подключаем Базу Данных к этой странице.
             ListShopButtonListBox.ItemsSource = AppConnectClass.DataBase.HaircutTable.ToList(); // В ListWorkwrListBox, в ItemsSource выводим всю информацию из таблицы WorkerTable в виде списка.
         }
 
         private void ListShopButtonListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DiscriptionBprder.Visibility = Visibility.Visible;
+            MainFrameHaircut.Visibility = Visibility.Visible;
+            HaircutTable haircutTable = (HaircutTable)ListShopButtonListBox.SelectedItem;
+            MainFrameHaircut.Navigate(new HaircutInfoBorderPage(haircutTable));
         }
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
-            DiscriptionBprder.Visibility = Visibility.Collapsed;
+       
         }
     }
 }
