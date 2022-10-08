@@ -47,7 +47,7 @@
           <Property Name="DivisionCodeWorker" Type="nchar" MaxLength="7" Nullable="false" />
           <Property Name="PaulWorker" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="PlaceOfBirthWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="ImageWorker" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="RegistrationRegionWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="RegistrationPointWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="RegistrationStreetWorker" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -124,7 +124,7 @@
           <Key>
             <PropertyRef Name="PersonalNumberWorker" />
           </Key>
-          <Property Name="PersonalNumberWorker" Type="int" Nullable="false" />
+          <Property Name="PersonalNumberWorker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PSWorker" Type="nchar" MaxLength="4" Nullable="false" />
           <Property Name="PNWorker" Type="nchar" MaxLength="6" Nullable="false" />
           <Property Name="StatusWorker" Type="nvarchar" MaxLength="10" Nullable="false" />
@@ -149,7 +149,7 @@
           <Property Name="MiddleNameWorker" Type="nvarchar" MaxLength="25" />
         </EntityType>
         <Association Name="FK_PassportWorkerTable_ImageWorkerTable">
-          <End Role="ImageWorkerTable" Type="Self.ImageWorkerTable" Multiplicity="0..1" />
+          <End Role="ImageWorkerTable" Type="Self.ImageWorkerTable" Multiplicity="1" />
           <End Role="PassportWorkerTable" Type="Self.PassportWorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ImageWorkerTable">
@@ -510,7 +510,7 @@
           <Property Name="DivisionCodeWorker" Type="String" Nullable="false" MaxLength="7" FixedLength="true" Unicode="true" />
           <Property Name="PaulWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="PlaceOfBirthWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ImageWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RegistrationRegionWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="RegistrationPointWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="RegistrationStreetWorker" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -599,7 +599,7 @@
           <Key>
             <PropertyRef Name="PersonalNumberWorker" />
           </Key>
-          <Property Name="PersonalNumberWorker" Type="Int32" Nullable="false" />
+          <Property Name="PersonalNumberWorker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PSWorker" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
           <Property Name="PNWorker" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
           <Property Name="StatusWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
@@ -651,7 +651,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PassportWorkerTable_ImageWorkerTable">
-          <End Type="BarberShopDataBaseModel.ImageWorkerTable" Role="ImageWorkerTable" Multiplicity="0..1" />
+          <End Type="BarberShopDataBaseModel.ImageWorkerTable" Role="ImageWorkerTable" Multiplicity="1" />
           <End Type="BarberShopDataBaseModel.PassportWorkerTable" Role="PassportWorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ImageWorkerTable">

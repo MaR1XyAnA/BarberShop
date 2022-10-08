@@ -47,8 +47,9 @@
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ПОЛ:"/>
-                            <TextBox
-                                x:Name="PaulTextBox"
+                            <ComboBox
+                                DisplayMemberPath ="NamePaul"
+                                x:Name="PaulComboBox"
                                 Margin="5 0 0 0"
                                 Width="346"/>
                         </StackPanel>
@@ -65,8 +66,9 @@
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ДОЛЖНОСТЬ:"/>
-                            <TextBox
-                                x:Name="PostTextBox"
+                            <ComboBox
+                                DisplayMemberPath ="NamePost"
+                                x:Name="PostComboBox"
                                 Margin="5 0 0 0"
                                 Width="263"/>
                         </StackPanel>
@@ -322,6 +324,7 @@
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КАРТА"
+                        Name="RegistrationApartmentWorkerTextBox"
                         Foreground="White"
                         Opacity="0.2"/>
                     <Line 
@@ -387,6 +390,7 @@
                 </StackPanel>
                 <Button
                     x:Name="NewWorkerButton"
+                    Click="NewWorkerButton_Click"
                     Content="ДОБАВИТЬ НОВОГО СОТРУДНИКА"
                     Height="60"
                     Width="490"

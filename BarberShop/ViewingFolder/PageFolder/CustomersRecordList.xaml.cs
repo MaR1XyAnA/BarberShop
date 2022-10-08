@@ -23,7 +23,7 @@ namespace BarberShop.ViewingFolder.PageFolder
             InitializeComponent();
             NameHaircutComboBox.ItemsSource = AppConnectClass.DataBase.HaircutTable.ToList();
             PaulTextBox.ItemsSource = AppConnectClass.DataBase.PaulTable.ToList();
-            NameHairdresserComboBox.ItemsSource = AppConnectClass.DataBase.HairdresserView.ToList();
+            //NameHairdresserComboBox.ItemsSource = AppConnectClass.DataBase.HairdresserOnlineViev.ToList();
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
@@ -35,7 +35,8 @@ namespace BarberShop.ViewingFolder.PageFolder
                 PoulString,
                 HaircutString,
                 DataRecordStrind,
-                TimeRecordString;
+                TimeRecordString,
+                Worker;
 
             SurnameString = Convert.ToString(SurnameTextBox.Text);
             NameString  = Convert.ToString(NameTextBox.Text);
@@ -44,6 +45,9 @@ namespace BarberShop.ViewingFolder.PageFolder
             HaircutString = Convert.ToString(NameHaircutComboBox.Text);
             DataRecordStrind = Convert.ToString(DataRecordTextBox.Text);
             TimeRecordString = Convert.ToString(TimeRecordTextBox.Text);
+            Worker = Convert.ToString(NameHairdresserComboBox.Text);
+
+
             if (AppConnectClass.DataBase.ClientTable.Count
                 (data => data.SurnameClient == SurnameString && data.NameClient == NameString) >0)
             {
@@ -61,7 +65,11 @@ namespace BarberShop.ViewingFolder.PageFolder
                 };
                 ResultTable resultTable = new ResultTable()
                 {
-
+                    //PNWorker = Worker(PersonalNumberWorker),
+                    //PNClient = ,
+                    //PNHaircut = HaircutString,
+                    //DataResult = DataRecordStrind,
+                    //StatusRezult = TimeRecordString
                 };
             }
             catch
