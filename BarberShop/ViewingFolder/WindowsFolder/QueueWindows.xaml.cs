@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace BarberShop.ViewingFolder.WindowsFolder
 {
-    /// <summary>
-    /// Логика взаимодействия для QueueWindows.xaml
-    /// </summary>
     public partial class QueueWindows : Window
     {
         public QueueWindows()
