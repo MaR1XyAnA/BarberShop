@@ -24,6 +24,7 @@ namespace BarberShop.ViewingFolder.PageFolder
             WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem;
             InformationFrame.Navigate(new InformationsWorkerPage(workerTable));
             BullshitextBlock.Visibility = Visibility.Collapsed;
+            BorderButton.Visibility = Visibility.Visible;
         }
 
         private void Page_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -46,7 +47,18 @@ namespace BarberShop.ViewingFolder.PageFolder
         {
             InformationFrame.Navigate(new AddendumWorkerPage());
             BullshitextBlock.Visibility = Visibility.Collapsed;
-            AddendumWorkerButton.Visibility = Visibility.Collapsed;
+            BorderButton.Visibility = Visibility.Collapsed;
+        }
+        private void VisibleFilterTrueButton_Click(object sender, RoutedEventArgs e)
+        {
+            VisibleFilterTrueBorder.Visibility = Visibility.Collapsed;
+            VisibleFilterFolseBorder.Visibility = Visibility.Visible;
+        }
+
+        private void VisibleFilterFolseButton_Click(object sender, RoutedEventArgs e)
+        {
+            VisibleFilterTrueBorder.Visibility = Visibility.Visible;
+            VisibleFilterFolseBorder.Visibility = Visibility.Collapsed;
         }
     }
 }

@@ -21,6 +21,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ФАМИЛИЯ:"/>
                             <TextBox
+                                MaxLength="25"
                                 x:Name="SurnameTextBox"
                                 Margin="5 0 0 0"
                                 Width="290"/>
@@ -30,6 +31,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ИМЯ:"/>
                             <TextBox
+                                MaxLength="15"
                                 x:Name="NameTextBox"
                                 Margin="5 0 0 0"
                                 Width="344"/>
@@ -39,6 +41,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ОТЧЕСТВО:"/>
                             <TextBox
+                                MaxLength="25"
                                 x:Name="MiddleNameTextBox"
                                 Margin="5 0 0 0"
                                 Width="295"/>
@@ -48,6 +51,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ПОЛ:"/>
                             <ComboBox
+                                FontSize="20"
                                 DisplayMemberPath ="NamePaul"
                                 x:Name="PaulComboBox"
                                 Margin="5 0 0 0"
@@ -58,6 +62,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ДАТА РОЖДЕНИЯ:"/>
                             <TextBox
+                                MaxLength="10"
                                 x:Name="DateOfBirthTExtBox"
                                 Margin="5 0 0 0"
                                 Width="220"/>
@@ -67,6 +72,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ДОЛЖНОСТЬ:"/>
                             <ComboBox
+                                FontSize="20"
                                 DisplayMemberPath ="NamePost"
                                 x:Name="PostComboBox"
                                 Margin="5 0 0 0"
@@ -118,6 +124,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ЛОГИН:"/>
                     <TextBox
+                        MaxLength="100"
                         x:Name="LogintextBox"
                         Margin="5 0 0 0"
                         Width="615"/>
@@ -127,6 +134,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПАРОЛЬ:"/>
                     <TextBox
+                        MaxLength="100"
                         Name="PasswordTextBox"
                         Margin="5 0 0 0"
                         Width="603"/>
@@ -155,6 +163,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР ТЕЛЕФОНА:"/>
                     <TextBox
+                        MaxLength="11"
                         x:Name="NumberPhoneTextBox"
                         Margin="5 0 0 0"
                         Width="515"/>
@@ -164,6 +173,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ЭЛЕКТРОННАЯ ПОЧТА:"/>
                     <TextBox
+                        MaxLength="70"
                         x:Name="EmailTextBox"
                         Margin="5 0 0 0"
                         Width="484"/>
@@ -192,6 +202,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СЕРИЯ ПАСПОРТА:"/>
                     <TextBox
+                        MaxLength="4"
                         Name="PassportSeriesTextBox"
                         Margin="5 0 0 0"
                         Width="520"/>
@@ -201,6 +212,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР ПАСПОРТА:"/>
                     <TextBox
+                        MaxLength="6"
                         x:Name="PassportNumberTextBox"
                         Margin="5 0 0 0"
                         Width="516"/>
@@ -210,6 +222,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПАСПОРТ ВЫДАН:"/>
                     <TextBox
+                        MaxLength="100"
                         x:Name="PassportIssuedTextBox"
                         Margin="5 0 0 0"
                         Width="520"/>
@@ -219,6 +232,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ДАТА ВЫДАЧИ ПАСПОРТА:"/>
                     <TextBox
+                        MaxLength="10"
                         x:Name="DatePassportIssuedTextBox"
                         Margin="5 0 0 0"
                         Width="441"/>
@@ -228,6 +242,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КОД ПОДРАЗДЕЛЕНИЯ:"/>
                     <TextBox
+                        MaxLength="7"
                         x:Name="DivisionСodeTextBox"
                         Margin="5 0 0 0"
                         Width="465"/>
@@ -237,6 +252,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="МЕСТО РОЖДЕНИЯ:"/>
                     <TextBox
+                        MaxLength="100"
                         x:Name="PassportPlaceOfBirthTextBox"
                         Margin="5 0 0 0"
                         Width="506"/>
@@ -265,6 +281,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="РЕГИОН:"/>
                     <TextBox
+                        MaxLength="100"
                         x:Name="PassportRegionTextBox"
                         Margin="5 0 0 0"
                         Width="609"/>
@@ -274,6 +291,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="РАЙОН:"/>
                     <TextBox
+                        MaxLength="100"
                         x:Name="PassportDistrictTextBox"
                         Margin="5 0 0 0"
                         Width="618"/>
@@ -283,6 +301,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПУНКТ:"/>
                     <TextBox
+                        MaxLength="100"
                         x:Name="PassportPointTextBox"
                         Margin="5 0 0 0"
                         Width="620"/>
@@ -292,6 +311,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="УЛИЦА:"/>
                     <TextBox
+                        MaxLength="30"
                         x:Name="PassportStreetTextBox"
                         Margin="5 0 0 0"
                         Width="616"/>
@@ -301,6 +321,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ДОМ:"/>
                     <TextBox
+                        MaxLength="10"
                         x:Name="PassportHouseTextBox"
                         Margin="5 0 0 0"
                         Width="632"/>
@@ -310,6 +331,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КВАРТИРА:"/>
                     <TextBox
+                        MaxLength="10"
                         x:Name="PasswortFlatTextBox"
                         Margin="5 0 0 0"
                         Width="584"/>
@@ -339,6 +361,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР КАРТЫ:"/>
                     <TextBox
+                        MaxLength="16"
                         x:Name="NumberCardTextBox"
                         Margin="5 0 0 0"
                         Width="547"/>
@@ -348,6 +371,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СРОК КАРТЫ МЕСЯЦ:"/>
                     <TextBox
+                        MaxLength="2"
                         x:Name="CardValidMonthTextBox"
                         Margin="5 0 0 0"
                         Width="491"/>
@@ -357,6 +381,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СРОК КАРТЫ ГОД:"/>
                     <TextBox
+                        MaxLength="2"
                         x:Name="CardValidYearTextBox"
                         Margin="5 0 0 0"
                         Width="516"/>
@@ -366,6 +391,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ИМЯ ДЕРЖАТЕЛЯ КАРТЫ:"/>
                     <TextBox
+                        MaxLength="100"
                         x:Name="NameCardHolderTextBox"
                         Margin="5 0 0 0"
                         Width="448"/>
@@ -375,6 +401,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ФАМИЛИЯ ДЕРЖАТЕЛЯ КАРТЫ:"/>
                     <TextBox
+                        MaxLength="100"
                         x:Name="SurnameCardHolderTextBox"
                         Margin="5 0 0 0"
                         Width="395"/>
@@ -384,6 +411,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КОД КАРТЫ:"/>
                     <TextBox
+                        MaxLength="3"
                         x:Name="CodeCardTextBox"
                         Margin="5 0 0 0"
                         Width="567"/>

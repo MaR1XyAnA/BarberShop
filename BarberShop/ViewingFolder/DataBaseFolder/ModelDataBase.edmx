@@ -87,8 +87,8 @@
           <Property Name="CardNumber" Type="nchar" MaxLength="16" Nullable="false" />
           <Property Name="CardValidMonth" Type="nchar" MaxLength="2" Nullable="false" />
           <Property Name="CardValidYears" Type="nchar" MaxLength="2" Nullable="false" />
-          <Property Name="CardKeeperName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CardKeeperSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CardKeeperName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CardKeeperSurname" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="CardCode" Type="nchar" MaxLength="3" Nullable="false" />
         </EntityType>
         <EntityType Name="ShopTable">
@@ -559,8 +559,8 @@
           <Property Name="CardNumber" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
           <Property Name="CardValidMonth" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
           <Property Name="CardValidYears" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
-          <Property Name="CardKeeperName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CardKeeperSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardKeeperName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CardKeeperSurname" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CardCode" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_SalaryCardTable" FromRole="SalaryCardTable" ToRole="WorkerTable" />
         </EntityType>
