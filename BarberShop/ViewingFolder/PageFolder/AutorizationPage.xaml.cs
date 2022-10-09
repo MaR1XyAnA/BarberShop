@@ -39,7 +39,6 @@ namespace BarberShop.ViewingFolder.PageFolder
                 InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
                 InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
                 InfoErrorTextBlock.Text = "ПОЛЕ ЛОГИН ИЛИ ПАРОЛЬ ПУСТОЕ";
-
             }
             else
             {
@@ -55,7 +54,6 @@ namespace BarberShop.ViewingFolder.PageFolder
                         InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
                         InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
                         InfoErrorTextBlock.Text = "ЛОГИН ИЛИ ПАРОЛЬ ВВЕДЕНЫ НЕВЕРНО";
-
                     }
                     else
                     {
@@ -64,31 +62,30 @@ namespace BarberShop.ViewingFolder.PageFolder
                         {
                             case "Директор":
                                 mainWindows.Show();
-
                                 break;
+
                             case "Кассир":
                                 mainWindows.Show();
-
                                 break;
+
                             case "Охранник":
                                 InfoErrorBorder.Visibility = Visibility.Visible;
                                 InfoErrorTextBlock.Visibility = Visibility.Visible;
                                 InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
                                 InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
                                 InfoErrorTextBlock.Text = "ВАМ ОТКАЗАННО В ДОСТУПЕ";
-
                                 break;
+
                             case "Парикхмахер":
                                 InfoErrorBorder.Visibility = Visibility.Visible;
                                 InfoErrorTextBlock.Visibility = Visibility.Visible;
                                 InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
                                 InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
                                 InfoErrorTextBlock.Text = "ВАМ ОТКАЗАННО В ДОСТУПЕ";
-
                                 break;
+
                             case "Системный администратор":
                                 mainWindows.Show();
-
                                 break;
                             case "Уборщик":
                                 InfoErrorBorder.Visibility = Visibility.Visible;
@@ -96,7 +93,6 @@ namespace BarberShop.ViewingFolder.PageFolder
                                 InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
                                 InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
                                 InfoErrorTextBlock.Text = "ВАМ ОТКАЗАННО В ДОСТУПЕ";
-
                                 break;
 
                             default:
@@ -105,11 +101,9 @@ namespace BarberShop.ViewingFolder.PageFolder
                                 InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
                                 InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
                                 InfoErrorTextBlock.Text = "УПС, У ВАС НЕТ РОЛИ";
-
                                 break;
                         }
                     }
-
                 }
                 catch (Exception EX)
                 {
@@ -118,10 +112,8 @@ namespace BarberShop.ViewingFolder.PageFolder
                     InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
                     InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
                     InfoErrorTextBlock.Text = "ОШИБКА EX";
-
                 }
             }
-
             PasswordPasswordBox.IsEnabled = true;
             ViseblePasswordTextBox.IsEnabled = true;
             LoginTextBox.IsEnabled = true;
@@ -143,7 +135,7 @@ namespace BarberShop.ViewingFolder.PageFolder
         private void VisebleFalsePasswordButton_Click(object sender, RoutedEventArgs e)
         {
             string PasswordInfo;
-            PasswordInfo = Convert.ToString(ViseblePasswordTextBox.Text); 
+            PasswordInfo = Convert.ToString(ViseblePasswordTextBox.Text);
             PasswordPasswordBox.Password = PasswordInfo;
             Password = PasswordInfo;
             VisebleFalsePasswordButton.Visibility = Visibility.Collapsed;
