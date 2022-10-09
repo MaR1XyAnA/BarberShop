@@ -105,5 +105,21 @@
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Center"/>
         </StackPanel>
+        <Border
+            x:Name="InfoErrorBorder"
+            VerticalAlignment="Top"
+            Height="50"
+            Visibility="Collapsed"
+            CornerRadius="0 0 20 20"
+            Width="700"
+            Background="#7F08457E">
+            <TextBlock
+                x:Name="InfoErrorTextBlock"
+                Text="123"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Margin="10 0 0 0"
+                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+        </Border>
     </Grid>
 </Page>

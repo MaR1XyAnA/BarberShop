@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
 namespace BarberShop.ViewingFolder.PageFolder
@@ -10,81 +11,121 @@ namespace BarberShop.ViewingFolder.PageFolder
     public partial class AutorizationPage : Page
     {
         string Password;
-        private DispatcherTimer dispatcher;
 
         public AutorizationPage()
         {
             InitializeComponent();
             DataBaseFolder.AppConnectClass.DataBase = new DataBaseFolder.BarberShopDataBaseEntities();
-            dispatcher = new DispatcherTimer(); // Подключаю DispatcherTimer
-            dispatcher.Interval = TimeSpan.FromSeconds(1); // Обновляю раз в 1 секунду
-            dispatcher.Tick += Dispatcher_Tick; // Задаю количество раз обновлений
-            dispatcher.Stop();
-        }
-
-        private void Dispatcher_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                var AutorizationUser = DataBaseFolder.AppConnectClass.DataBase.WorkerTable.FirstOrDefault
-                    (data => data.LoginWorker == LoginTextBox.Text && data.PasswordWorker == PasswordPasswordBox.Password ||
-                             data.LoginWorker == LoginTextBox.Text && data.PasswordWorker == ViseblePasswordTextBox.Text);
-                if (AutorizationUser == null)
-                {
-                    MessageBox.Show("Данного пользователя не существует в базе данных", "Ошибка авторизации");
-                }
-                else
-                {
-                    MainWindows mainWindows = new MainWindows();
-                    switch (AutorizationUser.PostWorker)
-                    {
-                        case "Директор":
-                            mainWindows.Show();
-                            break;
-                        case "Кассир":
-                            mainWindows.Show();
-                            break;
-                        case "Охранник":
-                            MessageBox.Show("Охранник");
-                            break;
-                        case "Парикхмахер":
-                            MessageBox.Show("Парикхмахер");
-                            break;
-                        case "Системный администратор":
-                            mainWindows.Show();
-                            break;
-                        case "Уборщик":
-                            MessageBox.Show("Уборщик");
-                            break;
-
-                        default:
-                            MessageBox.Show("Упс, кажится у вас нет роли");
-                            break;
-                    }
-                }
-
-            }
-            catch (Exception EX)
-            {
-                MessageBox.Show("" + EX, "Error EX");
-                dispatcher.Stop();
-            }
-            dispatcher.Stop();
-            PasswordPasswordBox.IsEnabled = true;
-            ViseblePasswordTextBox.IsEnabled = true;
-            LoginTextBox.IsEnabled = true;
-            NextButton.IsEnabled = true;
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            dispatcher.Start();
+            DoubleAnimation doubleAnimation = new DoubleAnimation();
+            doubleAnimation.From = 50;
+            doubleAnimation.To = 0;
+            doubleAnimation.Duration = TimeSpan.FromSeconds(5);
+            doubleAnimation.EasingFunction = new QuadraticEase();
+
             PasswordPasswordBox.IsEnabled = false;
             ViseblePasswordTextBox.IsEnabled = false;
             LoginTextBox.IsEnabled = false;
             NextButton.IsEnabled = false;
-            //ProgressLoadingWindows progressLoadingWindows = new ProgressLoadingWindows();
-            //progressLoadingWindows.ShowDialog();
+
+            if (LoginTextBox.Text == "" && PasswordPasswordBox.Password == "" ||
+                LoginTextBox.Text == "" && ViseblePasswordTextBox.Text == "")
+            {
+                InfoErrorBorder.Visibility = Visibility.Visible;
+                InfoErrorTextBlock.Visibility = Visibility.Visible;
+                InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
+                InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
+                InfoErrorTextBlock.Text = "ПОЛЕ ЛОГИН ИЛИ ПАРОЛЬ ПУСТОЕ";
+
+            }
+            else
+            {
+                try
+                {
+                    var AutorizationUser = DataBaseFolder.AppConnectClass.DataBase.WorkerTable.FirstOrDefault
+                        (data => data.LoginWorker == LoginTextBox.Text && data.PasswordWorker == PasswordPasswordBox.Password ||
+                                 data.LoginWorker == LoginTextBox.Text && data.PasswordWorker == ViseblePasswordTextBox.Text);
+                    if (AutorizationUser == null)
+                    {
+                        InfoErrorBorder.Visibility = Visibility.Visible;
+                        InfoErrorTextBlock.Visibility = Visibility.Visible;
+                        InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
+                        InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
+                        InfoErrorTextBlock.Text = "ЛОГИН ИЛИ ПАРОЛЬ ВВЕДЕНЫ НЕВЕРНО";
+
+                    }
+                    else
+                    {
+                        MainWindows mainWindows = new MainWindows();
+                        switch (AutorizationUser.PostWorker)
+                        {
+                            case "Директор":
+                                mainWindows.Show();
+
+                                break;
+                            case "Кассир":
+                                mainWindows.Show();
+
+                                break;
+                            case "Охранник":
+                                InfoErrorBorder.Visibility = Visibility.Visible;
+                                InfoErrorTextBlock.Visibility = Visibility.Visible;
+                                InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
+                                InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
+                                InfoErrorTextBlock.Text = "ВАМ ОТКАЗАННО В ДОСТУПЕ";
+
+                                break;
+                            case "Парикхмахер":
+                                InfoErrorBorder.Visibility = Visibility.Visible;
+                                InfoErrorTextBlock.Visibility = Visibility.Visible;
+                                InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
+                                InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
+                                InfoErrorTextBlock.Text = "ВАМ ОТКАЗАННО В ДОСТУПЕ";
+
+                                break;
+                            case "Системный администратор":
+                                mainWindows.Show();
+
+                                break;
+                            case "Уборщик":
+                                InfoErrorBorder.Visibility = Visibility.Visible;
+                                InfoErrorTextBlock.Visibility = Visibility.Visible;
+                                InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
+                                InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
+                                InfoErrorTextBlock.Text = "ВАМ ОТКАЗАННО В ДОСТУПЕ";
+
+                                break;
+
+                            default:
+                                InfoErrorBorder.Visibility = Visibility.Visible;
+                                InfoErrorTextBlock.Visibility = Visibility.Visible;
+                                InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
+                                InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
+                                InfoErrorTextBlock.Text = "УПС, У ВАС НЕТ РОЛИ";
+
+                                break;
+                        }
+                    }
+
+                }
+                catch (Exception EX)
+                {
+                    InfoErrorBorder.Visibility = Visibility.Visible;
+                    InfoErrorTextBlock.Visibility = Visibility.Visible;
+                    InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
+                    InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
+                    InfoErrorTextBlock.Text = "ОШИБКА EX";
+
+                }
+            }
+
+            PasswordPasswordBox.IsEnabled = true;
+            ViseblePasswordTextBox.IsEnabled = true;
+            LoginTextBox.IsEnabled = true;
+            NextButton.IsEnabled = true;
         }
 
         private void VisebleTruePasswordButton_Click(object sender, RoutedEventArgs e)

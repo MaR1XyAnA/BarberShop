@@ -19,10 +19,12 @@
         <Style TargetType="Page" x:Key="PageAutorization">
             <Setter Property="Width" Value="780"/>
             <Setter Property="Height" Value="288"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="Cycle"/>
         </Style>
         <Style TargetType="Page" x:Key="MainPage">
             <Setter Property="Width" Value="1800"/>
             <Setter Property="Height" Value="888"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="Cycle"/>
         </Style>
         <!--#endregion-->
         <!--#region Button-->
@@ -70,8 +72,8 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#19FFFFFF"/>
-                                <Setter Property="BorderBrush" Value="#fff"/>
+                                <Setter Property="Background" Value="#ff4848"/>
+                                <Setter Property="BorderBrush" Value="red"/>
                                 <Setter Property="BorderThickness" Value="2"/>
                                 <Setter Property="Foreground" Value="#cccccc"/>
                             </Trigger>
