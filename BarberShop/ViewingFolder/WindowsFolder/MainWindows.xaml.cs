@@ -12,6 +12,7 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             InitializeComponent();
             MainFrame.Navigate(new WorkerPage());
             HideClass.InfoWindows = 1;
+            ListWorkerButton.IsChecked = true;
         }
 
         private void RollUp_Click(object sender, RoutedEventArgs e)
@@ -32,21 +33,37 @@ namespace BarberShop.ViewingFolder.WindowsFolder
         private void ListWorkerButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new WorkerPage());
+            ListWorkerButton.IsChecked = true;
+            RecordClientButton.IsChecked = false;
+            ServicesListButton.IsChecked = false;
+            QueueListButton.IsChecked = false;
         }
 
         private void RecordClientButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new CustomersRecordList());
+            ListWorkerButton.IsChecked = false;
+            RecordClientButton.IsChecked = true;
+            ServicesListButton.IsChecked = false;
+            QueueListButton.IsChecked = false;
         }
 
         private void ServicesListButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new ListShopButtonPage());
+            ListWorkerButton.IsChecked = false;
+            RecordClientButton.IsChecked = false;
+            ServicesListButton.IsChecked = true;
+            QueueListButton.IsChecked = false;
         }
 
         private void QueueListButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new SessionsPage());
+            ListWorkerButton.IsChecked = false;
+            RecordClientButton.IsChecked = false;
+            ServicesListButton.IsChecked = false;
+            QueueListButton.IsChecked = true;
         }
     }
 }

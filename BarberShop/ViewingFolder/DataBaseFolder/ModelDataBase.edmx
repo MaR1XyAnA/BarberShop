@@ -136,6 +136,84 @@
           <Property Name="EmailWorker" Type="nvarchar" MaxLength="70" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "BarberShopDataBase.dbo.FilterCashierView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="FilterCashierView">
+          <Key>
+            <PropertyRef Name="PostWorker" />
+            <PropertyRef Name="PersonalNumberWorker" />
+            <PropertyRef Name="PSWorker" />
+            <PropertyRef Name="PNWorker" />
+            <PropertyRef Name="StatusWorker" />
+            <PropertyRef Name="CardNumberWorker" />
+            <PropertyRef Name="LoginWorker" />
+            <PropertyRef Name="PasswordWorker" />
+            <PropertyRef Name="NumberPhoneWorker" />
+            <PropertyRef Name="EmailWorker" />
+          </Key>
+          <Property Name="PostWorker" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="PersonalNumberWorker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PSWorker" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="PNWorker" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="StatusWorker" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CardNumberWorker" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="LoginWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PasswordWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NumberPhoneWorker" Type="nchar" MaxLength="12" Nullable="false" />
+          <Property Name="EmailWorker" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "BarberShopDataBase.dbo.FilterCleanerView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="FilterCleanerView">
+          <Key>
+            <PropertyRef Name="PostWorker" />
+            <PropertyRef Name="PersonalNumberWorker" />
+            <PropertyRef Name="PSWorker" />
+            <PropertyRef Name="PNWorker" />
+            <PropertyRef Name="StatusWorker" />
+            <PropertyRef Name="CardNumberWorker" />
+            <PropertyRef Name="LoginWorker" />
+            <PropertyRef Name="PasswordWorker" />
+            <PropertyRef Name="NumberPhoneWorker" />
+            <PropertyRef Name="EmailWorker" />
+          </Key>
+          <Property Name="PostWorker" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="PersonalNumberWorker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PSWorker" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="PNWorker" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="StatusWorker" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CardNumberWorker" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="LoginWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PasswordWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NumberPhoneWorker" Type="nchar" MaxLength="12" Nullable="false" />
+          <Property Name="EmailWorker" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "BarberShopDataBase.dbo.FilterParikhmacherView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="FilterParikhmacherView">
+          <Key>
+            <PropertyRef Name="PostWorker" />
+            <PropertyRef Name="PersonalNumberWorker" />
+            <PropertyRef Name="PSWorker" />
+            <PropertyRef Name="PNWorker" />
+            <PropertyRef Name="StatusWorker" />
+            <PropertyRef Name="CardNumberWorker" />
+            <PropertyRef Name="LoginWorker" />
+            <PropertyRef Name="PasswordWorker" />
+            <PropertyRef Name="NumberPhoneWorker" />
+            <PropertyRef Name="EmailWorker" />
+          </Key>
+          <Property Name="PostWorker" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="PersonalNumberWorker" Type="int" Nullable="false" />
+          <Property Name="PSWorker" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="PNWorker" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="StatusWorker" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CardNumberWorker" Type="nchar" MaxLength="16" Nullable="false" />
+          <Property Name="LoginWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PasswordWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NumberPhoneWorker" Type="nchar" MaxLength="12" Nullable="false" />
+          <Property Name="EmailWorker" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "BarberShopDataBase.dbo.HairdresserView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="HairdresserView">
           <Key>
@@ -315,6 +393,48 @@
           <EntitySet Name="StatusTable" EntityType="Self.StatusTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkerTable" EntityType="Self.WorkerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FilterCashierView" EntityType="Self.FilterCashierView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FilterCashierView].[PostWorker] AS [PostWorker], 
+    [FilterCashierView].[PersonalNumberWorker] AS [PersonalNumberWorker], 
+    [FilterCashierView].[PSWorker] AS [PSWorker], 
+    [FilterCashierView].[PNWorker] AS [PNWorker], 
+    [FilterCashierView].[StatusWorker] AS [StatusWorker], 
+    [FilterCashierView].[CardNumberWorker] AS [CardNumberWorker], 
+    [FilterCashierView].[LoginWorker] AS [LoginWorker], 
+    [FilterCashierView].[PasswordWorker] AS [PasswordWorker], 
+    [FilterCashierView].[NumberPhoneWorker] AS [NumberPhoneWorker], 
+    [FilterCashierView].[EmailWorker] AS [EmailWorker]
+    FROM [dbo].[FilterCashierView] AS [FilterCashierView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FilterCleanerView" EntityType="Self.FilterCleanerView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FilterCleanerView].[PostWorker] AS [PostWorker], 
+    [FilterCleanerView].[PersonalNumberWorker] AS [PersonalNumberWorker], 
+    [FilterCleanerView].[PSWorker] AS [PSWorker], 
+    [FilterCleanerView].[PNWorker] AS [PNWorker], 
+    [FilterCleanerView].[StatusWorker] AS [StatusWorker], 
+    [FilterCleanerView].[CardNumberWorker] AS [CardNumberWorker], 
+    [FilterCleanerView].[LoginWorker] AS [LoginWorker], 
+    [FilterCleanerView].[PasswordWorker] AS [PasswordWorker], 
+    [FilterCleanerView].[NumberPhoneWorker] AS [NumberPhoneWorker], 
+    [FilterCleanerView].[EmailWorker] AS [EmailWorker]
+    FROM [dbo].[FilterCleanerView] AS [FilterCleanerView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FilterParikhmacherView" EntityType="Self.FilterParikhmacherView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FilterParikhmacherView].[PostWorker] AS [PostWorker], 
+    [FilterParikhmacherView].[PersonalNumberWorker] AS [PersonalNumberWorker], 
+    [FilterParikhmacherView].[PSWorker] AS [PSWorker], 
+    [FilterParikhmacherView].[PNWorker] AS [PNWorker], 
+    [FilterParikhmacherView].[StatusWorker] AS [StatusWorker], 
+    [FilterParikhmacherView].[CardNumberWorker] AS [CardNumberWorker], 
+    [FilterParikhmacherView].[LoginWorker] AS [LoginWorker], 
+    [FilterParikhmacherView].[PasswordWorker] AS [PasswordWorker], 
+    [FilterParikhmacherView].[NumberPhoneWorker] AS [NumberPhoneWorker], 
+    [FilterParikhmacherView].[EmailWorker] AS [EmailWorker]
+    FROM [dbo].[FilterParikhmacherView] AS [FilterParikhmacherView]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="HairdresserView" EntityType="Self.HairdresserView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [HairdresserView].[PostWorker] AS [PostWorker], 
@@ -412,6 +532,9 @@
           <EntitySet Name="StatusTable" EntityType="BarberShopDataBaseModel.StatusTable" />
           <EntitySet Name="sysdiagrams" EntityType="BarberShopDataBaseModel.sysdiagrams" />
           <EntitySet Name="WorkerTable" EntityType="BarberShopDataBaseModel.WorkerTable" />
+          <EntitySet Name="FilterCashierView" EntityType="BarberShopDataBaseModel.FilterCashierView" />
+          <EntitySet Name="FilterCleanerView" EntityType="BarberShopDataBaseModel.FilterCleanerView" />
+          <EntitySet Name="FilterParikhmacherView" EntityType="BarberShopDataBaseModel.FilterParikhmacherView" />
           <EntitySet Name="HairdresserView" EntityType="BarberShopDataBaseModel.HairdresserView" />
           <AssociationSet Name="FK_ResultTable_ClientTable" Association="BarberShopDataBaseModel.FK_ResultTable_ClientTable">
             <End Role="ClientTable" EntitySet="ClientTable" />
@@ -614,6 +737,78 @@
           <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_WorkerTable1" FromRole="WorkerTable" ToRole="ResultTable" />
           <NavigationProperty Name="SalaryCardTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_SalaryCardTable" FromRole="WorkerTable" ToRole="SalaryCardTable" />
           <NavigationProperty Name="StatusTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
+        </EntityType>
+        <EntityType Name="FilterCashierView">
+          <Key>
+            <PropertyRef Name="PostWorker" />
+            <PropertyRef Name="PersonalNumberWorker" />
+            <PropertyRef Name="PSWorker" />
+            <PropertyRef Name="PNWorker" />
+            <PropertyRef Name="StatusWorker" />
+            <PropertyRef Name="CardNumberWorker" />
+            <PropertyRef Name="LoginWorker" />
+            <PropertyRef Name="PasswordWorker" />
+            <PropertyRef Name="NumberPhoneWorker" />
+            <PropertyRef Name="EmailWorker" />
+          </Key>
+          <Property Name="PostWorker" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalNumberWorker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PSWorker" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="PNWorker" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="StatusWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CardNumberWorker" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="LoginWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NumberPhoneWorker" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="EmailWorker" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FilterCleanerView">
+          <Key>
+            <PropertyRef Name="PostWorker" />
+            <PropertyRef Name="PersonalNumberWorker" />
+            <PropertyRef Name="PSWorker" />
+            <PropertyRef Name="PNWorker" />
+            <PropertyRef Name="StatusWorker" />
+            <PropertyRef Name="CardNumberWorker" />
+            <PropertyRef Name="LoginWorker" />
+            <PropertyRef Name="PasswordWorker" />
+            <PropertyRef Name="NumberPhoneWorker" />
+            <PropertyRef Name="EmailWorker" />
+          </Key>
+          <Property Name="PostWorker" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalNumberWorker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PSWorker" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="PNWorker" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="StatusWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CardNumberWorker" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="LoginWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NumberPhoneWorker" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="EmailWorker" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FilterParikhmacherView">
+          <Key>
+            <PropertyRef Name="PostWorker" />
+            <PropertyRef Name="PersonalNumberWorker" />
+            <PropertyRef Name="PSWorker" />
+            <PropertyRef Name="PNWorker" />
+            <PropertyRef Name="StatusWorker" />
+            <PropertyRef Name="CardNumberWorker" />
+            <PropertyRef Name="LoginWorker" />
+            <PropertyRef Name="PasswordWorker" />
+            <PropertyRef Name="NumberPhoneWorker" />
+            <PropertyRef Name="EmailWorker" />
+          </Key>
+          <Property Name="PostWorker" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalNumberWorker" Type="Int32" Nullable="false" />
+          <Property Name="PSWorker" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="PNWorker" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="StatusWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CardNumberWorker" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="LoginWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NumberPhoneWorker" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="EmailWorker" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="HairdresserView">
           <Key>
@@ -917,6 +1112,54 @@
                 <ScalarProperty Name="PNWorker" ColumnName="PNWorker" />
                 <ScalarProperty Name="PSWorker" ColumnName="PSWorker" />
                 <ScalarProperty Name="PersonalNumberWorker" ColumnName="PersonalNumberWorker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilterCashierView">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.FilterCashierView">
+              <MappingFragment StoreEntitySet="FilterCashierView">
+                <ScalarProperty Name="EmailWorker" ColumnName="EmailWorker" />
+                <ScalarProperty Name="NumberPhoneWorker" ColumnName="NumberPhoneWorker" />
+                <ScalarProperty Name="PasswordWorker" ColumnName="PasswordWorker" />
+                <ScalarProperty Name="LoginWorker" ColumnName="LoginWorker" />
+                <ScalarProperty Name="CardNumberWorker" ColumnName="CardNumberWorker" />
+                <ScalarProperty Name="StatusWorker" ColumnName="StatusWorker" />
+                <ScalarProperty Name="PNWorker" ColumnName="PNWorker" />
+                <ScalarProperty Name="PSWorker" ColumnName="PSWorker" />
+                <ScalarProperty Name="PersonalNumberWorker" ColumnName="PersonalNumberWorker" />
+                <ScalarProperty Name="PostWorker" ColumnName="PostWorker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilterCleanerView">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.FilterCleanerView">
+              <MappingFragment StoreEntitySet="FilterCleanerView">
+                <ScalarProperty Name="EmailWorker" ColumnName="EmailWorker" />
+                <ScalarProperty Name="NumberPhoneWorker" ColumnName="NumberPhoneWorker" />
+                <ScalarProperty Name="PasswordWorker" ColumnName="PasswordWorker" />
+                <ScalarProperty Name="LoginWorker" ColumnName="LoginWorker" />
+                <ScalarProperty Name="CardNumberWorker" ColumnName="CardNumberWorker" />
+                <ScalarProperty Name="StatusWorker" ColumnName="StatusWorker" />
+                <ScalarProperty Name="PNWorker" ColumnName="PNWorker" />
+                <ScalarProperty Name="PSWorker" ColumnName="PSWorker" />
+                <ScalarProperty Name="PersonalNumberWorker" ColumnName="PersonalNumberWorker" />
+                <ScalarProperty Name="PostWorker" ColumnName="PostWorker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilterParikhmacherView">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.FilterParikhmacherView">
+              <MappingFragment StoreEntitySet="FilterParikhmacherView">
+                <ScalarProperty Name="EmailWorker" ColumnName="EmailWorker" />
+                <ScalarProperty Name="NumberPhoneWorker" ColumnName="NumberPhoneWorker" />
+                <ScalarProperty Name="PasswordWorker" ColumnName="PasswordWorker" />
+                <ScalarProperty Name="LoginWorker" ColumnName="LoginWorker" />
+                <ScalarProperty Name="CardNumberWorker" ColumnName="CardNumberWorker" />
+                <ScalarProperty Name="StatusWorker" ColumnName="StatusWorker" />
+                <ScalarProperty Name="PNWorker" ColumnName="PNWorker" />
+                <ScalarProperty Name="PSWorker" ColumnName="PSWorker" />
+                <ScalarProperty Name="PersonalNumberWorker" ColumnName="PersonalNumberWorker" />
+                <ScalarProperty Name="PostWorker" ColumnName="PostWorker" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

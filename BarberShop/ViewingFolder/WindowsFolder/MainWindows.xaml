@@ -87,28 +87,32 @@
                             </RadialGradientBrush>
                         </Border.Background>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Button 
+                            <ToggleButton 
+                                Style="{StaticResource MenuToggleButton}"
                                 x:Name="ListWorkerButton"
                                 Click="ListWorkerButton_Click"
                                 Content="СОТРУДНИКИ" 
                                 Height="70"
                                 Width="250"
                                 Margin="0 0 10 0"/>
-                            <Button 
+                            <ToggleButton 
+                                Style="{StaticResource MenuToggleButton}"
                                 x:Name="RecordClientButton"
                                 Content="КЛИЕНТЫ" 
                                 Click="RecordClientButton_Click"
                                 Height="70" 
                                 Width="250" 
                                 Margin="10 0 10 0"/>
-                            <Button 
+                            <ToggleButton 
+                                Style="{StaticResource MenuToggleButton}"
                                 x:Name="ServicesListButton"
                                 Content="УСЛУГИ"
                                 Click="ServicesListButton_Click"
                                 Height="70"
                                 Width="250" 
                                 Margin="10 0 10 0"/>
-                            <Button 
+                            <ToggleButton 
+                                Style="{StaticResource MenuToggleButton}"
                                 x:Name="QueueListButton"
                                 Content="ОЧЕРЕДЬ" 
                                 Click="QueueListButton_Click"

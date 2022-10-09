@@ -116,6 +116,15 @@
     <Compile Include="ViewingFolder\DataBaseFolder\ClientTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\FilterCashierView.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\FilterCleanerView.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\FilterParikhmacherView.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\HaircutTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
