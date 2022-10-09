@@ -22,7 +22,10 @@ namespace BarberShop.ViewingFolder.WindowsFolder
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            HideClass.InfoWindows = 0;
+            AuthorizationWindows authorizationWindows = new AuthorizationWindows();
+            authorizationWindows.Show();
+            this.Hide();
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

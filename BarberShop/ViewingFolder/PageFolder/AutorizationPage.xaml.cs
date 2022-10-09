@@ -17,9 +17,9 @@ namespace BarberShop.ViewingFolder.PageFolder
             InitializeComponent();
             DataBaseFolder.AppConnectClass.DataBase = new DataBaseFolder.BarberShopDataBaseEntities();
             dispatcher = new DispatcherTimer(); // Подключаю DispatcherTimer
-            dispatcher.Interval = TimeSpan.FromSeconds(5); // Обновляю раз в 1 секунду
+            dispatcher.Interval = TimeSpan.FromSeconds(1); // Обновляю раз в 1 секунду
             dispatcher.Tick += Dispatcher_Tick; // Задаю количество раз обновлений
-             // Запускаю DispatcherTimer
+            dispatcher.Stop();
         }
 
         private void Dispatcher_Tick(object sender, EventArgs e)
@@ -67,6 +67,7 @@ namespace BarberShop.ViewingFolder.PageFolder
             catch (Exception EX)
             {
                 MessageBox.Show("" + EX, "Error EX");
+                dispatcher.Stop();
             }
             dispatcher.Stop();
             PasswordPasswordBox.IsEnabled = true;

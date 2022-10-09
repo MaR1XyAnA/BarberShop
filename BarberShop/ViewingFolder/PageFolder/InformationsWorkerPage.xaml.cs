@@ -31,42 +31,20 @@ namespace BarberShop.ViewingFolder.PageFolder
 
         private void EditInformationsWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-            EditInformationsWorkerButton.Visibility = Visibility.Collapsed;
-            DeleteInformationsWokerButton.Visibility = Visibility.Collapsed;
-            SaveInformationsWorkerButton.Visibility = Visibility.Visible;
-            CanselEditInformationsWorkerButton.Visibility = Visibility.Visible;
-            UploadingPhotosButton.Visibility = Visibility.Visible;
+            EditDeleteStackPanel.Visibility = Visibility.Collapsed;
+            SaveCanselStackPanel.Visibility = Visibility.Visible;
 
-            string PersonalNumberWorkerString;
-            string StatusWorkerString;
-            string SurnameWorkerWorkerString;
-            string NameWorkerString;
-            string MiddleNameWorkerString;
-            string PaulWorkerString;
-            string DateOfBirthWorkerString;
-            string PostWorkerString;
-            string LoginWorkerString;
-            string PasswordWorkerString;
-            string NumberPhoneWorkerString;
-            string EmailWorkerString;
-            string PSWorkerString;
-            string PNWorkerString;
-            string PassportIssuedWorkerString;
-            string DateOfIssueWorkerString;
-            string DivisionCodeWorkerString;
-            string PlaceOfBirthWorkerString;
-            string RegistrationRegionWorkerString;
-            string DistrictWorkerString;
-            string RegistrationPointWorkerString;
-            string RegistrationStreetWorkerString;
-            string RegistrationHouseWorkerString;
-            string RegistrationApartmentWorkerString;
-            string CardNumberWorkerString;
-            string CardValidMonthWorkerString;
-            string CardValidYearsString;
-            string CardKeeperNameString;
-            string CardKeeperSurnameString;
-            string CardCodeString;
+            string 
+                PersonalNumberWorkerString, StatusWorkerString, SurnameWorkerWorkerString,
+                NameWorkerString, MiddleNameWorkerString, PaulWorkerString,
+                DateOfBirthWorkerString, PostWorkerString, LoginWorkerString,
+                PasswordWorkerString, NumberPhoneWorkerString, EmailWorkerString,
+                PSWorkerString, PNWorkerString, PassportIssuedWorkerString,
+                DateOfIssueWorkerString, DivisionCodeWorkerString, PlaceOfBirthWorkerString,
+                RegistrationRegionWorkerString, DistrictWorkerString, RegistrationPointWorkerString,
+                RegistrationStreetWorkerString, RegistrationHouseWorkerString, RegistrationApartmentWorkerString,
+                CardNumberWorkerString, CardValidMonthWorkerString, CardValidYearsString,
+                CardKeeperNameString, CardKeeperSurnameString, CardCodeString;
 
             PersonalNumberWorkerString = Convert.ToString(PersonalNumberWorkerTextBlock.Text);
             StatusWorkerString = Convert.ToString(StatusWorkerTextBlock.Text);
@@ -193,23 +171,10 @@ namespace BarberShop.ViewingFolder.PageFolder
             CardCodeTextBox.Text = CardCodeString;
         }
 
-        private void DeleteInformationsWokerButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SaveInformationsWorkerButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void CanselEditInformationsWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-            EditInformationsWorkerButton.Visibility = Visibility.Visible;
-            DeleteInformationsWokerButton.Visibility = Visibility.Visible;
-            SaveInformationsWorkerButton.Visibility = Visibility.Collapsed;
-            CanselEditInformationsWorkerButton.Visibility = Visibility.Collapsed;
-            UploadingPhotosButton.Visibility = Visibility.Collapsed;
+            EditDeleteStackPanel.Visibility = Visibility.Visible;
+            SaveCanselStackPanel.Visibility = Visibility.Collapsed;
 
             PersonalNumberWorkerTextBlock.Visibility = Visibility.Visible;
             StatusWorkerTextBlock.Visibility = Visibility.Visible;
@@ -278,6 +243,17 @@ namespace BarberShop.ViewingFolder.PageFolder
         private void UploadingPhotosButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+ 
+
+        private void SaveInformationsWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteInformationsWokerButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

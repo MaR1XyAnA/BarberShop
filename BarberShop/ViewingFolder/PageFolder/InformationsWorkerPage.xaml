@@ -523,13 +523,12 @@
                         Visibility="Collapsed"
                         x:Name="CardCodeTextBox"/>
                 </StackPanel>
-                <StackPanel Visibility="Collapsed" Orientation="Vertical">
+                <StackPanel Name="EditDeleteStackPanel" Visibility="Visible" Orientation="Vertical">
                     <Button
                         x:Name="EditInformationsWorkerButton"
                         Click="EditInformationsWorkerButton_Click"
                         Content="РЕДАКТИРОВАТЬ СОТРУДНИКА"
                         Height="60"
-                        Visibility="Visible"
                         Width="500"
                         Margin="10 50 10 10"/>
                     <Button
@@ -537,15 +536,15 @@
                         Click="DeleteInformationsWokerButton_Click"
                         Content="УДАЛИТЬ СОТРУДНИКА"
                         Height="60"
-                        Visibility="Visible"
                         Width="400"
                         Margin="10 10 10 10"/>
+                </StackPanel>
+                <StackPanel Name="SaveCanselStackPanel" Visibility="Collapsed" Orientation="Vertical">
                     <Button
                         x:Name="SaveInformationsWorkerButton"
                         Click="SaveInformationsWorkerButton_Click"
                         Content="СОХРАНИТЬ ИЗМЕНЕНИЯ"
                         Height="60"
-                        Visibility="Collapsed"
                         Width="400"
                         Margin="10 50 10 10"/>
                     <Button
@@ -553,11 +552,10 @@
                         Click="CanselEditInformationsWorkerButton_Click"
                         Content="ОТМЕНА РЕДАКТИРОВАНИЯ"
                         Height="60"
-                        Visibility="Collapsed"
                         Width="400"
                         Margin="10 10 10 10"/>
                 </StackPanel>
-            </StackPanel>
+                </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>
