@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="Page" x:Key="PageAutorization">
+        <Setter Property="Width" Value="780"/>
+        <Setter Property="Height" Value="288"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="Cycle"/>
+    </Style>
+    <Style TargetType="Page" x:Key="MainPage">
+        <Setter Property="Width" Value="1800"/>
+        <Setter Property="Height" Value="888"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="Cycle"/>
+    </Style>
+</ResourceDictionary>

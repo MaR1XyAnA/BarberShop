@@ -7,30 +7,37 @@
       mc:Ignorable="d" 
       Style="{StaticResource PageAutorization}">
 
-    <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 0">
-            <TextBlock
-                Text="УКАЖИТЕ СВОЮ ПОЧТУ, КОТОРАЯ БЫЛА УКАЗАНА В МОМЕНТ АВТОРИЗАЦИИ В ПРИЛОЖЕНИИ И ЕСЛИ ОНА ПРАВИЛЬНАЯ, МЫ ВЫШЛЕМ ВАМ LOGIN И PASSWORD"
-                Style="{StaticResource TextTextBlock}"
-                TextWrapping="Wrap"
-                FontSize="24"
-                Width="500"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center" 
-                TextAlignment="Center"
-                Margin="0 0 0 0"/>
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 0">
+        <TextBlock
+            Text="УКАЖИТЕ СВОЮ ПОЧТУ, КОТОРАЯ БЫЛА УКАЗАНА В МОМЕНТ АВТОРИЗАЦИИ В ПРИЛОЖЕНИИ И ЕСЛИ ОНА ПРАВИЛЬНАЯ, МЫ ВЫШЛЕМ ВАМ LOGIN И PASSWORD"
+            Style="{StaticResource TextTextBlock}"
+            TextWrapping="Wrap"
+            Width="530"
+            Margin="0 -25 0 0"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center" 
+            TextAlignment="Center"/>
+        <Grid>
             <TextBox
+                KeyDown="EmailTextBox_KeyDown"
+                TextChanged="EmailTextBox_TextChanged"
                 x:Name="EmailTextBox"
                 Height="50"
                 Width="600"
                 Margin="0 20 0 0"/>
-            <Button
-                Margin="0 40 0 0"
-                Height="50"
-                Width="300"
-                Name="EmailNext"
-                Click="EmailNext_Click"
-                Content="ОТПРАВИТЬ"/>
-        </StackPanel>
-    </Grid>
+            <TextBlock
+                Margin="15 20 0 0"
+                Width="130"
+                Text="EMAIL FIELD..."
+                x:Name="EmailTextTextBlock"
+                Style="{StaticResource TextTextBlock}"/>
+        </Grid>
+        <Button
+            Margin="0 93 10.2 0"
+            Height="50"
+            Width="300"
+            Name="EmailNext"
+            Click="EmailNext_Click"
+            Content="ОТПРАВИТЬ"/>
+    </StackPanel>
 </Page>

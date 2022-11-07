@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
@@ -18,18 +19,13 @@ namespace BarberShop.ViewingFolder.PageFolder
             DataBaseFolder.AppConnectClass.DataBase = new DataBaseFolder.BarberShopDataBaseEntities();
         }
 
-        private void NextButton_Click(object sender, RoutedEventArgs e)
+        private void GetEnter()
         {
             DoubleAnimation doubleAnimation = new DoubleAnimation();
             doubleAnimation.From = 50;
             doubleAnimation.To = 0;
             doubleAnimation.Duration = TimeSpan.FromSeconds(5);
             doubleAnimation.EasingFunction = new QuadraticEase();
-
-            PasswordPasswordBox.IsEnabled = false;
-            ViseblePasswordTextBox.IsEnabled = false;
-            LoginTextBox.IsEnabled = false;
-            NextButton.IsEnabled = false;
 
             if (LoginTextBox.Text == "" && PasswordPasswordBox.Password == "" ||
                 LoginTextBox.Text == "" && ViseblePasswordTextBox.Text == "")
@@ -114,10 +110,27 @@ namespace BarberShop.ViewingFolder.PageFolder
                     InfoErrorTextBlock.Text = "ОШИБКА EX";
                 }
             }
-            PasswordPasswordBox.IsEnabled = true;
-            ViseblePasswordTextBox.IsEnabled = true;
-            LoginTextBox.IsEnabled = true;
-            NextButton.IsEnabled = true;
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            GetEnter();
+        }
+
+        private void PasswordPasswordBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                GetEnter();
+            }    
+        }
+
+        private void ViseblePasswordTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                GetEnter();
+            }
         }
 
         private void VisebleTruePasswordButton_Click(object sender, RoutedEventArgs e)
@@ -148,11 +161,11 @@ namespace BarberShop.ViewingFolder.PageFolder
         {
             if (LoginTextBox.Text.Length == 0)
             {
-                LoginText.Visibility = Visibility.Visible;
+                LoginTextTextBlock.Visibility = Visibility.Visible;
             }
             else
             {
-                LoginText.Visibility = Visibility.Hidden;
+                LoginTextTextBlock.Visibility = Visibility.Hidden;
             }
         }
 
@@ -160,11 +173,11 @@ namespace BarberShop.ViewingFolder.PageFolder
         {
             if (PasswordPasswordBox.Password.Length == 0)
             {
-                PasswordText.Visibility = Visibility.Visible;
+                PasswordTextTextBlock.Visibility = Visibility.Visible;
             }
             else
             {
-                PasswordText.Visibility = Visibility.Hidden;
+                PasswordTextTextBlock.Visibility = Visibility.Hidden;
             }
         }
 
@@ -172,11 +185,11 @@ namespace BarberShop.ViewingFolder.PageFolder
         {
             if (ViseblePasswordTextBox.Text.Length == 0)
             {
-                PasswordText.Visibility = Visibility.Visible;
+                PasswordTextTextBlock.Visibility = Visibility.Visible;
             }
             else
             {
-                PasswordText.Visibility = Visibility.Hidden;
+                PasswordTextTextBlock.Visibility = Visibility.Hidden;
             }
         }
     }

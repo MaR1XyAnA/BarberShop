@@ -16,78 +16,22 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Border Name="VisibleFilterTrueBorder" Height="Auto" Grid.Row="0" HorizontalAlignment="Left" Width="Auto" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                <TextBlock 
-                    Style="{StaticResource InfoDataBaseTextBlockFalse}"
-                    Text="ФИЛЬТР"
-                    VerticalAlignment="Center"
-                    Margin="10 0 0 0"/>
-                <Button
-                    Name="VisibleFilterTrueButton"
-                    Click="VisibleFilterTrueButton_Click"
-                    FontSize="22"
-                    Foreground="#fff"
-                    Content="ПОКАЗАТЬ"
-                    Height="40"
-                    Width="100"
-                    Background="Green"
-                    Margin="10 10 10 10"/>
-                </StackPanel>
-            </Border>
-            <Border Name="VisibleFilterFolseBorder" Visibility="Collapsed" Grid.Row="0" HorizontalAlignment="Left" Width="850" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock 
-                                Style="{StaticResource TextTextBlock}"
-                                FontSize="30"
-                                VerticalAlignment="Center"
-                                Text="ПОИСК:"
-                                Margin="10 0 0 0"/>
-                            <TextBox
-                                Height="40"
-                                Width="500"
-                                HorizontalAlignment="Left"
-                                Margin="5 5 0 5"/>
-                            <Button
-                                Name="SearchButton"
-                                Click="SearchButton_Click"
-                                Margin="10 5 0 5"
-                                Height="50"
-                                Width="200"
-                                Content="ПОИСК"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
+            <Border Name="VisibleFilterFolseBorder" Grid.Row="0" HorizontalAlignment="Left" Width="850" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock 
                             Style="{StaticResource TextTextBlock}"
                             FontSize="30"
                             VerticalAlignment="Center"
-                            Text="ДОЛЖНОСТЬ:"
+                            Text="ПОИСК:"
                             Margin="10 0 0 0"/>
-                        <ComboBox
-                            x:Name="RoleFilteerComboBox"
-                            DisplayMemberPath="NamePost"
+                        <TextBox
+                            Height="40"
+                            Width="500"
                             HorizontalAlignment="Left"
-                            Height="40"
-                            Width="400"
-                            Margin="10 5 0 5"/>
-                        <TextBlock 
-                            Style="{StaticResource InfoDataBaseTextBlockFalse}"
-                            Text="ФИЛЬТР"
-                            VerticalAlignment="Center"
-                            Margin="100 0 0 0"/>
-                        <Button
-                            Name="VisibleFilterFolseButton"
-                            Click="VisibleFilterFolseButton_Click"
-                            FontSize="22"
-                            Foreground="#fff"
-                            Content="СКРЫТЬ"
-                            Height="40"
-                            Width="100"
-                            Background="Red"
-                            Margin="10 0 0 0"/>
+                            Margin="5 5 0 5"/>
                     </StackPanel>
-                    </StackPanel>
+                </StackPanel>
                 </Border>
             <Border Grid.Row="1" Height="auto" VerticalAlignment="Top" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
                 <ListBox

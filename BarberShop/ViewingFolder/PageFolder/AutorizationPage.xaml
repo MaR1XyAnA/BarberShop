@@ -8,99 +8,56 @@
       Style="{StaticResource PageAutorization}"
       >
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 100">
+        <StackPanel Margin="0 0 0 100">
             <Grid Margin="0 0 0 10">
                 <TextBox
-                    Padding="10 0 10 0"
-                    Height="50"
                     Width="600"
-                    Margin="0 0 0 0"
-                    TextWrapping="NoWrap"
                     Name="LoginTextBox"
                     TextChanged="LoginTextBox_TextChanged"/>
                 <TextBlock
-                    Width="70"
-                    HorizontalAlignment="Left"
-                    FontSize="35"
-                    Text="LOGIN"
-                    Margin="15 5 0 0"
-                    x:Name="LoginText"
+                    Width="130"
+                    Text="LOGIN FIELD..."
+                    x:Name="LoginTextTextBlock"
                     Style="{StaticResource TextTextBlock}"/>
             </Grid>
             <Grid Margin="0 10 0 0">
                 <PasswordBox
+                    KeyDown="PasswordPasswordBox_KeyDown"
                     PasswordChanged="PasswordPasswordBox_PasswordChanged"
-                    Padding="10 0 50 0"
-                    Height="50"
                     Width="600"
-                    Visibility="Visible"
-                    Margin="0 0 0 0"
-                    Name="PasswordPasswordBox"/>
+                    x:Name="PasswordPasswordBox"/>
                 <TextBox
+                    KeyDown="ViseblePasswordTextBox_KeyDown"
                     TextChanged="ViseblePasswordTextBox_TextChanged"
-                    Height="50"
                     Visibility="Collapsed"
                     Padding="10 0 50 0"
-                    TextWrapping="NoWrap"
                     Width="600"
-                    Margin="0 0 0 0"
                     Name="ViseblePasswordTextBox"/>
                 <TextBlock
-                    x:Name="PasswordText"
-                    Margin="15 5 0 0"
-                    FontSize="35"
-                    Width="140"
-                    HorizontalAlignment="Left"
-                    Text="PASSWORD"
+                    x:Name="PasswordTextTextBlock"
+                    Width="160"
+                    Text="PASSWORD FIELD..."
                     Style="{StaticResource TextTextBlock}"/>
                 <Button
-                    HorizontalAlignment="Right"
-                    Margin="0 0 10 0"
-                    Height="35"
-                    Width="35"
+                    Style="{StaticResource VisibalPasswordFolseStyle}"
                     Visibility="Visible"
                     x:Name="VisebleTruePasswordButton"
-                    Click="VisebleTruePasswordButton_Click">
-                        <Button.Background>
-                            <ImageBrush 
-                                ImageSource="\ContentFolder\Image\ViseblTrue.png" 
-                                TileMode="FlipX" 
-                                Stretch="UniformToFill"/>
-                        </Button.Background>
-                </Button>
+                    Click="VisebleTruePasswordButton_Click"/>
                 <Button
-                    HorizontalAlignment="Right"
-                    Margin="0 0 10 0"
-                    Height="35"
-                    Width="35"
+                    Style="{StaticResource VisibalPasswordTrueStyle}"
                     Visibility="Collapsed"
                     x:Name="VisebleFalsePasswordButton"
-                    Click="VisebleFalsePasswordButton_Click">
-                        <Button.Background>
-                            <ImageBrush 
-                                ImageSource="\ContentFolder\Image\VisebalFols.png" 
-                                TileMode="FlipX" 
-                                Stretch="UniformToFill"/>
-                        </Button.Background>
-                </Button>
+                    Click="VisebleFalsePasswordButton_Click"/>
             </Grid>
-            <ProgressBar
-                Name="TestProgressBar"
-                Visibility="Collapsed"
-                Minimum="0"
-                Maximum="100"
-                Height="40"
-                Width="500"
-                Margin="0 20 0 0"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="0 0 0 20" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 20" VerticalAlignment="Bottom">
             <Button
                 Name="NextButton"
                 Click="NextButton_Click"
                 Content="ВОЙТИ"
                 Visibility="Visible"
-                Height="60"
-                Width="450"
+                Height="50"
+                Width="300"
                 Margin="0 0 10 0"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Center"/>

@@ -10,39 +10,30 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Height="420"
         Width="800">
-    <Border CornerRadius="15">
-        <Border.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#1a1a2e"/>
-                <GradientStop Color="#161a1e" Offset="1"/>
-            </LinearGradientBrush>
-        </Border.Background>
+    <Border Style="{StaticResource BackgroundBorder}">
         <Grid Background="Transparent">
             <Grid.RowDefinitions>
                 <RowDefinition Height="32"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Border Grid.Row="0" Style="{StaticResource BorderControl}"/>
+            <Grid Grid.Row="0" Background="Transparent" Style="{StaticResource GridControl}">
+                <StackPanel Margin="10 0 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Image Style="{StaticResource LogoWindow}"/>
+                    <TextBlock
+                        Text="BarberShop : АВТОРИЗАЦИЯ"
+                        Style="{StaticResource WindowText}"/>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 0">
                     <Button 
-                         Style="{StaticResource SpareButton}"
+                         Style="{StaticResource RollupControlButton}"
                          ToolTip="СВЕРНУТЬ"
-                         x:Name="RollUp"
-                         Click="RollUp_Click"
-                         Content="—"
-                         Height="32"
-                         Width="50"
-                         FontSize="18"/>
+                         x:Name="RollUp"/>
                     <Button
-                         Style="{StaticResource SpareButton2}"
+                         Style="{StaticResource CloseControlButton}"
                          x:Name="CloseBtn"
-                         Click="CloseBtn_Click"
-                         Content="✕"
-                         Height="32"
-                         Width="50"
-                         FontSize="18"
-                         ToolTip="ЗАКРЫТЬ"/>
+                         Click="CloseBtn_Click"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
@@ -51,22 +42,22 @@
                         Name="InfoTextAutorizationButton"
                         Click="InfoTextAutorizationButton_Click"
                         Content="ВХОД"
-                        Margin="0 0 40 0" 
-                        Style="{StaticResource TextButton}"
+                        Margin="0 0 10 0" 
+                        Style="{StaticResource TextToggleButton}"
                         FontSize="25"/>
                     <ToggleButton 
                         Name="InfoTextInformationButton"
                         Click="InfoTextInformationButton_Click"
                         Content="СЕССИЯ" 
-                        Margin="40 0 40 0" 
-                        Style="{StaticResource TextButton}"
+                        Margin="10 0 10 0" 
+                        Style="{StaticResource TextToggleButton}"
                         FontSize="25"/>
                     <ToggleButton 
                         Name="InfoTextEmailButton"
                         Click="InfoTextEmailButton_Click"
                         Content="EMAIL" 
-                        Margin="40 0 0 0" 
-                        Style="{StaticResource TextButton}"
+                        Margin="10 0 0 0" 
+                        Style="{StaticResource TextToggleButton}"
                         FontSize="25"/>
                 </StackPanel>
             </Grid>

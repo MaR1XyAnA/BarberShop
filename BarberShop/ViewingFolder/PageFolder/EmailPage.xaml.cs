@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace BarberShop.ViewingFolder.PageFolder
 {
@@ -14,7 +15,7 @@ namespace BarberShop.ViewingFolder.PageFolder
             InitializeComponent();
         }
 
-        private void EmailNext_Click(object sender, RoutedEventArgs e)
+        private void GetEmail()
         {
             string LoginMail; // Стриноговое значение ЛОГИНА почты для программы 
             string PasswordMail; // Стриноговое значение ПАРОЛЯ почты для программы
@@ -76,6 +77,31 @@ namespace BarberShop.ViewingFolder.PageFolder
             catch (Exception EX)
             {
                 MessageBox.Show("" + EX, "Error EX");
+            }
+        }
+
+        private void EmailNext_Click(object sender, RoutedEventArgs e)
+        {
+            GetEmail();
+        }
+
+        private void EmailTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                GetEmail();
+            }
+        }
+
+        private void EmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (EmailTextBox.Text.Length == 0)
+            {
+                EmailTextTextBlock.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                EmailTextTextBlock.Visibility = Visibility.Hidden;
             }
         }
     }

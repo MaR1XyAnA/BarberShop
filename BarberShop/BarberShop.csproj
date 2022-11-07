@@ -209,9 +209,6 @@
     <Compile Include="ViewingFolder\WindowsFolder\MainWindows.xaml.cs">
       <DependentUpon>MainWindows.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewingFolder\WindowsFolder\ProgressLoadingWindows.xaml.cs">
-      <DependentUpon>ProgressLoadingWindows.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewingFolder\WindowsFolder\QueueWindows.xaml.cs">
       <DependentUpon>QueueWindows.xaml</DependentUpon>
     </Compile>
@@ -238,6 +235,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelDataBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Resource Include="ContentFolder\FontsFolder\BarberShopFont.ttf" />
     <None Include="packages.config" />
     <None Include="ViewingFolder\DataBaseFolder\ModelDataBase.edmx.diagram">
       <DependentUpon>ModelDataBase.edmx</DependentUpon>
@@ -254,6 +252,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ContentFolder\Image\VisebalFols.png" />
+    <Resource Include="ContentFolder\Image\VisebalGrayFols.png" />
+    <Resource Include="ContentFolder\Image\ViseblGrayTrue.png" />
     <Resource Include="ContentFolder\Image\ViseblTrue.png" />
     <Content Include="ViewingFolder\DataBaseFolder\ModelDataBase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -267,6 +267,62 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Style\BorderStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\ComboBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\GridStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\ImageStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\ListBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\PageStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\PasswordBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\ScrollBarStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\StackPanelStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\TextBlockStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\ToggleButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\WindowStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewingFolder\PageFolder\AddendumWorkerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -312,10 +368,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\WindowsFolder\MainWindows.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ViewingFolder\WindowsFolder\ProgressLoadingWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

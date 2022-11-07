@@ -5,15 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BarberShop.ViewingFolder.PageFolder"
       mc:Ignorable="d" 
-      Style="{StaticResource PageAutorization}"
-      >
+      Style="{StaticResource PageAutorization}">
     <Grid>
         <Button
             x:Name="SessionsInfoButton"
             Click="SessionsInfoButton_Click"
             Content="СЕАНСЫ НА СЕГОДНЯ"
-            Height="80"
-            Width="600"
+            Height="50"
+            Width="340"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"/>
     </Grid>
