@@ -32,7 +32,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RepeatButton}">
-                    <Border CornerRadius="10" Background="Transparent" BorderBrush="Transparent"></Border>
+                    <Border CornerRadius="7" Background="Transparent" BorderBrush="Transparent"></Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -45,7 +45,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
-                    <Border CornerRadius="8" Background="#0f3460" BorderBrush="Transparent">
+                    <Border CornerRadius="7" Background="#1d63b8" Width="8" BorderBrush="Transparent">
                         <Rectangle Fill="Transparent" Margin="1"></Rectangle>
                     </Border>
                 </ControlTemplate>
@@ -54,7 +54,7 @@
     </Style>
 
     <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
-        <Grid Margin="0 0 0 0">
+        <Grid Margin="0">
             <Grid.RowDefinitions>
                 <RowDefinition MaxHeight="1"/>
                 <RowDefinition Height="*"/>

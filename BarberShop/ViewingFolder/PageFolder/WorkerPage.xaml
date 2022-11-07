@@ -16,23 +16,19 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Border Name="VisibleFilterFolseBorder" Grid.Row="0" HorizontalAlignment="Left" Width="850" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock 
-                            Style="{StaticResource TextTextBlock}"
-                            FontSize="30"
-                            VerticalAlignment="Center"
-                            Text="ПОИСК:"
-                            Margin="10 0 0 0"/>
-                        <TextBox
-                            Height="40"
-                            Width="500"
-                            HorizontalAlignment="Left"
-                            Margin="5 5 0 5"/>
-                    </StackPanel>
-                </StackPanel>
-                </Border>
+            <StackPanel Margin="10 10 0 0" Orientation="Vertical">
+                <Grid>
+                    <TextBox
+                        TextChanged="SearchTextBox_TextChanged"
+                        x:Name="SearchTextBox"
+                        Width="985"/>
+                    <TextBlock 
+                        Style="{StaticResource TextTextBlock}"
+                        Width="140"
+                        Text="SEARCH FIELD..."
+                        x:Name="SearchTextTextBlock"/>
+                </Grid>
+            </StackPanel>
             <Border Grid.Row="1" Height="auto" VerticalAlignment="Top" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
                 <ListBox
                     x:Name="ListWorkwrListBox"
@@ -113,33 +109,29 @@
                 </ListBox>
             </Border>
         </Grid>
-        <Border x:Name="BorderButton" VerticalAlignment="Top" Height="Auto" Grid.Column="1" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button 
-                    Name="AddendumWorkerButton"
-                    Click="AddendumWorkerButton_Click"
-                    Content="ДОБАВИТЬ СОТРУДНИКА" 
-                    Width="550"
-                    Height="65"
-                    Margin="0 10 0 10"/>
-            </StackPanel>
-        </Border>
-        <Border VerticalAlignment="Top" MinHeight="150" Height="Auto" Grid.Column="1" Margin="20 150 20 20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
-            <Frame
-                x:Name="InformationFrame"
-                Margin="5"
-                NavigationUIVisibility="Hidden"/>
-        </Border>
-        <TextBlock
-            Visibility="Visible"
-            x:Name="BullshitextBlock"
-            Text="ВЫБЕРИТЕ СОТРУДНИКА ДЛЯ ПРОСМОТРА ПОДРОБНОЙ ИНФОРМАЦИИ О НЁМ" 
-            VerticalAlignment="Top"
-            HorizontalAlignment="Center"
-            Margin="0 165 0 0"
-            TextWrapping="Wrap"
+        <Button 
+            Margin="0 10 0 0"
             Grid.Column="1"
-            FontSize="50"
-            Style="{StaticResource InfoDataBaseTextBlockFalse}" TextAlignment="Center"/>
+            VerticalAlignment="Top"
+            Name="AddendumWorkerButton"
+            Click="AddendumWorkerButton_Click"
+            Content="ДОБАВИТЬ СОТРУДНИКА" 
+            Width="740"
+            Height="50"/>
+        <Border VerticalAlignment="Top" Height="Auto" Grid.Column="1" Margin="10 79.7 10 0" CornerRadius="15" BorderBrush="#33FFFFFF" BorderThickness="2">
+            <Grid>
+                <TextBlock
+                    Visibility="Visible"
+                    x:Name="BullshitextBlock"
+                    Text="ВЫБЕРИТЕ СОТРУДНИКА ДЛЯ ПРОСМОТРА ПОДРОБНОЙ ИНФОРМАЦИИ О НЁМ" 
+                    HorizontalAlignment="Center"
+                    Margin="0 10 0 10"
+                    Style="{StaticResource TextTextBlock}"/>
+                <Frame
+                    x:Name="InformationFrame"
+                    Margin="5"
+                    NavigationUIVisibility="Hidden"/>
+            </Grid>
+        </Border>
     </Grid>
 </Page>
