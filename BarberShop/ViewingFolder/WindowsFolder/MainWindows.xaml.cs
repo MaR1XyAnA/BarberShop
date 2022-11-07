@@ -13,6 +13,7 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             MainFrame.Navigate(new WorkerPage());
             HideClass.InfoWindows = 1;
             ListWorkerButton.IsChecked = true;
+            ListWorkerBorder.Visibility = Visibility.Visible;
         }
 
         private void RollUp_Click(object sender, RoutedEventArgs e)
@@ -20,18 +21,28 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             WindowState = WindowState.Minimized;
         }
 
-        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        #region Управление окном
+        private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы окно перетаскивать
         {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно
+        {
+            this.Close();
             HideClass.InfoWindows = 0;
             AuthorizationWindows authorizationWindows = new AuthorizationWindows();
             authorizationWindows.Show();
-            this.Hide();
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void RollUpButton_Click(object sender, RoutedEventArgs e) // Для того, чтобы свернуть окно
         {
-            this.DragMove();
+            WindowState = WindowState.Minimized;
         }
+        #endregion
 
         private void ListWorkerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -40,6 +51,10 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             RecordClientButton.IsChecked = false;
             ServicesListButton.IsChecked = false;
             QueueListButton.IsChecked = false;
+            ListWorkerBorder.Visibility = Visibility.Visible;
+            RecordClientBorder.Visibility = Visibility.Hidden;
+            ServicesListBorder.Visibility = Visibility.Hidden;
+            QueueListBorder.Visibility = Visibility.Hidden;
         }
 
         private void RecordClientButton_Click(object sender, RoutedEventArgs e)
@@ -49,6 +64,10 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             RecordClientButton.IsChecked = true;
             ServicesListButton.IsChecked = false;
             QueueListButton.IsChecked = false;
+            ListWorkerBorder.Visibility = Visibility.Hidden;
+            RecordClientBorder.Visibility = Visibility.Visible;
+            ServicesListBorder.Visibility = Visibility.Hidden;
+            QueueListBorder.Visibility = Visibility.Hidden;
         }
 
         private void ServicesListButton_Click(object sender, RoutedEventArgs e)
@@ -58,6 +77,10 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             RecordClientButton.IsChecked = false;
             ServicesListButton.IsChecked = true;
             QueueListButton.IsChecked = false;
+            ListWorkerBorder.Visibility = Visibility.Hidden;
+            RecordClientBorder.Visibility = Visibility.Hidden;
+            ServicesListBorder.Visibility = Visibility.Visible;
+            QueueListBorder.Visibility = Visibility.Hidden;
         }
 
         private void QueueListButton_Click(object sender, RoutedEventArgs e)
@@ -67,6 +90,10 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             RecordClientButton.IsChecked = false;
             ServicesListButton.IsChecked = false;
             QueueListButton.IsChecked = true;
+            ListWorkerBorder.Visibility = Visibility.Hidden;
+            RecordClientBorder.Visibility = Visibility.Hidden;
+            ServicesListBorder.Visibility = Visibility.Hidden;
+            QueueListBorder.Visibility = Visibility.Visible;
         }
     }
 }

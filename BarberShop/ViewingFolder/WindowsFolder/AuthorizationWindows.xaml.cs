@@ -30,20 +30,28 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             }
         }
 
-        private void RollUp_Click(object sender, RoutedEventArgs e)
+        #region Управление окном
+        private void SpaseBarGrid_MouseDown(object sender, MouseButtonEventArgs e) // Для того, что бы окно перетаскивать
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно
+        {
+            this.Close();
+            HideClass.InfoWindows = 0;
+            AuthorizationWindows authorizationWindows = new AuthorizationWindows();
+            authorizationWindows.Show();
+        }
+
+        private void RollUpButton_Click(object sender, RoutedEventArgs e) // Для того, чтобы свернуть окно
         {
             WindowState = WindowState.Minimized;
         }
-
-        private void CloseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
+        #endregion
 
         private void InfoTextAutorizationButton_Click(object sender, RoutedEventArgs e)
         {

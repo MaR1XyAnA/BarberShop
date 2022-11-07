@@ -33,28 +33,30 @@
         </Setter>
     </Style>
     <Style TargetType="ToggleButton" x:Key="MenuToggleButton" BasedOn="{StaticResource TextToggleButton}">
-        <Setter Property="Background" Value="#0f3460"/>
-        <Setter Property="Foreground" Value="#e94560"/>
-        <Setter Property="BorderBrush" Value="#08457e"/>
-        <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="FontSize" Value="40"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontFamily" Value="\ContentFolder\FontsFolder\#Alumni Sans Thin"/>
+        <Setter Property="Height" Value="70"/>
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Margin" Value="10 0 10 0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
                     <Border
                         CornerRadius="15"
+                        Padding="20 5 20 5"
                         Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="#D72323"/>
+                            <Setter Property="Foreground" Value="#fff"/>
+                            <Setter Property="Background" Value="#21262c"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Foreground" Value="#fff"/>
+                            <Setter Property="Background" Value="Transparent"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

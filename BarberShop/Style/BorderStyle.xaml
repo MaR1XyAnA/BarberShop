@@ -8,4 +8,22 @@
         <Setter Property="Background" Value="#161b22"/>
         <Setter Property="CornerRadius" Value="15 15 0 0"/>
     </Style>
+    <Style x:Key="BorderMenu" TargetType="Border">
+        <Setter Property="Background" Value="#161b22"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="90"/>
+        <Setter Property="Width" Value="1100"/>
+        <Setter Property="Margin" Value="0 0 0 50"/>
+        <Setter Property="CornerRadius" Value="15"/>
+    </Style>
+    <Style x:Key="BorderMenuButton" TargetType="Border">
+        <Setter Property="Background" Value="#f78166"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="4"/>
+        <Setter Property="Visibility" Value="Hidden"/>
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="CornerRadius" Value="3"/>
+    </Style>
 </ResourceDictionary>

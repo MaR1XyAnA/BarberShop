@@ -4,9 +4,11 @@
         <Setter Property="Width" Value="1820"/>
         <Setter Property="Height" Value="980"/>
         <Setter Property="WindowStyle" Value="None"/>
-        <Setter Property="ResizeMode" Value="NoResize"/>
+        <Setter Property="ResizeMode" Value="CanMinimize"/>
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Icon" Value="\ContentFolder\Image\ImsgeIcon.png"/>
+        <Setter Property="ShowInTaskbar" Value="True"/>
+        <Setter Property="Topmost" Value="False"/>
     </Style>
 </ResourceDictionary>

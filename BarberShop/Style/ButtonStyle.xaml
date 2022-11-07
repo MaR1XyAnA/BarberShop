@@ -83,8 +83,8 @@
         </Setter>
     </Style>
     <Style x:Key="VisibalPasswordFolseStyle" TargetType="Button">
-        <Setter Property="Width" Value="35"/>
-        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="Height" Value="25"/>
         <Setter Property="Background">
             <Setter.Value>
                 <ImageBrush ImageSource="\ContentFolder\Image\ViseblGrayTrue.png"/>

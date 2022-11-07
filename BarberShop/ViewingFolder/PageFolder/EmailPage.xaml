@@ -19,6 +19,7 @@
             TextAlignment="Center"/>
         <Grid>
             <TextBox
+                MaxLength="100"
                 KeyDown="EmailTextBox_KeyDown"
                 TextChanged="EmailTextBox_TextChanged"
                 x:Name="EmailTextBox"

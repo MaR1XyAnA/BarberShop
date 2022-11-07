@@ -20,6 +20,7 @@
                 <ResourceDictionary Source="\Style\GridStyle.xaml"/>
                 <ResourceDictionary Source="\Style\StackPanelStyle.xaml"/>
                 <ResourceDictionary Source="\Style\ImageStyle.xaml"/>
+                <ResourceDictionary Source="\Style\PolygonStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

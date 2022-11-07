@@ -11,6 +11,7 @@
         <StackPanel Margin="0 0 0 100">
             <Grid Margin="0 0 0 10">
                 <TextBox
+                    MaxLength="50"
                     Width="600"
                     Name="LoginTextBox"
                     TextChanged="LoginTextBox_TextChanged"/>
@@ -27,6 +28,7 @@
                     Width="600"
                     x:Name="PasswordPasswordBox"/>
                 <TextBox
+                    MaxLength="50"
                     KeyDown="ViseblePasswordTextBox_KeyDown"
                     TextChanged="ViseblePasswordTextBox_TextChanged"
                     Visibility="Collapsed"

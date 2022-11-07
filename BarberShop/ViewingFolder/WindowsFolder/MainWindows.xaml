@@ -6,40 +6,30 @@
         xmlns:local="clr-namespace:BarberShop.ViewingFolder.WindowsFolder"
         mc:Ignorable="d"
         Style="{StaticResource WindowsStyle}"
-        WindowStartupLocation="CenterScreen"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown">
-    <Border CornerRadius="15">
-        <Border.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#1a1a2e"/>
-                <GradientStop Color="#161a1e" Offset="1"/>
-            </LinearGradientBrush>
-        </Border.Background>
-        <Grid>
+        WindowStartupLocation="CenterScreen">
+    <Border Style="{StaticResource BackgroundBorder}">
+        <Grid Background="Transparent">
             <Grid.RowDefinitions>
                 <RowDefinition Height="32"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Border Grid.Row="0" Style="{StaticResource BorderControl}"/>
+            <Grid x:Name="SpaseBarGrid" MouseDown="SpaseBarGrid_MouseDown" Grid.Row="0" Background="Transparent" Style="{StaticResource GridControl}">
+                <StackPanel Margin="10 0 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Image Style="{StaticResource LogoWindow}"/>
+                    <TextBlock
+                        Text="BarberShop : ГЛАВНОЕ ОКНО"
+                        Style="{StaticResource WindowText}"/>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 0">
                     <Button 
-                        Style="{StaticResource RollupControlButton}"
-                        ToolTip="СВЕРНУТЬ"
-                        x:Name="RollUp"
-                        Click="RollUp_Click"
-                        Content="—"
-                        Height="32"
-                        Width="50"
-                        FontSize="18"/>
+                         Style="{StaticResource RollupControlButton}"
+                         Click="RollUp_Click"
+                         x:Name="RollUp"/>
                     <Button
-                        Style="{StaticResource CloseControlButton}"
-                        x:Name="CloseBtn"
-                        Click="CloseBtn_Click"
-                        Content="✕"
-                        Height="32"
-                        Width="50"
-                        FontSize="18"
-                        ToolTip="ЗАКРЫТЬ"/>
+                         Style="{StaticResource CloseControlButton}"
+                         x:Name="CloseButton"
+                         Click="CloseButton_Click"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="0" Grid.RowSpan="2">
@@ -47,7 +37,7 @@
                     Margin="10 50 10 10"
                     x:Name="MainFrame"
                     NavigationUIVisibility="Hidden"/>
-                <Grid Background="Transparent" Height="50" Width="1400" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Grid Background="Transparent" Height="50" Width="1110" VerticalAlignment="Top" HorizontalAlignment="Center">
                     <Grid.Style>
                         <Style TargetType="{x:Type Grid}">
                             <Style.Triggers>
@@ -63,7 +53,6 @@
                                         </BeginStoryboard>
                                     </EventTrigger.Actions>
                                 </EventTrigger>
-
                                 <EventTrigger RoutedEvent="MouseLeave">
                                     <EventTrigger.Actions>
                                         <BeginStoryboard>
@@ -79,67 +68,51 @@
                             </Style.Triggers>
                         </Style>
                     </Grid.Style>
-                    <Border VerticalAlignment="Center" HorizontalAlignment="Center" Height="90" Width="1100" Margin="0 0 0 50" CornerRadius="30">
-                        <Border.Background>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#FF16213E" Offset="1"/>
-                                <GradientStop Color="#FF252850"/>
-                            </RadialGradientBrush>
-                        </Border.Background>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <ToggleButton 
-                                Style="{StaticResource MenuToggleButton}"
-                                x:Name="ListWorkerButton"
-                                Click="ListWorkerButton_Click"
-                                Content="СОТРУДНИКИ" 
-                                Height="70"
-                                Width="250"
-                                Margin="0 0 10 0"/>
-                            <ToggleButton 
-                                Style="{StaticResource MenuToggleButton}"
-                                x:Name="RecordClientButton"
-                                Content="КЛИЕНТЫ" 
-                                Click="RecordClientButton_Click"
-                                Height="70" 
-                                Width="250" 
-                                Margin="10 0 10 0"/>
-                            <ToggleButton 
-                                Style="{StaticResource MenuToggleButton}"
-                                x:Name="ServicesListButton"
-                                Content="УСЛУГИ"
-                                Click="ServicesListButton_Click"
-                                Height="70"
-                                Width="250" 
-                                Margin="10 0 10 0"/>
-                            <ToggleButton 
-                                Style="{StaticResource MenuToggleButton}"
-                                x:Name="QueueListButton"
-                                Content="ОЧЕРЕДЬ" 
-                                Click="QueueListButton_Click"
-                                Height="70" 
-                                Width="250" 
-                                Margin="10 0 0 0"/>
+                    <Border Style="{StaticResource BorderMenu}">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <ToggleButton 
+                                    Style="{StaticResource MenuToggleButton}"
+                                    x:Name="ListWorkerButton"
+                                    Click="ListWorkerButton_Click"
+                                    Content="СОТРУДНИКИ" 
+                                    Margin="0 0 10 0"/>
+                                <Border x:Name="ListWorkerBorder" Style="{StaticResource BorderMenuButton}"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <ToggleButton 
+                                    Style="{StaticResource MenuToggleButton}"
+                                    x:Name="RecordClientButton"
+                                    Content="КЛИЕНТЫ" 
+                                    Click="RecordClientButton_Click"/>
+                                <Border x:Name="RecordClientBorder" Style="{StaticResource BorderMenuButton}"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <ToggleButton 
+                                    Style="{StaticResource MenuToggleButton}"
+                                    x:Name="ServicesListButton"
+                                    Content="УСЛУГИ"
+                                    Click="ServicesListButton_Click"/>
+                                <Border x:Name="ServicesListBorder" Style="{StaticResource BorderMenuButton}"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <ToggleButton 
+                                    Style="{StaticResource MenuToggleButton}"
+                                    x:Name="QueueListButton"
+                                    Content="ОЧЕРЕДЬ" 
+                                    Click="QueueListButton_Click"
+                                    Margin="10 0 0 0"/>
+                                <Border x:Name="QueueListBorder" Style="{StaticResource BorderMenuButton}"/>
+                            </StackPanel>
                         </StackPanel>
                     </Border>
-                    <Polygon 
-                        Points="0,0, 100,48, 800,48, 900,0" 
-                        x:Name="PoligonName"
-                        Width="900"
-                        Opacity="1"
-                        VerticalAlignment="Bottom"
-                        HorizontalAlignment="Center"
-                        Margin="0 0 0 7">
-                        <Polygon.Fill>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#FF16213E" Offset="1"/>
-                                <GradientStop Color="#FF252850"/>
-                            </RadialGradientBrush>
-                        </Polygon.Fill>
-                    </Polygon>
+                    <Polygon Margin="0 0 0 12" x:Name="PoligonName"/>
                     <TextBlock
+                        Foreground="#58a6ff"
                         Style="{StaticResource TextTextBlock}"
-                        Text="МЕНЮ"
-                        FontSize="50"
+                        Text="-------МЕНЮ-------"
+                        FontSize="30"
+                        Margin="0 0 0 15"
                         VerticalAlignment="Bottom"
                         HorizontalAlignment="Center"/>
                 </Grid>
