@@ -100,7 +100,7 @@ namespace BarberShop.ViewingFolder.PageFolder
                     {
                         PSWorker = PassportSeriesTextBox.Text,
                         PNWorker = PassportNumberTextBox.Text,
-                        StatusWorker = "Online",
+                        StatusWorker = 1,
                         PostWorker = PostComboBox.Text,
                         CardNumberWorker = NumberCardTextBox.Text,
                         LoginWorker = LogintextBox.Text,

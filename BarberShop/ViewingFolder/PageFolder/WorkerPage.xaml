@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BarberShop.ViewingFolder.PageFolder"
       mc:Ignorable="d" IsEnabledChanged="Page_IsEnabledChanged"
-      Style="{StaticResource MainPage}">
+      Style="{StaticResource MainPage}"
+      IsVisibleChanged="Page_IsVisibleChanged">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.3*"/>
@@ -16,12 +17,12 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Margin="10 10 0 0" Orientation="Vertical">
+            <StackPanel Margin="0 10 0 0" Orientation="Vertical">
                 <Grid>
                     <TextBox
                         TextChanged="SearchTextBox_TextChanged"
                         x:Name="SearchTextBox"
-                        Width="985"/>
+                        Width="972"/>
                     <TextBlock 
                         Style="{StaticResource TextTextBlock}"
                         Width="140"
@@ -30,95 +31,105 @@
                 </Grid>
             </StackPanel>
             <Border Grid.Row="1" Height="auto" VerticalAlignment="Top" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
-                <ListBox
-                    x:Name="ListWorkwrListBox"
-                    Background="Transparent"
-                    BorderBrush="Transparent"
-                    BorderThickness="0"
-                    SelectionChanged ="ListWorkwrListBox_SelectionChanged">
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Style.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="20"/>
-                                </Style>
-                            </Style.Resources>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border Margin="10 15 10 15" Height="Auto" CornerRadius="0" Width="900" BorderBrush="Transparent">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="100"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="70"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Border x:Name="MaskMorderBorder" Style="{StaticResource MaskBorder}"/>
-                                    <StackPanel>
-                                        <StackPanel.OpacityMask>
-                                            <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
-                                        </StackPanel.OpacityMask>
-                                        <Image
-                                            Style="{StaticResource ImageDataBase}"
-                                            Source="{Binding PassportWorkerTable.ImageWorkerTable.ImageBit}"/>
-                                    </StackPanel>
-                                    <Grid Grid.Column="1">
-                                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 10 0 0">
-                                            <StackPanel Margin="0 0 0 3" Style="{StaticResource StackPanelDataBase}">
-                                                <TextBlock 
-                                                    Text="ФИО:"
-                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                <TextBlock
-                                                    Text="{Binding PassportWorkerTable.SurnameWorker}"
-                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                <TextBlock
-                                                    Text="{Binding PassportWorkerTable.NameWorker}"
-                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                <TextBlock 
-                                                    Text="{Binding PassportWorkerTable.MiddleNameWorker}"
-                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                            </StackPanel>
-                                            <StackPanel Style="{StaticResource StackPanelDataBase}">
-                                                <TextBlock 
-                                                    Text="ДАТА РОЖДЕНИЯ:"
-                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                <TextBlock
-                                                    Text="{Binding PassportWorkerTable.DateOfBirthWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
-                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                            </StackPanel>
-                                            <StackPanel Style="{StaticResource StackPanelDataBase}">
-                                                <TextBlock 
-                                                    Text="НОМЕР ТЕЛЕФОНА:"
-                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                <TextBlock
-                                                    Text="{Binding NumberPhoneWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
-                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                            </StackPanel>
-                                            <StackPanel Margin="0 3 0 0" Style="{StaticResource StackPanelDataBase}">
-                                                <TextBlock 
-                                                    Text="ДОЛЖНОСТЬ:"
-                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                <TextBlock
-                                                    Text="{Binding PostTable.NamePost, StringFormat='{}{0:dd/MM/yyyy}'}"
-                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                            </StackPanel>
+                <StackPanel>
+                    <ListBox
+                        Margin="0 20 0 0"
+                        Height="750"
+                        x:Name="ListWorkwrListBox"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        SelectionChanged ="ListWorkwrListBox_SelectionChanged">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Style.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Style.Resources>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="10 15 10 15" Height="Auto" CornerRadius="0" Width="900" BorderBrush="Transparent">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border x:Name="MaskMorderBorder" Style="{StaticResource MaskBorder}"/>
+                                        <StackPanel>
+                                            <StackPanel.OpacityMask>
+                                                <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
+                                            </StackPanel.OpacityMask>
+                                            <Image
+                                                Style="{StaticResource ImageDataBase}"
+                                                Source="{Binding PassportWorkerTable.ImageWorkerTable.ImageBit}"/>
                                         </StackPanel>
-                                    </Grid>
-                                    <Grid Grid.Column="2"> 
                                         <TextBlock 
-                                            VerticalAlignment="Top"
-                                            HorizontalAlignment="Right"
-                                            Margin="0 5 5 0"
+                                            VerticalAlignment="Bottom"
+                                            HorizontalAlignment="Center"
+                                            Margin="0 0 0 0"
                                             FontSize="15"
                                             Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                             Text="{Binding StatusTable.NameStatus}"/>
+                                        <Grid Grid.Column="1">
+                                            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 10 0 10">
+                                                <StackPanel Margin="0 0 0 3" Style="{StaticResource StackPanelDataBase}">
+                                                    <TextBlock 
+                                                        Text="ФИО:"
+                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                    <TextBlock
+                                                        Text="{Binding PassportWorkerTable.SurnameWorker}"
+                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                    <TextBlock
+                                                        Text="{Binding PassportWorkerTable.NameWorker}"
+                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                    <TextBlock 
+                                                        Text="{Binding PassportWorkerTable.MiddleNameWorker}"
+                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                </StackPanel>
+                                                <StackPanel Style="{StaticResource StackPanelDataBase}">
+                                                    <TextBlock 
+                                                        Text="ДАТА РОЖДЕНИЯ:"
+                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                    <TextBlock
+                                                        Text="{Binding PassportWorkerTable.DateOfBirthWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                </StackPanel>
+                                                <StackPanel Style="{StaticResource StackPanelDataBase}">
+                                                    <TextBlock 
+                                                        Text="НОМЕР ТЕЛЕФОНА:"
+                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                    <TextBlock
+                                                        Text="{Binding NumberPhoneWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                </StackPanel>
+                                                <StackPanel Margin="0 3 0 0" Style="{StaticResource StackPanelDataBase}">
+                                                    <TextBlock 
+                                                        Text="ДОЛЖНОСТЬ:"
+                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                    <TextBlock
+                                                        Text="{Binding PostTable.NamePost, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Grid>
                                     </Grid>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Margin="0 0 5 15" HorizontalAlignment="Right" Orientation="Horizontal">
+                        <TextBlock
+                            Text="ВСЕГО СОТРУДНИКОВ:"
+                            Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                        <TextBlock
+                            x:Name="OnlineWorkerTextBlock"
+                            Text="123"
+                            Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                    </StackPanel>
+                </StackPanel>
             </Border>
         </Grid>
         <Button 

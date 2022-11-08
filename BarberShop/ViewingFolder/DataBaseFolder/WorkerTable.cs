@@ -23,7 +23,7 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
         public int PersonalNumberWorker { get; set; }
         public string PSWorker { get; set; }
         public string PNWorker { get; set; }
-        public string StatusWorker { get; set; }
+        public int StatusWorker { get; set; }
         public string PostWorker { get; set; }
         public string CardNumberWorker { get; set; }
         public string LoginWorker { get; set; }

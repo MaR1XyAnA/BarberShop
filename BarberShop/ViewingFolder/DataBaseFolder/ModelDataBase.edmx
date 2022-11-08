@@ -106,9 +106,10 @@
         </EntityType>
         <EntityType Name="StatusTable">
           <Key>
-            <PropertyRef Name="NameStatus" />
+            <PropertyRef Name="IdStatus" />
           </Key>
           <Property Name="NameStatus" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IdStatus" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -127,7 +128,7 @@
           <Property Name="PersonalNumberWorker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PSWorker" Type="nchar" MaxLength="4" Nullable="false" />
           <Property Name="PNWorker" Type="nchar" MaxLength="6" Nullable="false" />
-          <Property Name="StatusWorker" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="StatusWorker" Type="int" Nullable="false" />
           <Property Name="PostWorker" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="CardNumberWorker" Type="nchar" MaxLength="16" Nullable="false" />
           <Property Name="LoginWorker" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -250,7 +251,7 @@
           <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="StatusTable">
-              <PropertyRef Name="NameStatus" />
+              <PropertyRef Name="IdStatus" />
             </Principal>
             <Dependent Role="WorkerTable">
               <PropertyRef Name="StatusWorker" />
@@ -558,9 +559,10 @@
         </EntityType>
         <EntityType Name="StatusTable">
           <Key>
-            <PropertyRef Name="NameStatus" />
+            <PropertyRef Name="IdStatus" />
           </Key>
           <Property Name="NameStatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IdStatus" Type="Int32" Nullable="false" />
           <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_StatusTable" FromRole="StatusTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -580,7 +582,7 @@
           <Property Name="PersonalNumberWorker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PSWorker" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
           <Property Name="PNWorker" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
-          <Property Name="StatusWorker" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="StatusWorker" Type="Int32" Nullable="false" />
           <Property Name="PostWorker" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="CardNumberWorker" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="true" />
           <Property Name="LoginWorker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -708,7 +710,7 @@
           <End Type="BarberShopDataBaseModel.WorkerTable" Role="WorkerTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="StatusTable">
-              <PropertyRef Name="NameStatus" />
+              <PropertyRef Name="IdStatus" />
             </Principal>
             <Dependent Role="WorkerTable">
               <PropertyRef Name="StatusWorker" />
@@ -856,6 +858,7 @@
           <EntitySetMapping Name="StatusTable">
             <EntityTypeMapping TypeName="BarberShopDataBaseModel.StatusTable">
               <MappingFragment StoreEntitySet="StatusTable">
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
                 <ScalarProperty Name="NameStatus" ColumnName="NameStatus" />
               </MappingFragment>
             </EntityTypeMapping>

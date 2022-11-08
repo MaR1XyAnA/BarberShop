@@ -16,7 +16,7 @@ namespace BarberShop.ViewingFolder.PageFolder
             InitializeComponent();
             AppConnectClass.DataBase = new BarberShopDataBaseEntities(); // Подключаем Базу Данных к этой странице.
             ListWorkwrListBox.ItemsSource = AppConnectClass.DataBase.WorkerTable.ToList(); // В ListWorkwrListBox, в ItemsSource выводим всю информацию из таблицы WorkerTable в виде списка.
-            ListWorkwrListBox.Items.SortDescriptions.Add(new SortDescription("PassportWorkerTable.SurnameWorker", ListSortDirection.Ascending)); // Сортируем выведённую информацию в алфовитном порядке (Сортировка происходит по полю SurnameWorker).
+            ListWorkwrListBox.Items.SortDescriptions.Add(new SortDescription("PassportWorkerTable.SurnameWorker", ListSortDirection.Ascending)); // Сортируем выведённую информацию в алфовитном порядке (Сортировка происходит по полю SurnameWorker). 
         }
 
         private void ListWorkwrListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -58,6 +58,15 @@ namespace BarberShop.ViewingFolder.PageFolder
             {
                 SearchTextTextBlock.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if(Visibility == Visibility.Visible)
+            {
+                OnlineWorkerTextBlock.Text = AppConnectClass.DataBase.WorkerTable.Count().ToString();
+            }
+            
         }
     }
 }
