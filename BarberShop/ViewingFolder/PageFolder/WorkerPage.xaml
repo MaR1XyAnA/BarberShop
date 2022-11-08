@@ -52,6 +52,7 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100"/>
                                         <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="70"/>
                                     </Grid.ColumnDefinitions>
                                     <Border x:Name="MaskMorderBorder" Style="{StaticResource MaskBorder}"/>
                                     <StackPanel>
@@ -63,14 +64,55 @@
                                             Source="{Binding PassportWorkerTable.ImageWorkerTable.ImageBit}"/>
                                     </StackPanel>
                                     <Grid Grid.Column="1">
-                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 10 0 0">
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="ФИО:"/>
-                                                <TextBlock Text="{Binding PassportWorkerTable.SurnameWorker}" Margin="10 0 0 0"/>
-                                                <TextBlock Text="{Binding PassportWorkerTable.NameWorker}" Margin="3 0 0 0"/>
-                                                <TextBlock Text="{Binding PassportWorkerTable.MiddleNameWorker}" Margin="3 0 0 0"/>
+                                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 10 0 0">
+                                            <StackPanel Margin="0 0 0 3" Style="{StaticResource StackPanelDataBase}">
+                                                <TextBlock 
+                                                    Text="ФИО:"
+                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                <TextBlock
+                                                    Text="{Binding PassportWorkerTable.SurnameWorker}"
+                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                <TextBlock
+                                                    Text="{Binding PassportWorkerTable.NameWorker}"
+                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                <TextBlock 
+                                                    Text="{Binding PassportWorkerTable.MiddleNameWorker}"
+                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                            </StackPanel>
+                                            <StackPanel Style="{StaticResource StackPanelDataBase}">
+                                                <TextBlock 
+                                                    Text="ДАТА РОЖДЕНИЯ:"
+                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                <TextBlock
+                                                    Text="{Binding PassportWorkerTable.DateOfBirthWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                            </StackPanel>
+                                            <StackPanel Style="{StaticResource StackPanelDataBase}">
+                                                <TextBlock 
+                                                    Text="НОМЕР ТЕЛЕФОНА:"
+                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                <TextBlock
+                                                    Text="{Binding NumberPhoneWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                            </StackPanel>
+                                            <StackPanel Margin="0 3 0 0" Style="{StaticResource StackPanelDataBase}">
+                                                <TextBlock 
+                                                    Text="ДОЛЖНОСТЬ:"
+                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                <TextBlock
+                                                    Text="{Binding PostTable.NamePost, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
                                             </StackPanel>
                                         </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Column="2"> 
+                                        <TextBlock 
+                                            VerticalAlignment="Top"
+                                            HorizontalAlignment="Right"
+                                            Margin="0 5 5 0"
+                                            FontSize="15"
+                                            Style="{StaticResource InfoDataBaseTextBlockFalse}"
+                                            Text="{Binding StatusTable.NameStatus}"/>
                                     </Grid>
                                 </Grid>
                             </Border>

@@ -16,18 +16,12 @@
         <Setter Property="Margin" Value="5 0 0 0"/>
         <Setter Property="FontFamily" Value="Console"/>
     </Style>
-    <Style TargetType="TextBlock" x:Key="InfoDataBaseTextBlockTrue">
-        <Setter Property="Foreground" Value="#e94560"/>
-        <Setter Property="FontSize" Value="30"/>
-        <Setter Property="FontFamily" Value="\ContentFolder\FontsFolder\#Roboto Mono"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Margin" Value="7 0 0 0"/>
+    <Style TargetType="TextBlock" x:Key="InfoDataBaseTextBlockTrue" BasedOn="{StaticResource TextTextBlock}">
+        <Setter Property="Foreground" Value="#fff"/>
+        <Setter Property="FontSize" Value="20"/>
     </Style>
-    <Style TargetType="TextBlock" x:Key="InfoDataBaseTextBlockFalse">
-        <Setter Property="Foreground" Value="#1d63b8"/>
-        <Setter Property="FontSize" Value="30"/>
-        <Setter Property="FontFamily" Value="\ContentFolder\FontsFolder\#Roboto Mono"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Margin" Value="0 0 0 0"/>
+    <Style TargetType="TextBlock" x:Key="InfoDataBaseTextBlockFalse" BasedOn="{StaticResource TextTextBlock}">
+        <Setter Property="Margin" Value="5 0 0 0"/>
+        <Setter Property="FontSize" Value="20"/>
     </Style>
 </ResourceDictionary>
