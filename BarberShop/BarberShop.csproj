@@ -119,6 +119,9 @@
     <Compile Include="ViewingFolder\DataBaseFolder\HaircutTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\DataBaseFolder\HairdresserView.cs">
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\DataBaseFolder\ImageWorkerTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>

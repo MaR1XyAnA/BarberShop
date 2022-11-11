@@ -15,8 +15,8 @@
                         <ColumnDefinition Width="1.43*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                    <StackPanel Style="{StaticResource InfoDataBase}" Orientation="Vertical" Grid.Column="0">
+                        <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">                           
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ПЕРСОНАЛЬНЫЙ НОМЕР:"/>
@@ -29,7 +29,7 @@
                                 Visibility="Collapsed"
                                 Name="PersonalNumberWorkerTextBox"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                        <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="СТАТУС:"/>
@@ -42,7 +42,7 @@
                                 Visibility="Collapsed"
                                 Name="StatusWorkerTextBox"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                        <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ФАМИЛИЯ:"/>
@@ -55,7 +55,7 @@
                                 Visibility="Collapsed"
                                 x:Name="SurnameWorkerWorkerTextBox"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                        <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ИМЯ:"/>
@@ -68,7 +68,7 @@
                                 Visibility="Collapsed"
                                 x:Name="NameWorkerTextBox"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                        <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ОТЧЕСТВО:"/>
@@ -81,7 +81,7 @@
                                 Visibility="Collapsed"
                                 x:Name="MiddleNameWorkerTextBox"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                        <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ПОЛ:"/>
@@ -94,7 +94,7 @@
                                 Visibility="Collapsed"
                                 x:Name="PaulWorkerTextBox"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                        <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ДАТА РОЖДЕНИЯ:"/>
@@ -107,7 +107,7 @@
                                 Visibility="Collapsed"
                                 x:Name="DateOfBirthWorkerTextBox"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                        <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ДОЛЖНОСТЬ:"/>
@@ -161,7 +161,7 @@
                         Opacity="0.2"
                         VerticalAlignment="Center"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ЛОГИН:"/>
@@ -174,7 +174,7 @@
                         Visibility="Collapsed"
                         x:Name="LoginWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПАРОЛЬ:"/>
@@ -206,7 +206,7 @@
                         Opacity="0.2"
                         VerticalAlignment="Center"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР ТЕЛЕФОНА:"/>
@@ -219,7 +219,7 @@
                         Visibility="Collapsed"
                         x:Name="NumberPhoneWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ЭЛЕКТРОННАЯ ПОЧТА:"/>
@@ -251,7 +251,7 @@
                         Opacity="0.2"
                         VerticalAlignment="Center"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СЕРИЯ ПАСПОРТА:"/>
@@ -264,7 +264,7 @@
                         Visibility="Collapsed"
                         x:Name="PSWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР ПАСПОРТА:"/>
@@ -277,7 +277,7 @@
                         Visibility="Collapsed"
                         x:Name="PNWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПАСПОРТ ВЫДАН:"/>
@@ -290,7 +290,7 @@
                         Visibility="Collapsed"
                         x:Name="PassportIssuedWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ДАТА ВЫДАЧИ ПАСПОРТА:"/>
@@ -303,7 +303,7 @@
                         Visibility="Collapsed"
                         x:Name="DateOfIssueWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КОД ПОДРАЗДЕЛЕНИЯ:"/>
@@ -316,7 +316,7 @@
                         Visibility="Collapsed"
                         x:Name="DivisionCodeWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="МЕСТО РОЖДЕНИЯ:"/>
@@ -348,7 +348,7 @@
                         Opacity="0.2"
                         VerticalAlignment="Center"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="РЕГИОН:"/>
@@ -361,7 +361,7 @@
                         Visibility="Collapsed"
                         x:Name="RegistrationRegionWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="РАЙОН:"/>
@@ -374,7 +374,7 @@
                         Visibility="Collapsed"
                         x:Name="DistrictWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПУНКТ:"/>
@@ -387,7 +387,7 @@
                         Visibility="Collapsed"
                         x:Name="RegistrationPointWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="УЛИЦА:"/>
@@ -400,7 +400,7 @@
                         Visibility="Collapsed"
                         x:Name="RegistrationStreetWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ДОМ:"/>
@@ -413,7 +413,7 @@
                         Visibility="Collapsed"
                         x:Name="RegistrationHouseWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КВАРТИРА:"/>
@@ -445,7 +445,7 @@
                         Opacity="0.2"
                         VerticalAlignment="Center"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР КАРТЫ:"/>
@@ -458,7 +458,7 @@
                         Visibility="Collapsed"
                         x:Name="CardNumberWorkerTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СРОК КАРТЫ МЕСЯЦ:"/>
@@ -471,7 +471,7 @@
                         Visibility="Collapsed"
                         x:Name="CardValidMonthTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СРОК КАРТЫ ГОД:"/>
@@ -484,7 +484,7 @@
                         Visibility="Collapsed"
                         x:Name="CardValidYearsTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ИМЯ ДЕРЖАТЕЛЯ КАРТЫ:"/>
@@ -497,7 +497,7 @@
                         Visibility="Collapsed"
                         x:Name="CardKeeperNameTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ФАМИЛИЯ ДЕРЖАТЕЛЯ КАРТЫ:"/>
@@ -510,7 +510,7 @@
                         Visibility="Collapsed"
                         x:Name="CardKeeperSurnameTextBox"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КОД КАРТЫ:"/>
@@ -523,39 +523,7 @@
                         Visibility="Collapsed"
                         x:Name="CardCodeTextBox"/>
                 </StackPanel>
-                <StackPanel Name="EditDeleteStackPanel" Visibility="Visible" Orientation="Vertical">
-                    <Button
-                        x:Name="EditInformationsWorkerButton"
-                        Click="EditInformationsWorkerButton_Click"
-                        Content="РЕДАКТИРОВАТЬ СОТРУДНИКА"
-                        Height="60"
-                        Width="500"
-                        Margin="10 50 10 10"/>
-                    <Button
-                        x:Name="DeleteInformationsWokerButton"
-                        Click="DeleteInformationsWokerButton_Click"
-                        Content="УДАЛИТЬ СОТРУДНИКА"
-                        Height="60"
-                        Width="400"
-                        Margin="10 10 10 10"/>
-                </StackPanel>
-                <StackPanel Name="SaveCanselStackPanel" Visibility="Collapsed" Orientation="Vertical">
-                    <Button
-                        x:Name="SaveInformationsWorkerButton"
-                        Click="SaveInformationsWorkerButton_Click"
-                        Content="СОХРАНИТЬ ИЗМЕНЕНИЯ"
-                        Height="60"
-                        Width="400"
-                        Margin="10 50 10 10"/>
-                    <Button
-                        x:Name="CanselEditInformationsWorkerButton"
-                        Click="CanselEditInformationsWorkerButton_Click"
-                        Content="ОТМЕНА РЕДАКТИРОВАНИЯ"
-                        Height="60"
-                        Width="400"
-                        Margin="10 10 10 10"/>
-                </StackPanel>
-                </StackPanel>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>

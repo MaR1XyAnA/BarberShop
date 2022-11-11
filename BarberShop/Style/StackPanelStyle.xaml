@@ -10,4 +10,10 @@
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="Margin" Value="0 3 0 3"/>
     </Style>
+    <Style x:Key="InfoDataBase" TargetType="StackPanel">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Margin" Value="10 10 0 0"/>
+    </Style>
 </ResourceDictionary>

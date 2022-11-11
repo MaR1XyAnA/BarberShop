@@ -1,4 +1,5 @@
-﻿using BarberShop.ViewingFolder.DataBaseFolder;
+﻿using BarberShop.ContentFolder.ClassFolder;
+using BarberShop.ViewingFolder.DataBaseFolder;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace BarberShop.ViewingFolder.PageFolder
             WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem;
             InformationFrame.Navigate(new InformationsWorkerPage(workerTable));
             BullshitextBlock.Visibility = Visibility.Collapsed;
+            DeliteWorkerButton.Visibility = Visibility.Visible;
+            EditInformationsWorkerButton.Visibility = Visibility.Visible;
         }
 
         private void Page_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -57,6 +60,7 @@ namespace BarberShop.ViewingFolder.PageFolder
             else
             {
                 SearchTextTextBlock.Visibility = Visibility.Hidden;
+                GetSearch();
             }
         }
 
@@ -67,6 +71,43 @@ namespace BarberShop.ViewingFolder.PageFolder
                 OnlineWorkerTextBlock.Text = AppConnectClass.DataBase.WorkerTable.Count().ToString();
             }
             
+        }
+
+        private void EditInformationsWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeliteWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Вы действительно хотите удалить данного сотрудника?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                var DaliteWorker = ListWorkwrListBox.SelectedItem as WorkerTable;
+                AppConnectClass.DataBase.WorkerTable.Remove(DaliteWorker);
+                AppConnectClass.DataBase.SaveChanges();
+                ListWorkwrListBox.ItemsSource = AppConnectClass.DataBase.WorkerTable.ToList();
+
+                BullshitextBlock.Visibility = Visibility.Collapsed;
+                DeliteWorkerButton.Visibility = Visibility.Visible;
+                EditInformationsWorkerButton.Visibility = Visibility.Visible;
+            }
+        }
+        private void GetSearch() // Метод для поиска
+        {
+            var Sweep = AppConnectClass.DataBase.WorkerTable.ToList(); // Получаем данные по WorkerTable 
+
+            Sweep = Sweep.Where(Cookie =>
+            Cookie.PSWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+            Cookie.PNWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+            Cookie.PostWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+            Cookie.LoginWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+            Cookie.PasswordWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+            Cookie.PasswordWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+            Cookie.NumberPhoneWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+            Cookie.EmailWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) ||
+            Cookie.CardNumberWorker.ToLower().Contains(SearchTextBox.Text.ToLower())).ToList();
+
+            ListWorkwrListBox.ItemsSource = Sweep.OrderBy(Cookie => Cookie.PersonalNumberWorker).ToList(); // В ListWorkerListBox выводим найденную SurnameWorker списком 
         }
     }
 }

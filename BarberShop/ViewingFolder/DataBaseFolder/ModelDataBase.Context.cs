@@ -40,6 +40,7 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
         public virtual DbSet<StatusTable> StatusTable { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<WorkerTable> WorkerTable { get; set; }
+        public virtual DbSet<HairdresserView> HairdresserView { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
