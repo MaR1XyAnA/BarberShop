@@ -22,15 +22,11 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
     
         public string PassportSeriesWorker { get; set; }
         public string PassportNumberWorker { get; set; }
-        public string SurnameWorker { get; set; }
-        public string NameWorker { get; set; }
-        public string MiddleNameWorker { get; set; }
         public string PassportIssuedWorker { get; set; }
         public System.DateTime DateOfIssueWorker { get; set; }
         public string DivisionCodeWorker { get; set; }
-        public string PaulWorker { get; set; }
+        public int PaulWorker { get; set; }
         public string PlaceOfBirthWorker { get; set; }
-        public string ImageWorker { get; set; }
         public string RegistrationRegionWorker { get; set; }
         public string RegistrationPointWorker { get; set; }
         public string RegistrationStreetWorker { get; set; }
@@ -39,7 +35,6 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
         public System.DateTime DateOfBirthWorker { get; set; }
         public string DistrictWorker { get; set; }
     
-        public virtual ImageWorkerTable ImageWorkerTable { get; set; }
         public virtual PaulTable PaulTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WorkerTable> WorkerTable { get; set; }

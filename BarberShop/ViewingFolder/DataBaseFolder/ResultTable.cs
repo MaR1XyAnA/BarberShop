@@ -20,10 +20,10 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
         public int PNHaircut { get; set; }
         public System.DateTime DataResult { get; set; }
         public string StatusRezult { get; set; }
+        public string CommentResult { get; set; }
     
         public virtual ClientTable ClientTable { get; set; }
         public virtual HaircutTable HaircutTable { get; set; }
         public virtual StatusResultTable StatusResultTable { get; set; }
-        public virtual WorkerTable WorkerTable { get; set; }
     }
 }

@@ -12,11 +12,15 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class HairdresserView
+    public partial class CutTheFilter
     {
-        public string PostWorker { get; set; }
-        public string SurnameWorker { get; set; }
-        public string NameWorker { get; set; }
-        public string MiddleNameWorker { get; set; }
+        public int PersonalNumberResult { get; set; }
+        public int PNWorker { get; set; }
+        public int PNClient { get; set; }
+        public int PNHaircut { get; set; }
+        public System.DateTime DataResult { get; set; }
+        public string StatusRezult { get; set; }
+        public string CommentResult { get; set; }
+        public string NameStatus { get; set; }
     }
 }

@@ -56,39 +56,12 @@ namespace BarberShop.ViewingFolder.PageFolder
                         MainWindows mainWindows = new MainWindows();
                         switch (AutorizationUser.PostWorker)
                         {
-                            case "Директор":
+                            case 1:
                                 mainWindows.Show();
                                 break;
 
-                            case "Кассир":
+                            case 5:
                                 mainWindows.Show();
-                                break;
-
-                            case "Охранник":
-                                InfoErrorBorder.Visibility = Visibility.Visible;
-                                InfoErrorTextBlock.Visibility = Visibility.Visible;
-                                InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
-                                InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
-                                InfoErrorTextBlock.Text = "ВАМ ОТКАЗАННО В ДОСТУПЕ";
-                                break;
-
-                            case "Парикхмахер":
-                                InfoErrorBorder.Visibility = Visibility.Visible;
-                                InfoErrorTextBlock.Visibility = Visibility.Visible;
-                                InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
-                                InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
-                                InfoErrorTextBlock.Text = "ВАМ ОТКАЗАННО В ДОСТУПЕ";
-                                break;
-
-                            case "Системный администратор":
-                                mainWindows.Show();
-                                break;
-                            case "Уборщик":
-                                InfoErrorBorder.Visibility = Visibility.Visible;
-                                InfoErrorTextBlock.Visibility = Visibility.Visible;
-                                InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
-                                InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
-                                InfoErrorTextBlock.Text = "ВАМ ОТКАЗАННО В ДОСТУПЕ";
                                 break;
 
                             default:
@@ -96,7 +69,7 @@ namespace BarberShop.ViewingFolder.PageFolder
                                 InfoErrorTextBlock.Visibility = Visibility.Visible;
                                 InfoErrorBorder.BeginAnimation(HeightProperty, doubleAnimation);
                                 InfoErrorTextBlock.BeginAnimation(HeightProperty, doubleAnimation);
-                                InfoErrorTextBlock.Text = "УПС, У ВАС НЕТ РОЛИ";
+                                InfoErrorTextBlock.Text = "ВАМ ОТКАЗАНО В ДОСТУПЕ";
                                 break;
                         }
                     }

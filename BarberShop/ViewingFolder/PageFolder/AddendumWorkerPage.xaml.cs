@@ -13,8 +13,6 @@ namespace BarberShop.ViewingFolder.PageFolder
     public partial class AddendumWorkerPage : Page
     {
         string NamePhoto;
-        //int ImageBold = 0;
-        //byte ImageByte;
         public AddendumWorkerPage()
         {
             InitializeComponent();
@@ -33,7 +31,6 @@ namespace BarberShop.ViewingFolder.PageFolder
             NamePhoto = openFileDialog.FileName;
             ImageSource imageSource = new BitmapImage(new Uri(NamePhoto));
             PhotoProfileImage.Source = imageSource;
-            //ImageBold = 1;  
         }
 
         private void NewWorkerButton_Click(object sender, RoutedEventArgs e)
@@ -50,29 +47,15 @@ namespace BarberShop.ViewingFolder.PageFolder
             {
                 try
                 {
-                    //ImageByte = Convert.ToByte(Convert.ToBase64String(File.ReadAllBytes(NamePhoto)));
-                    //ImageWorkerTable imageWorkerTable = new ImageWorkerTable()
-                    //{
-                    //    NameImage = NamePhoto,
-                    //    ImageBit = PhotoProfileImage
-                    //};
-                    //if (ImageBold == 1)
-                    //{
-                    //    AppConnectClass.DataBase.ImageWorkerTable.Add(imageWorkerTable);
-                    //    return;
-                    //}
 
                     PassportWorkerTable passportWorkerTable = new PassportWorkerTable()
                     {
                         PassportSeriesWorker = PassportSeriesTextBox.Text,
                         PassportNumberWorker = PassportNumberTextBox.Text,
-                        SurnameWorker = SurnameTextBox.Text,
-                        NameWorker = NameTextBox.Text,
-                        MiddleNameWorker = MiddleNameTextBox.Text,
                         PassportIssuedWorker = PassportIssuedTextBox.Text,
                         DateOfIssueWorker = DatePassportIssuedDateTime,
                         DivisionCodeWorker = DivisionСodeTextBox.Text,
-                        PaulWorker = PaulComboBox.Text,
+                        PaulTable = PaulComboBox.SelectedItem as PaulTable,
                         PlaceOfBirthWorker = PassportPlaceOfBirthTextBox.Text,
                         RegistrationRegionWorker = PassportRegionTextBox.Text,
                         RegistrationPointWorker = PassportPointTextBox.Text,
@@ -80,8 +63,7 @@ namespace BarberShop.ViewingFolder.PageFolder
                         RegistrationHouseWorker = PassportHouseTextBox.Text,
                         RegistrationApartmentWorker = RegistrationApartmentWorkerTextBox.Text,
                         DateOfBirthWorker = DateOfBirthDateTime,
-                        DistrictWorker = PassportDistrictTextBox.Text,
-                        ImageWorker = "ERROR"
+                        DistrictWorker = PassportDistrictTextBox.Text
                     };
                     AppConnectClass.DataBase.PassportWorkerTable.Add(passportWorkerTable);
 
@@ -98,10 +80,13 @@ namespace BarberShop.ViewingFolder.PageFolder
 
                     WorkerTable workerTable = new WorkerTable()
                     {
-                        PSWorker = PassportSeriesTextBox.Text,
-                        PNWorker = PassportNumberTextBox.Text,
+                        SurnameWorker = SurnameCardHolderTextBox.Text,
+                        NameWorker = NameCardHolderTextBox.Text,
+                        MiddlenameWorker = MiddleNameTextBox.Text,
+                        PassportSeries = PassportSeriesTextBox.Text,
+                        PassportNumber = PassportNumberTextBox.Text,
                         StatusWorker = 1,
-                        PostWorker = PostComboBox.Text,
+                        PostTable = PostComboBox.SelectedItem as PostTable,
                         CardNumberWorker = NumberCardTextBox.Text,
                         LoginWorker = LogintextBox.Text,
                         PasswordWorker = PasswordTextBox.Text,

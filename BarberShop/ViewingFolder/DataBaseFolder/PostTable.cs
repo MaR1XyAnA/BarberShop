@@ -22,6 +22,7 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
     
         public string NamePost { get; set; }
         public string DescriptionPost { get; set; }
+        public int PersonalNumberPost { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WorkerTable> WorkerTable { get; set; }

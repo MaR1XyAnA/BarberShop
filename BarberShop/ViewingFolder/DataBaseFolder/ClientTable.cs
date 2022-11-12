@@ -24,8 +24,9 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
         public string SurnameClient { get; set; }
         public string NameClient { get; set; }
         public string MiddleNameClient { get; set; }
-        public string PaulClient { get; set; }
+        public int PaulClient { get; set; }
     
+        public virtual PaulTable PaulTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ResultTable> ResultTable { get; set; }
     }

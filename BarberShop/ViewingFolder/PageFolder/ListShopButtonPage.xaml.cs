@@ -21,17 +21,8 @@ namespace BarberShop.ViewingFolder.PageFolder
         public ListShopButtonPage()
         {
             InitializeComponent();
-            MainFrameHaircut.Visibility = Visibility.Collapsed;
-            
             AppConnectClass.DataBase = new BarberShopDataBaseEntities(); // Подключаем Базу Данных к этой странице.
             ListShopButtonListBox.ItemsSource = AppConnectClass.DataBase.HaircutTable.ToList(); // В ListWorkwrListBox, в ItemsSource выводим всю информацию из таблицы WorkerTable в виде списка.
-        }
-
-        private void ListShopButtonListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            MainFrameHaircut.Visibility = Visibility.Visible;
-            HaircutTable haircutTable = (HaircutTable)ListShopButtonListBox.SelectedItem;
-            MainFrameHaircut.Navigate(new HaircutInfoBorderPage(haircutTable));
         }
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)

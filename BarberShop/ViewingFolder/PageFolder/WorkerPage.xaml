@@ -4,8 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BarberShop.ViewingFolder.PageFolder"
-      mc:Ignorable="d" IsEnabledChanged="Page_IsEnabledChanged"
-      Style="{StaticResource MainPage}"
+      mc:Ignorable="d" Style="{StaticResource MainPage}"
       IsVisibleChanged="Page_IsVisibleChanged">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -65,7 +64,7 @@
                                             </StackPanel.OpacityMask>
                                             <Image
                                                 Style="{StaticResource ImageDataBase}"
-                                                Source="{Binding PassportWorkerTable.ImageWorkerTable.ImageBit}"/>
+                                                Source="{Binding ImageWorker}"/>
                                         </StackPanel>
                                         <TextBlock 
                                             VerticalAlignment="Bottom"
@@ -81,13 +80,13 @@
                                                         Text="ФИО:"
                                                         Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
                                                     <TextBlock
-                                                        Text="{Binding PassportWorkerTable.SurnameWorker}"
+                                                        Text="{Binding SurnameWorker}"
                                                         Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
                                                     <TextBlock
-                                                        Text="{Binding PassportWorkerTable.NameWorker}"
+                                                        Text="{Binding NameWorker}"
                                                         Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
                                                     <TextBlock 
-                                                        Text="{Binding PassportWorkerTable.MiddleNameWorker}"
+                                                        Text="{Binding MiddlenameWorker}"
                                                         Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
                                                 </StackPanel>
                                                 <StackPanel Style="{StaticResource StackPanelDataBase}">
@@ -103,7 +102,7 @@
                                                         Text="НОМЕР ТЕЛЕФОНА:"
                                                         Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
                                                     <TextBlock
-                                                        Text="{Binding NumberPhoneWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                                        Text="{Binding NumberPhoneWorker}"
                                                         Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
                                                 </StackPanel>
                                                 <StackPanel Margin="0 3 0 0" Style="{StaticResource StackPanelDataBase}">
@@ -111,7 +110,7 @@
                                                         Text="ДОЛЖНОСТЬ:"
                                                         Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
                                                     <TextBlock
-                                                        Text="{Binding PostTable.NamePost, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                                        Text="{Binding PostTable.NamePost}"
                                                         Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
                                                 </StackPanel>
                                             </StackPanel>

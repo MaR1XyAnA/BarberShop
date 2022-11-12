@@ -29,18 +29,17 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
     
         public virtual DbSet<ClientTable> ClientTable { get; set; }
         public virtual DbSet<HaircutTable> HaircutTable { get; set; }
-        public virtual DbSet<ImageWorkerTable> ImageWorkerTable { get; set; }
         public virtual DbSet<PassportWorkerTable> PassportWorkerTable { get; set; }
         public virtual DbSet<PaulTable> PaulTable { get; set; }
         public virtual DbSet<PostTable> PostTable { get; set; }
         public virtual DbSet<ResultTable> ResultTable { get; set; }
         public virtual DbSet<SalaryCardTable> SalaryCardTable { get; set; }
-        public virtual DbSet<ShopTable> ShopTable { get; set; }
         public virtual DbSet<StatusResultTable> StatusResultTable { get; set; }
         public virtual DbSet<StatusTable> StatusTable { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<WorkerTable> WorkerTable { get; set; }
-        public virtual DbSet<HairdresserView> HairdresserView { get; set; }
+        public virtual DbSet<CutTheFilter> CutTheFilter { get; set; }
+        public virtual DbSet<DoNotCutTheFilter> DoNotCutTheFilter { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

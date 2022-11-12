@@ -21,7 +21,8 @@ namespace BarberShop.ViewingFolder.WindowsFolder
         {
             InitializeComponent();
             AppConnectClass.DataBase = new BarberShopDataBaseEntities(); // Подключаем Базу Данных к этой странице.
-            ListQueueListBox.ItemsSource = AppConnectClass.DataBase.ResultTable.ToList(); // В ListWorkwrListBox, в ItemsSource выводим всю информацию из таблицы WorkerTable в виде списка.
+            ListQueueListBox.ItemsSource = AppConnectClass.DataBase.DoNotCutTheFilter.ToList(); // В ListWorkwrListBox, в ItemsSource выводим всю информацию из таблицы WorkerTable в виде списка.
+            ListTheQueueListBox.ItemsSource = AppConnectClass.DataBase.CutTheFilter.ToList(); // В ListWorkwrListBox, в ItemsSource выводим всю информацию из таблицы WorkerTable в виде списка.
         }
 
         private void ListQueueListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

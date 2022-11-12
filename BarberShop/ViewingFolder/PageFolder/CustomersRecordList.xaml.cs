@@ -56,21 +56,21 @@ namespace BarberShop.ViewingFolder.PageFolder
             }
             try
             {
-                ClientTable clientTable = new ClientTable()
-                {
-                    SurnameClient = SurnameString,
-                    NameClient = NameString,
-                    MiddleNameClient = MiddleNameString,
-                    PaulClient = PoulString
-                };
-                ResultTable resultTable = new ResultTable()
-                {
-                    //PNWorker = Worker(PersonalNumberWorker),
-                    //PNClient = ,
-                    //PNHaircut = HaircutString,
-                    //DataResult = DataRecordStrind,
-                    //StatusRezult = TimeRecordString
-                };
+                //ClientTable clientTable = new ClientTable()
+                //{
+                //    SurnameClient = SurnameString,
+                //    NameClient = NameString,
+                //    MiddleNameClient = MiddleNameString,
+                //    PaulTable = 
+                //};
+                //ResultTable resultTable = new ResultTable()
+                //{
+                //    //PNWorker = Worker(PersonalNumberWorker),
+                //    //PNClient = ,
+                //    //PNHaircut = HaircutString,
+                //    //DataResult = DataRecordStrind,
+                //    //StatusRezult = TimeRecordString
+                //};
             }
             catch
             {

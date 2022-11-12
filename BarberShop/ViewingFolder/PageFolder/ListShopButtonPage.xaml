@@ -18,8 +18,7 @@
                 Background="Transparent"
                 BorderThickness="0"
                 x:Name="ListShopButtonListBox"
-                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                SelectionChanged="ListShopButtonListBox_SelectionChanged">
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="IsSelected" Value="{Binding Content.IsSelected, Mode=TwoWay, RelativeSource={RelativeSource Self}}"/>
@@ -45,45 +44,67 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
+                        <Grid VerticalAlignment="Top">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="520"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Border Background="Transparent" Margin="5 0 5 70">
-                                <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent">
-                                    <Border CornerRadius="20" Height="300" Width="450">
-                                        <Border.Background>
-                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                <GradientStop Color="#0f3460"/>
-                                                <GradientStop Color="#FF07172B" Offset="1"/>
-                                            </LinearGradientBrush>
-                                        </Border.Background>
-                                        <Grid>
+                            <Border CornerRadius="10" Background="#161b22" Margin="5 0 5 70" VerticalAlignment="Top">
+                                <Grid VerticalAlignment="Top" HorizontalAlignment="Center" Background="Transparent">
+                                    <Border CornerRadius="30" Height="auto" Width="450">
+                                        <Grid VerticalAlignment="Top" Margin="5 10 5 10">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"/>
-                                                <RowDefinition Height="55"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="*"/>
                                             </Grid.RowDefinitions>
-                                            <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <Border Background="#161b22" BorderThickness="1" Width="440" Height="300" CornerRadius="20" x:Name="MaskMorderBorder" Style="{StaticResource MaskBorder}"/>
+                                            <StackPanel>
+                                                <StackPanel.OpacityMask>
+                                                    <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
+                                                </StackPanel.OpacityMask>
+                                                <Image 
+                                                    Width="440"
+                                                    Height="300"
+                                                    VerticalAlignment="Top"
+                                                    Source="{Binding PhotoHaircut}"
+                                                    Stretch="UniformToFill"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
                                                 <TextBlock
-                                                    FontSize="50"
                                                     TextWrapping="Wrap"
                                                     TextAlignment="Center"
+                                                    FontSize="25"
                                                     Text="{Binding NameHaircut}"
-                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
                                             </StackPanel>
-                                            <StackPanel Margin="0 0 23 0" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                            <StackPanel Margin="0 10 0 10" Grid.Row="2" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Left">
                                                 <TextBlock
-                                                    Margin="0 0 0 5"
-                                                    FontSize="50"
-                                                    Text="{Binding PriceHaircut}"
+                                                    Margin="0 0 0 10"
+                                                    TextWrapping="Wrap"
+                                                    Width="400"
+                                                    Text="{Binding DescriptionHaircut}"
                                                     Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                <TextBlock
-                                                    FontSize="50"
-                                                    Text="РУБЛЕЙ"
-                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                <StackPanel Margin="0 20 0 3" Orientation="Horizontal" HorizontalAlignment="Left">
+                                                    <TextBlock
+                                                        Text="СТОИМОСТЬ:"
+                                                        Margin="0 0 5 0"
+                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                    <TextBlock
+                                                        Text="{Binding PriceHaircut, StringFormat={}{0} ₽}"
+                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                </StackPanel>
+                                                <StackPanel Margin="0 5 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
+                                                    <TextBlock
+                                                        Margin="0 0 3 0"
+                                                        Text="ПРОДОЛЖИТЕЛЬНОСТЬ:"
+                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                    <TextBlock
+                                                        Text="{Binding TimeHaircut, StringFormat={}{0:hh}:{0:mm}}"
+                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                </StackPanel>
                                             </StackPanel>
                                         </Grid>
                                     </Border>
@@ -94,10 +115,5 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Border>
-        <Frame
-            x:Name="MainFrameHaircut"
-            NavigationUIVisibility="Hidden"
-            Grid.Row="1"
-            Margin="100 0 100 20"/>
     </Grid>
 </Page>

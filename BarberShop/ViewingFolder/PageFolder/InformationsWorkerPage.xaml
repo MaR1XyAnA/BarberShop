@@ -48,7 +48,7 @@
                                 Text="ФАМИЛИЯ:"/>
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                                Text="{Binding PassportWorkerTable.SurnameWorker}"
+                                Text="{Binding SurnameWorker}"
                                 x:Name="SurnameWorkerWorkerTextBlock"/>
                             <TextBox
                                 Width="295"
@@ -61,7 +61,7 @@
                                 Text="ИМЯ:"/>
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                                Text="{Binding PassportWorkerTable.NameWorker}"
+                                Text="{Binding NameWorker}"
                                 x:Name="NameWorkerTextBlock"/>
                             <TextBox
                                 Width="349"
@@ -74,7 +74,7 @@
                                 Text="ОТЧЕСТВО:"/>
                             <TextBlock 
                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                                Text="{Binding PassportWorkerTable.MiddleNameWorker}"
+                                Text="{Binding MiddlenameWorker}"
                                 x:Name="MiddleNameWorkerTextBlock"/>
                             <TextBox
                                 Width="300"
@@ -121,14 +121,17 @@
                                 x:Name="PostWorkerTextBox"/>
                         </StackPanel>
                     </StackPanel>
-                    <Border Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Height="Auto" Margin="0 10 0 0" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
+                    <Border Margin="0 10 0 0" BorderThickness="1" Background="#161b22" CornerRadius="20" Grid.Column="1"  HorizontalAlignment="Center" Height="280" Width="230" x:Name="MaskkMorderBorder" Style="{StaticResource MaskBorder}"/>
+                    <StackPanel Margin="0 10 0 0" Grid.Column="1" HorizontalAlignment="Center">
+                        <StackPanel.OpacityMask>
+                            <VisualBrush Visual="{Binding ElementName=MaskkMorderBorder}"/>
+                        </StackPanel.OpacityMask>
                         <Image
-                           Height="280"
-                           Width="230"
-                           Stretch="UniformToFill"
-                           Margin="10 10 10 10"
-                           Source="{Binding PassportWorkerTable.ImageWorkerTable.ImageBit}"/>
-                    </Border>
+                            Height="280"
+                            Width="230"
+                            Stretch="UniformToFill"
+                            Source="{Binding ImageWorker}"/>
+                    </StackPanel>
                     <Button 
                         x:Name="UploadingPhotosButton"
                         Click="UploadingPhotosButton_Click"
@@ -257,7 +260,7 @@
                         Text="СЕРИЯ ПАСПОРТА:"/>
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding PSWorker}"
+                        Text="{Binding PassportWorkerTable.PassportSeriesWorker}"
                         Name="PSWorkerTextBlock"/>
                     <TextBox
                         Width="502"
@@ -270,7 +273,7 @@
                         Text="НОМЕР ПАСПОРТА:"/>
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
-                        Text="{Binding PNWorker}"
+                        Text="{Binding PassportWorkerTable.PassportSeriesWorker}"
                         Name="PNWorkerTextBlock"/>
                     <TextBox
                         Width="498"
