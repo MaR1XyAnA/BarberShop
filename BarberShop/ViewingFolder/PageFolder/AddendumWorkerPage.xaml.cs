@@ -1,7 +1,9 @@
 ﻿using BarberShop.ViewingFolder.DataBaseFolder;
 using Microsoft.Win32;
 using System;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -12,16 +14,55 @@ namespace BarberShop.ViewingFolder.PageFolder
 {
     public partial class AddendumWorkerPage : Page
     {
+        StringBuilder Error = new StringBuilder(); // Создаём переменную для подсчёта ошибок
+        private WorkerTable GetWorker = new WorkerTable();
+        private SalaryCardTable GetSalaryCard = new SalaryCardTable();
+        private PassportWorkerTable GetPassport = new PassportWorkerTable();
         string NamePhoto;
         public AddendumWorkerPage()
         {
             InitializeComponent();
             PaulComboBox.ItemsSource = AppConnectClass.DataBase.PaulTable.ToList();
             PostComboBox.ItemsSource = AppConnectClass.DataBase.PostTable.ToList();
+            DataContext = GetWorker;
+            DataContext = GetSalaryCard;
+            DataContext = GetPassport;
             if (PhotoProfileImage.Source != null)
             {
                 UploadingPhotosButton.Content = "ИЗМЕНИТЬ ФОТО";
             }
+        }
+
+        public void GETERROR()
+        {
+            //Если пустой или имеет пробелы элемент _______, то запоминаем ошибку и её контекст _________;
+            if (string.IsNullOrWhiteSpace(GetPassport.PassportSeriesWorker)) Error.AppendLine("УКАЖИТЕ СЕРИЮ ПАСПОРТА");
+            if (string.IsNullOrWhiteSpace(GetPassport.PassportNumberWorker)) Error.AppendLine("УКАЖИТЕ НОМЕР ПАСПОРТА");
+            if (string.IsNullOrWhiteSpace(GetPassport.PassportIssuedWorker)) Error.AppendLine("УКАЖИТЕ КЕМ ВЫДАН");
+            if (string.IsNullOrWhiteSpace(GetPassport.RegistrationStreetWorker)) Error.AppendLine("УКАЖИТЕ УЛИЦУ");
+            if (string.IsNullOrWhiteSpace(GetPassport.RegistrationPointWorker)) Error.AppendLine("УКАЖИТЕ ЛОГИН СОТРУДНИКА");
+            if (string.IsNullOrWhiteSpace(DatePassportIssuedTextBox.Text)) Error.AppendLine("УКАЖИТЕ ДАТУ ВЫДАЧИ");
+            if (string.IsNullOrWhiteSpace(PaulComboBox.Text)) Error.AppendLine("УКАЖИТЕ ПОЛ СОТРУДНИКА");
+            if (string.IsNullOrWhiteSpace(PassportPlaceOfBirthTextBox.Text)) Error.AppendLine("УКАЖИТЕ ДАТУ РОЖДЕНИЯ");
+            if (string.IsNullOrWhiteSpace(GetPassport.RegistrationRegionWorker)) Error.AppendLine("УКАЖИТЕ РЕГИСТРАЦИЮ");
+            if (string.IsNullOrWhiteSpace(GetPassport.RegistrationHouseWorker)) Error.AppendLine("УКАЖИТЕ ДОМ");
+            if (string.IsNullOrWhiteSpace(GetPassport.RegistrationApartmentWorker)) Error.AppendLine("УКАЖИТЕ КВАРТИРУ");
+            if (string.IsNullOrWhiteSpace(DateOfBirthTExtBox.Text)) Error.AppendLine("УКАЖИТЕ ДАТУ РОЖДЕНИЯ");
+            if (string.IsNullOrWhiteSpace(GetPassport.DistrictWorker)) Error.AppendLine("УКАЖИТЕ УЛИЦУ");
+            if (string.IsNullOrWhiteSpace(GetSalaryCard.CardNumber)) Error.AppendLine("УКАЖИТЕ НОМЕР КАРТЫ");
+            if (string.IsNullOrWhiteSpace(GetSalaryCard.CardValidMonth)) Error.AppendLine("УКАЖИТЕ МЕСЯЦ ВЫДАЧИ");
+            if (string.IsNullOrWhiteSpace(GetSalaryCard.CardValidYears)) Error.AppendLine("УКАЖИТЕ ГОД ВЫДАЧИ");
+            if (string.IsNullOrWhiteSpace(GetSalaryCard.CardKeeperName)) Error.AppendLine("УКАЖИТЕ ИМЯ КАРТЫ");
+            if (string.IsNullOrWhiteSpace(GetSalaryCard.CardKeeperSurname)) Error.AppendLine("УКАЖИТЕ ФАМИЛИЮ КАРТЫ");
+            if (string.IsNullOrWhiteSpace(GetSalaryCard.CardCode)) Error.AppendLine("УКАЖИТЕ КОД КАРТЫ");
+            if (string.IsNullOrWhiteSpace(GetWorker.SurnameWorker)) Error.AppendLine("УКАЖИТЕ ФАМИЛИЮ СОТРУДНИКА");
+            if (string.IsNullOrWhiteSpace(GetWorker.NameWorker)) Error.AppendLine("УКАЖИТЕ ИМЯ СОТРУДНИКА");
+            if (string.IsNullOrWhiteSpace(PostComboBox.Text)) Error.AppendLine("УКАЖИТЕ ОТЧЕСТВО СОТРУДНИКА");
+            if (string.IsNullOrWhiteSpace(GetWorker.LoginWorker)) Error.AppendLine("УКАЖИТЕ ЛОГИН");
+            if (string.IsNullOrWhiteSpace(GetWorker.PasswordWorker)) Error.AppendLine("УКАЖИТЕ ПАРОЛЬ");
+            if (string.IsNullOrWhiteSpace(GetWorker.NumberPhoneWorker)) Error.AppendLine("УКАЖИТЕ НОМЕР ТЕЛЕФОНА");
+            if (string.IsNullOrWhiteSpace(GetWorker.EmailWorker)) Error.AppendLine("УКАЖИТЕ ЭЛЕКТРОННУЮ ПОЧТУ");
+            if (Error.Length > 0) { MessageBox.Show(Error.ToString(), "ПУСТЫЕ ПОЛЯ"); return; }            // Проверяем, нет ли у нас активных действий в Error которые проверяются в методе GetError
         }
 
         private void UploadingPhotosButton_Click(object sender, RoutedEventArgs e)
@@ -35,18 +76,23 @@ namespace BarberShop.ViewingFolder.PageFolder
 
         private void NewWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-            DateTime DatePassportIssuedDateTime, DateOfBirthDateTime;
-            DatePassportIssuedDateTime = Convert.ToDateTime(DatePassportIssuedTextBox.Text);
-            DateOfBirthDateTime = Convert.ToDateTime(DateOfBirthTExtBox.Text);
-            if (AppConnectClass.DataBase.WorkerTable.Count(data => data.LoginWorker == LogintextBox.Text && data.PasswordWorker == PasswordTextBox.Text)>0)
+            GETERROR();
+            if (AppConnectClass.DataBase.WorkerTable.Count(data =>
+                    data.LoginWorker == LogintextBox.Text && data.PasswordWorker == PasswordTextBox.Text ||
+                    data.SurnameWorker == SurnameTextBox.Text && data.NameWorker == NameTextBox.Text && data.MiddlenameWorker == MiddleNameTextBox.Text ||
+                    data.PassportSeries == PassportSeriesTextBox.Text && data.PassportNumber == PassportNumberTextBox.Text ||
+                    data.CardNumberWorker == NumberCardTextBox.Text) > 0)
             {
-                MessageBox.Show("Данный пользователь уже есть");
+                MessageBox.Show("Данный пользователь уже есть", "ОШИБКА ДОБАВЛЕНИЯ");
                 return;
             }
             else
             {
                 try
                 {
+                    DateTime DatePassportIssuedDateTime, DateOfBirthDateTime;
+                    DatePassportIssuedDateTime = Convert.ToDateTime(DatePassportIssuedTextBox.Text);
+                    DateOfBirthDateTime = Convert.ToDateTime(DateOfBirthTExtBox.Text);
 
                     PassportWorkerTable passportWorkerTable = new PassportWorkerTable()
                     {
@@ -80,8 +126,8 @@ namespace BarberShop.ViewingFolder.PageFolder
 
                     WorkerTable workerTable = new WorkerTable()
                     {
-                        SurnameWorker = SurnameCardHolderTextBox.Text,
-                        NameWorker = NameCardHolderTextBox.Text,
+                        SurnameWorker = SurnameTextBox.Text,
+                        NameWorker = NameTextBox.Text,
                         MiddlenameWorker = MiddleNameTextBox.Text,
                         PassportSeries = PassportSeriesTextBox.Text,
                         PassportNumber = PassportNumberTextBox.Text,
@@ -91,7 +137,7 @@ namespace BarberShop.ViewingFolder.PageFolder
                         LoginWorker = LogintextBox.Text,
                         PasswordWorker = PasswordTextBox.Text,
                         NumberPhoneWorker = NumberPhoneTextBox.Text,
-                        EmailWorker = EmailTextBox.Text,
+                        EmailWorker = EmailTextBox.Text
                     };
                     AppConnectClass.DataBase.WorkerTable.Add(workerTable);
 
@@ -99,7 +145,7 @@ namespace BarberShop.ViewingFolder.PageFolder
                 }
                 catch
                 {
-                    MessageBox.Show("Ошибка добавления работника");
+                    MessageBox.Show("Ошибка добавления");
                 }
             }
         }

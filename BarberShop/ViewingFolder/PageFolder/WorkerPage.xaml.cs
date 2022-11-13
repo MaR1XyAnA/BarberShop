@@ -23,13 +23,14 @@ namespace BarberShop.ViewingFolder.PageFolder
             BullshitextBlock.Visibility = Visibility.Collapsed;
             DeliteWorkerButton.Visibility = Visibility.Visible;
             EditInformationsWorkerButton.Visibility = Visibility.Visible;
-            EditInformationsWorkerButton.Visibility = Visibility.Visible;
         }
 
         private void AddendumWorkerButton_Click(object sender, RoutedEventArgs e)
         {
             InformationFrame.Navigate(new AddendumWorkerPage());
             BullshitextBlock.Visibility = Visibility.Collapsed;
+            DeliteWorkerButton.Visibility = Visibility.Collapsed;
+            EditInformationsWorkerButton.Visibility = Visibility.Collapsed;
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e) // Событие элемента "SearchTextBox";

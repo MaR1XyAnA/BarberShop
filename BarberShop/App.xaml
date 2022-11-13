@@ -21,6 +21,7 @@
                 <ResourceDictionary Source="\Style\StackPanelStyle.xaml"/>
                 <ResourceDictionary Source="\Style\ImageStyle.xaml"/>
                 <ResourceDictionary Source="\Style\PolygonStyle.xaml"/>
+                <ResourceDictionary Source="\Style\LineStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

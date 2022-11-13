@@ -14,6 +14,12 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
     
     public partial class WorkerTable
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public WorkerTable()
+        {
+            this.ResultTable = new HashSet<ResultTable>();
+        }
+    
         public int PersonalNumberWorker { get; set; }
         public string PassportSeries { get; set; }
         public string PassportNumber { get; set; }
@@ -31,6 +37,8 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
     
         public virtual PassportWorkerTable PassportWorkerTable { get; set; }
         public virtual PostTable PostTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ResultTable> ResultTable { get; set; }
         public virtual SalaryCardTable SalaryCardTable { get; set; }
         public virtual StatusTable StatusTable { get; set; }
     }

@@ -21,61 +21,24 @@ namespace BarberShop.ViewingFolder.PageFolder
         public CustomersRecordList()
         {
             InitializeComponent();
-            NameHaircutComboBox.ItemsSource = AppConnectClass.DataBase.HaircutTable.ToList();
-            PaulTextBox.ItemsSource = AppConnectClass.DataBase.PaulTable.ToList();
-            //NameHairdresserComboBox.ItemsSource = AppConnectClass.DataBase.HairdresserOnlineViev.ToList();
+            AppConnectClass.DataBase = new BarberShopDataBaseEntities();
+            ListRecordListBox.ItemsSource = AppConnectClass.DataBase.ResultTable.ToList();
         }
 
-        private void NextButton_Click(object sender, RoutedEventArgs e)
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string
-                SurnameString,
-                NameString,
-                MiddleNameString,
-                PoulString,
-                HaircutString,
-                DataRecordStrind,
-                TimeRecordString,
-                Worker;
 
-            SurnameString = Convert.ToString(SurnameTextBox.Text);
-            NameString  = Convert.ToString(NameTextBox.Text);
-            MiddleNameString  = Convert.ToString(MiddlenameTextBox.Text);
-            PoulString = Convert.ToString(PaulTextBox.Text);
-            HaircutString = Convert.ToString(NameHaircutComboBox.Text);
-            DataRecordStrind = Convert.ToString(DataRecordTextBox.Text);
-            TimeRecordString = Convert.ToString(TimeRecordTextBox.Text);
-            Worker = Convert.ToString(NameHairdresserComboBox.Text);
+        }
 
 
-            if (AppConnectClass.DataBase.ClientTable.Count
-                (data => data.SurnameClient == SurnameString && data.NameClient == NameString) >0)
-            {
-                MessageBox.Show("Данный клиент уже записан");
-                return;
-            }
-            try
-            {
-                //ClientTable clientTable = new ClientTable()
-                //{
-                //    SurnameClient = SurnameString,
-                //    NameClient = NameString,
-                //    MiddleNameClient = MiddleNameString,
-                //    PaulTable = 
-                //};
-                //ResultTable resultTable = new ResultTable()
-                //{
-                //    //PNWorker = Worker(PersonalNumberWorker),
-                //    //PNClient = ,
-                //    //PNHaircut = HaircutString,
-                //    //DataResult = DataRecordStrind,
-                //    //StatusRezult = TimeRecordString
-                //};
-            }
-            catch
-            {
+        private void EditInformationsRecordButton_Click(object sender, RoutedEventArgs e)
+        {
 
-            }
+        }
+
+        private void DeliteRecordButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

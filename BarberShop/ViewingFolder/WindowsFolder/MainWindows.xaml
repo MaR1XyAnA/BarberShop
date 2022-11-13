@@ -95,15 +95,6 @@
                                     Click="ServicesListButton_Click"/>
                                 <Border x:Name="ServicesListBorder" Style="{StaticResource BorderMenuButton}"/>
                             </StackPanel>
-                            <StackPanel>
-                                <ToggleButton 
-                                    Style="{StaticResource MenuToggleButton}"
-                                    x:Name="QueueListButton"
-                                    Content="ОЧЕРЕДЬ" 
-                                    Click="QueueListButton_Click"
-                                    Margin="10 0 0 0"/>
-                                <Border x:Name="QueueListBorder" Style="{StaticResource BorderMenuButton}"/>
-                            </StackPanel>
                         </StackPanel>
                     </Border>
                     <Polygon Margin="0 0 0 12" x:Name="PoligonName"/>

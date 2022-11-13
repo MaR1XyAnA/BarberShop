@@ -50,11 +50,9 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             ListWorkerButton.IsChecked = true;
             RecordClientButton.IsChecked = false;
             ServicesListButton.IsChecked = false;
-            QueueListButton.IsChecked = false;
             ListWorkerBorder.Visibility = Visibility.Visible;
             RecordClientBorder.Visibility = Visibility.Hidden;
             ServicesListBorder.Visibility = Visibility.Hidden;
-            QueueListBorder.Visibility = Visibility.Hidden;
         }
 
         private void RecordClientButton_Click(object sender, RoutedEventArgs e)
@@ -63,11 +61,9 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             ListWorkerButton.IsChecked = false;
             RecordClientButton.IsChecked = true;
             ServicesListButton.IsChecked = false;
-            QueueListButton.IsChecked = false;
             ListWorkerBorder.Visibility = Visibility.Hidden;
             RecordClientBorder.Visibility = Visibility.Visible;
             ServicesListBorder.Visibility = Visibility.Hidden;
-            QueueListBorder.Visibility = Visibility.Hidden;
         }
 
         private void ServicesListButton_Click(object sender, RoutedEventArgs e)
@@ -76,24 +72,9 @@ namespace BarberShop.ViewingFolder.WindowsFolder
             ListWorkerButton.IsChecked = false;
             RecordClientButton.IsChecked = false;
             ServicesListButton.IsChecked = true;
-            QueueListButton.IsChecked = false;
             ListWorkerBorder.Visibility = Visibility.Hidden;
             RecordClientBorder.Visibility = Visibility.Hidden;
             ServicesListBorder.Visibility = Visibility.Visible;
-            QueueListBorder.Visibility = Visibility.Hidden;
-        }
-
-        private void QueueListButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new SessionsPage());
-            ListWorkerButton.IsChecked = false;
-            RecordClientButton.IsChecked = false;
-            ServicesListButton.IsChecked = false;
-            QueueListButton.IsChecked = true;
-            ListWorkerBorder.Visibility = Visibility.Hidden;
-            RecordClientBorder.Visibility = Visibility.Hidden;
-            ServicesListBorder.Visibility = Visibility.Hidden;
-            QueueListBorder.Visibility = Visibility.Visible;
         }
     }
 }

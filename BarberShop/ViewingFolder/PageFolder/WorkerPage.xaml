@@ -132,6 +132,15 @@
                 </StackPanel>
             </Border>
         </Grid>
+        <Button 
+            Margin="0 10 0 0"
+            Grid.Column="1"
+            VerticalAlignment="Top"
+            Name="AddendumWorkerButton"
+            Click="AddendumWorkerButton_Click"
+            Content="ДОБАВИТЬ СОТРУДНИКА" 
+            Width="740"
+            Height="50"/>
         <Border MaxHeight="700" VerticalAlignment="Top" Height="Auto" Grid.Column="1" Margin="10 79.7 10 0" CornerRadius="15" BorderBrush="#33FFFFFF" BorderThickness="2">
             <Grid>
                 <TextBlock

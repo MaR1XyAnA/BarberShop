@@ -228,6 +228,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ResultTable_WorkerTable">
+          <End Role="WorkerTable" Type="Self.WorkerTable" Multiplicity="1" />
+          <End Role="ResultTable" Type="Self.ResultTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkerTable">
+              <PropertyRef Name="PersonalNumberWorker" />
+            </Principal>
+            <Dependent Role="ResultTable">
+              <PropertyRef Name="PNWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_WorkerTable_PassportWorkerTable">
           <End Role="PassportWorkerTable" Type="Self.PassportWorkerTable" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -369,6 +381,10 @@
             <End Role="StatusResultTable" EntitySet="StatusResultTable" />
             <End Role="ResultTable" EntitySet="ResultTable" />
           </AssociationSet>
+          <AssociationSet Name="FK_ResultTable_WorkerTable" Association="Self.FK_ResultTable_WorkerTable">
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
+            <End Role="ResultTable" EntitySet="ResultTable" />
+          </AssociationSet>
           <AssociationSet Name="FK_WorkerTable_PassportWorkerTable" Association="Self.FK_WorkerTable_PassportWorkerTable">
             <End Role="PassportWorkerTable" EntitySet="PassportWorkerTable" />
             <End Role="WorkerTable" EntitySet="WorkerTable" />
@@ -460,6 +476,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_ResultTable_StatusResultTable" Association="BarberShopDataBaseModel.FK_ResultTable_StatusResultTable">
             <End Role="StatusResultTable" EntitySet="StatusResultTable" />
+            <End Role="ResultTable" EntitySet="ResultTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultTable_WorkerTable" Association="BarberShopDataBaseModel.FK_ResultTable_WorkerTable">
+            <End Role="WorkerTable" EntitySet="WorkerTable" />
             <End Role="ResultTable" EntitySet="ResultTable" />
           </AssociationSet>
           <AssociationSet Name="FK_WorkerTable_SalaryCardTable" Association="BarberShopDataBaseModel.FK_WorkerTable_SalaryCardTable">
@@ -560,6 +580,7 @@
           <NavigationProperty Name="ClientTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_ClientTable" FromRole="ResultTable" ToRole="ClientTable" />
           <NavigationProperty Name="HaircutTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_HaircutTable" FromRole="ResultTable" ToRole="HaircutTable" />
           <NavigationProperty Name="StatusResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_StatusResultTable" FromRole="ResultTable" ToRole="StatusResultTable" />
+          <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_WorkerTable" FromRole="ResultTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="SalaryCardTable">
           <Key>
@@ -618,6 +639,7 @@
           <Property Name="MiddlenameWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PassportWorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PassportWorkerTable" FromRole="WorkerTable" ToRole="PassportWorkerTable" />
           <NavigationProperty Name="PostTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PostTable1" FromRole="WorkerTable" ToRole="PostTable" />
+          <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_WorkerTable" FromRole="WorkerTable" ToRole="ResultTable" />
           <NavigationProperty Name="SalaryCardTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_SalaryCardTable" FromRole="WorkerTable" ToRole="SalaryCardTable" />
           <NavigationProperty Name="StatusTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_StatusTable" FromRole="WorkerTable" ToRole="StatusTable" />
         </EntityType>
@@ -744,6 +766,18 @@
             </Principal>
             <Dependent Role="ResultTable">
               <PropertyRef Name="StatusRezult" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultTable_WorkerTable">
+          <End Type="BarberShopDataBaseModel.WorkerTable" Role="WorkerTable" Multiplicity="1" />
+          <End Type="BarberShopDataBaseModel.ResultTable" Role="ResultTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkerTable">
+              <PropertyRef Name="PersonalNumberWorker" />
+            </Principal>
+            <Dependent Role="ResultTable">
+              <PropertyRef Name="PNWorker" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

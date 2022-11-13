@@ -93,7 +93,7 @@
                                                         Margin="0 0 5 0"
                                                         Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
                                                     <TextBlock
-                                                        Text="{Binding PriceHaircut, StringFormat={}{0} ₽}"
+                                                        Text="{Binding PriceHaircut, StringFormat={}{0}₽}"
                                                         Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
                                                 </StackPanel>
                                                 <StackPanel Margin="0 5 0 0" Orientation="Horizontal" HorizontalAlignment="Left">
