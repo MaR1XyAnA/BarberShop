@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -19,7 +20,7 @@ namespace BarberShop.ViewingFolder.PageFolder
         private SalaryCardTable GetSalaryCard = new SalaryCardTable();
         private PassportWorkerTable GetPassport = new PassportWorkerTable();
         string NamePhoto;
-        public AddendumWorkerPage()
+        public AddendumWorkerPage(WorkerTable workerTable)
         {
             InitializeComponent();
             PaulComboBox.ItemsSource = AppConnectClass.DataBase.PaulTable.ToList();
@@ -76,7 +77,7 @@ namespace BarberShop.ViewingFolder.PageFolder
 
         private void NewWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-            GETERROR();
+            //GETERROR();
             if (AppConnectClass.DataBase.WorkerTable.Count(data =>
                     data.LoginWorker == LogintextBox.Text && data.PasswordWorker == PasswordTextBox.Text ||
                     data.SurnameWorker == SurnameTextBox.Text && data.NameWorker == NameTextBox.Text && data.MiddlenameWorker == MiddleNameTextBox.Text ||
@@ -88,59 +89,58 @@ namespace BarberShop.ViewingFolder.PageFolder
             }
             else
             {
+                DateTime DatePassportIssuedDateTime, DateOfBirthDateTime;
+                DatePassportIssuedDateTime = Convert.ToDateTime(DatePassportIssuedTextBox.Text);
+                DateOfBirthDateTime = Convert.ToDateTime(DateOfBirthTExtBox.Text);
+
+                PassportWorkerTable passportWorkerTable = new PassportWorkerTable()
+                {
+                    PassportSeriesWorker = PassportSeriesTextBox.Text,
+                    PassportNumberWorker = PassportNumberTextBox.Text,
+                    PassportIssuedWorker = PassportIssuedTextBox.Text,
+                    DateOfIssueWorker = DatePassportIssuedDateTime,
+                    DivisionCodeWorker = DivisionСodeTextBox.Text,
+                    PaulTable = PaulComboBox.SelectedItem as PaulTable,
+                    PlaceOfBirthWorker = PassportPlaceOfBirthTextBox.Text,
+                    RegistrationRegionWorker = PassportRegionTextBox.Text,
+                    RegistrationPointWorker = PassportPointTextBox.Text,
+                    RegistrationStreetWorker = PassportStreetTextBox.Text,
+                    RegistrationHouseWorker = PassportHouseTextBox.Text,
+                    RegistrationApartmentWorker = RegistrationApartmentWorkerTextBox.Text,
+                    DateOfBirthWorker = DateOfBirthDateTime,
+                    DistrictWorker = PassportDistrictTextBox.Text
+                };
+                SalaryCardTable salaryCardTable = new SalaryCardTable()
+                {
+                    CardNumber = NumberCardTextBox.Text,
+                    CardValidMonth = CardValidMonthTextBox.Text,
+                    CardValidYears = CardValidYearTextBox.Text,
+                    CardKeeperName = NameCardHolderTextBox.Text,
+                    CardKeeperSurname = SurnameCardHolderTextBox.Text,
+                    CardCode = CodeCardTextBox.Text
+                };
+                WorkerTable workerTable = new WorkerTable()
+                {
+                    SurnameWorker = SurnameTextBox.Text,
+                    NameWorker = NameTextBox.Text,
+                    MiddlenameWorker = MiddleNameTextBox.Text,
+                    PassportSeries = PassportSeriesTextBox.Text,
+                    PassportNumber = PassportNumberTextBox.Text,
+                    StatusWorker = 1,
+                    PostTable = PostComboBox.SelectedItem as PostTable,
+                    CardNumberWorker = NumberCardTextBox.Text,
+                    LoginWorker = LogintextBox.Text,
+                    PasswordWorker = PasswordTextBox.Text,
+                    NumberPhoneWorker = NumberPhoneTextBox.Text,
+                    EmailWorker = EmailTextBox.Text
+                };
+
+                WorkerTable SeartheID = AppConnectClass.DataBase.WorkerTable.Find();
                 try
                 {
-                    DateTime DatePassportIssuedDateTime, DateOfBirthDateTime;
-                    DatePassportIssuedDateTime = Convert.ToDateTime(DatePassportIssuedTextBox.Text);
-                    DateOfBirthDateTime = Convert.ToDateTime(DateOfBirthTExtBox.Text);
-
-                    PassportWorkerTable passportWorkerTable = new PassportWorkerTable()
-                    {
-                        PassportSeriesWorker = PassportSeriesTextBox.Text,
-                        PassportNumberWorker = PassportNumberTextBox.Text,
-                        PassportIssuedWorker = PassportIssuedTextBox.Text,
-                        DateOfIssueWorker = DatePassportIssuedDateTime,
-                        DivisionCodeWorker = DivisionСodeTextBox.Text,
-                        PaulTable = PaulComboBox.SelectedItem as PaulTable,
-                        PlaceOfBirthWorker = PassportPlaceOfBirthTextBox.Text,
-                        RegistrationRegionWorker = PassportRegionTextBox.Text,
-                        RegistrationPointWorker = PassportPointTextBox.Text,
-                        RegistrationStreetWorker = PassportStreetTextBox.Text,
-                        RegistrationHouseWorker = PassportHouseTextBox.Text,
-                        RegistrationApartmentWorker = RegistrationApartmentWorkerTextBox.Text,
-                        DateOfBirthWorker = DateOfBirthDateTime,
-                        DistrictWorker = PassportDistrictTextBox.Text
-                    };
                     AppConnectClass.DataBase.PassportWorkerTable.Add(passportWorkerTable);
-
-                    SalaryCardTable salaryCardTable = new SalaryCardTable()
-                    {
-                        CardNumber = NumberCardTextBox.Text,
-                        CardValidMonth = CardValidMonthTextBox.Text,
-                        CardValidYears = CardValidYearTextBox.Text,
-                        CardKeeperName = NameCardHolderTextBox.Text,
-                        CardKeeperSurname = SurnameCardHolderTextBox.Text,
-                        CardCode = CodeCardTextBox.Text
-                    };
                     AppConnectClass.DataBase.SalaryCardTable.Add(salaryCardTable);
-
-                    WorkerTable workerTable = new WorkerTable()
-                    {
-                        SurnameWorker = SurnameTextBox.Text,
-                        NameWorker = NameTextBox.Text,
-                        MiddlenameWorker = MiddleNameTextBox.Text,
-                        PassportSeries = PassportSeriesTextBox.Text,
-                        PassportNumber = PassportNumberTextBox.Text,
-                        StatusWorker = 1,
-                        PostTable = PostComboBox.SelectedItem as PostTable,
-                        CardNumberWorker = NumberCardTextBox.Text,
-                        LoginWorker = LogintextBox.Text,
-                        PasswordWorker = PasswordTextBox.Text,
-                        NumberPhoneWorker = NumberPhoneTextBox.Text,
-                        EmailWorker = EmailTextBox.Text
-                    };
                     AppConnectClass.DataBase.WorkerTable.Add(workerTable);
-
                     AppConnectClass.DataBase.SaveChanges();
                 }
                 catch

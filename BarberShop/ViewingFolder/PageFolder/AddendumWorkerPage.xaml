@@ -21,6 +21,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ФАМИЛИЯ:"/>
                             <TextBox
+                                Text="{Binding SurnameWorker}"
                                 MaxLength="25"
                                 x:Name="SurnameTextBox"
                                 Margin="5 0 0 0"
@@ -31,6 +32,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ИМЯ:"/>
                             <TextBox
+                                Text="{Binding NameWorker}"
                                 MaxLength="15"
                                 x:Name="NameTextBox"
                                 Margin="5 0 0 0"
@@ -41,6 +43,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ОТЧЕСТВО:"/>
                             <TextBox
+                                Text="{Binding MiddlenameWorker}"
                                 MaxLength="25"
                                 x:Name="MiddleNameTextBox"
                                 Margin="5 0 0 0"
@@ -51,6 +54,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ПОЛ:"/>
                             <ComboBox
+                                Text="{Binding PaulTable.NamePaul}"
                                 Height="50"
                                 FontSize="20"
                                 DisplayMemberPath ="NamePaul"
@@ -63,6 +67,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ДАТА РОЖДЕНИЯ:"/>
                             <TextBox
+                                Text="{Binding }"
                                 MaxLength="10"
                                 x:Name="DateOfBirthTExtBox"
                                 Margin="5 0 0 0"
@@ -73,6 +78,7 @@
                                 Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                 Text="ДОЛЖНОСТЬ:"/>
                             <ComboBox
+                                Text="{Binding PostTable.NamePost}"
                                 Height="50"
                                 FontSize="20"
                                 DisplayMemberPath ="NamePost"
@@ -108,9 +114,7 @@
                     <Line/>
                     <TextBlock 
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
-                        Text="ДОСТУП"
-                        Foreground="Gray"
-                        Opacity="0.2"/>
+                        Text="ДОСТУП"/>
                     <Line/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 5 0 5">
@@ -118,6 +122,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ЛОГИН:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="100"
                         x:Name="LogintextBox"
                         Margin="5 0 0 0"
@@ -128,6 +133,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПАРОЛЬ:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="100"
                         Name="PasswordTextBox"
                         Margin="5 0 0 0"
@@ -145,6 +151,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР ТЕЛЕФОНА:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="11"
                         x:Name="NumberPhoneTextBox"
                         Margin="5 0 0 0"
@@ -155,6 +162,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ЭЛЕКТРОННАЯ ПОЧТА:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="70"
                         x:Name="EmailTextBox"
                         Margin="5 0 0 0"
@@ -172,6 +180,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СЕРИЯ ПАСПОРТА:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="4"
                         Name="PassportSeriesTextBox"
                         Margin="5 0 0 0"
@@ -182,6 +191,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР ПАСПОРТА:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="6"
                         x:Name="PassportNumberTextBox"
                         Margin="5 0 0 0"
@@ -192,6 +202,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПАСПОРТ ВЫДАН:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="100"
                         x:Name="PassportIssuedTextBox"
                         Margin="5 0 0 0"
@@ -202,6 +213,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ДАТА ВЫДАЧИ ПАСПОРТА:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="10"
                         x:Name="DatePassportIssuedTextBox"
                         Margin="5 0 0 0"
@@ -212,6 +224,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КОД ПОДРАЗДЕЛЕНИЯ:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="7"
                         x:Name="DivisionСodeTextBox"
                         Margin="5 0 0 0"
@@ -222,6 +235,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="МЕСТО РОЖДЕНИЯ:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="100"
                         x:Name="PassportPlaceOfBirthTextBox"
                         Margin="5 0 0 0"
@@ -239,6 +253,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="РЕГИОН:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="100"
                         x:Name="PassportRegionTextBox"
                         Margin="5 0 0 0"
@@ -249,6 +264,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="РАЙОН:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="100"
                         x:Name="PassportDistrictTextBox"
                         Margin="5 0 0 0"
@@ -259,6 +275,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ПУНКТ:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="100"
                         x:Name="PassportPointTextBox"
                         Margin="5 0 0 0"
@@ -269,6 +286,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="УЛИЦА:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="30"
                         x:Name="PassportStreetTextBox"
                         Margin="5 0 0 0"
@@ -279,6 +297,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ДОМ:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="10"
                         x:Name="PassportHouseTextBox"
                         Margin="5 0 0 0"
@@ -289,6 +308,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КВАРТИРА:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="10"
                         x:Name="RegistrationApartmentWorkerTextBox"
                         Margin="5 0 0 0"
@@ -306,6 +326,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="НОМЕР КАРТЫ:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="16"
                         x:Name="NumberCardTextBox"
                         Margin="5 0 0 0"
@@ -316,6 +337,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СРОК КАРТЫ МЕСЯЦ:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="2"
                         x:Name="CardValidMonthTextBox"
                         Margin="5 0 0 0"
@@ -326,6 +348,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="СРОК КАРТЫ ГОД:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="2"
                         x:Name="CardValidYearTextBox"
                         Margin="5 0 0 0"
@@ -336,6 +359,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ИМЯ ДЕРЖАТЕЛЯ КАРТЫ:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="100"
                         x:Name="NameCardHolderTextBox"
                         Margin="5 0 0 0"
@@ -346,6 +370,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="ФАМИЛИЯ ДЕРЖАТЕЛЯ КАРТЫ:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="100"
                         x:Name="SurnameCardHolderTextBox"
                         Margin="5 0 0 0"
@@ -356,6 +381,7 @@
                         Style="{StaticResource InfoDataBaseTextBlockFalse}"
                         Text="КОД КАРТЫ:"/>
                     <TextBox
+                        Text="{Binding }"
                         MaxLength="3"
                         x:Name="CodeCardTextBox"
                         Margin="5 0 0 0"

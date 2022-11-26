@@ -27,7 +27,8 @@ namespace BarberShop.ViewingFolder.PageFolder
 
         private void AddendumWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-            InformationFrame.Navigate(new AddendumWorkerPage());
+            WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem;
+            InformationFrame.Navigate(new AddendumWorkerPage(null));
             BullshitextBlock.Visibility = Visibility.Collapsed;
             DeliteWorkerButton.Visibility = Visibility.Collapsed;
             EditInformationsWorkerButton.Visibility = Visibility.Collapsed;
@@ -58,7 +59,11 @@ namespace BarberShop.ViewingFolder.PageFolder
 
         private void EditInformationsWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem;
+            InformationFrame.Navigate(new AddendumWorkerPage(workerTable));
+            BullshitextBlock.Visibility = Visibility.Collapsed;
+            DeliteWorkerButton.Visibility = Visibility.Collapsed;
+            EditInformationsWorkerButton.Visibility = Visibility.Collapsed;
         }
 
         private void DeliteWorkerButton_Click(object sender, RoutedEventArgs e) // Событие кнопки "DeliteWorkerButton";
