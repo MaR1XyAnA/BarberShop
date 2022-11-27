@@ -27,11 +27,11 @@ namespace BarberShop.ViewingFolder.PageFolder
 
         private void AddendumWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-            WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem;
-            InformationFrame.Navigate(new AddendumWorkerPage(null));
+            WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem; // Обыявляем переменную "workerTable" и даём ей данные из таблицы "WorkerTable", которые выбрали в элементе "ListWorkwrListBox";
+            InformationFrame.Navigate(new AddendumWorkerPage(null)); // Переключаем в элементе "InformationFrame" страницу с имянем "InformationsWorkerPage" и передаём данные из переменной "workerTable";
             BullshitextBlock.Visibility = Visibility.Collapsed;
-            DeliteWorkerButton.Visibility = Visibility.Collapsed;
-            EditInformationsWorkerButton.Visibility = Visibility.Collapsed;
+            DeliteWorkerButton.Visibility = Visibility.Visible;
+            EditInformationsWorkerButton.Visibility = Visibility.Visible;
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e) // Событие элемента "SearchTextBox";
@@ -59,11 +59,11 @@ namespace BarberShop.ViewingFolder.PageFolder
 
         private void EditInformationsWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-            WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem;
-            InformationFrame.Navigate(new AddendumWorkerPage(workerTable));
+            WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem; // Обыявляем переменную "workerTable" и даём ей данные из таблицы "WorkerTable", которые выбрали в элементе "ListWorkwrListBox";
+            InformationFrame.Navigate(new AddendumWorkerPage(workerTable)); // Переключаем в элементе "InformationFrame" страницу с имянем "AddendumWorkerPage" и передаём данные из переменной "workerTable";
             BullshitextBlock.Visibility = Visibility.Collapsed;
-            DeliteWorkerButton.Visibility = Visibility.Collapsed;
-            EditInformationsWorkerButton.Visibility = Visibility.Collapsed;
+            DeliteWorkerButton.Visibility = Visibility.Visible;
+            EditInformationsWorkerButton.Visibility = Visibility.Visible;
         }
 
         private void DeliteWorkerButton_Click(object sender, RoutedEventArgs e) // Событие кнопки "DeliteWorkerButton";

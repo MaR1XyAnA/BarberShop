@@ -206,6 +206,9 @@
     <Compile Include="ViewingFolder\WindowsFolder\MainWindows.xaml.cs">
       <DependentUpon>MainWindows.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\WindowsFolder\Neon.xaml.cs">
+      <DependentUpon>Neon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\WindowsFolder\QueueWindows.xaml.cs">
       <DependentUpon>QueueWindows.xaml</DependentUpon>
     </Compile>
@@ -369,6 +372,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\WindowsFolder\MainWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\WindowsFolder\Neon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

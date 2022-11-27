@@ -18,7 +18,6 @@ namespace BarberShop.ViewingFolder.PageFolder
 {
     public partial class InformationsWorkerPage : Page
     {
-        WorkerTable workerTable = new WorkerTable();
         public InformationsWorkerPage(WorkerTable workerTable)
         {
             InitializeComponent();
