@@ -20,8 +20,8 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
             this.WorkerTable = new HashSet<WorkerTable>();
         }
     
-        public string NameStatus { get; set; }
         public int IdStatus { get; set; }
+        public string NameStatus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WorkerTable> WorkerTable { get; set; }

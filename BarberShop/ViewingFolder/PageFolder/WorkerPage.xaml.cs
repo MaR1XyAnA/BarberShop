@@ -1,4 +1,5 @@
-﻿using BarberShop.ViewingFolder.DataBaseFolder;
+﻿using BarberShop.ContentFolder.ClassFolder;
+using BarberShop.ViewingFolder.DataBaseFolder;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -11,6 +12,8 @@ namespace BarberShop.ViewingFolder.PageFolder
         public WorkerPage() // Событие страницы "WorkerPage";
         {
             InitializeComponent(); // Инициализировать компонент;
+            FrameClass.AddEditWorkerClass = InformationFrame; // Запехнули в свойство "AddEditWorkerClass" из класса "FrameClass" элемент "InformationFrame";
+            FrameClass.AddEditWorkerClass.Navigate(new NextTextPage()); // Открываем страницу "NextTextPage";
             AppConnectClass.DataBase = new BarberShopDataBaseEntities(); // Подключаем Базу Данных к этой странице;
             ListWorkwrListBox.ItemsSource = AppConnectClass.DataBase.WorkerTable.ToList(); // В элемент "ListWorkwrListBox", выводим всю информацию из таблицы "WorkerTable" в виде списка;
             ListWorkwrListBox.Items.SortDescriptions.Add(new SortDescription("SurnameWorker", ListSortDirection.Ascending)); // Сортируем выведённую информацию в элементе "ListWorkwrListBox" в алфовитном порядке (Сортировка происходит по атрибуту "SurnameWorker");
@@ -19,19 +22,15 @@ namespace BarberShop.ViewingFolder.PageFolder
         private void ListWorkwrListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem; // Обыявляем переменную "workerTable" и даём ей данные из таблицы "WorkerTable", которые выбрали в элементе "ListWorkwrListBox";
-            InformationFrame.Navigate(new InformationsWorkerPage(workerTable)); // Переключаем в элементе "InformationFrame" страницу с имянем "InformationsWorkerPage" и передаём данные из переменной "workerTable";
-            BullshitextBlock.Visibility = Visibility.Collapsed;
-            DeliteWorkerButton.Visibility = Visibility.Visible;
-            EditInformationsWorkerButton.Visibility = Visibility.Visible;
+            FrameClass.AddEditWorkerClass.Navigate(new InformationsWorkerPage(workerTable));// Переключаем в элементе "InformationFrame" страницу с имянем "InformationsWorkerPage" и передаём данные из переменной "workerTable";
+            ButtonStackPanel.Visibility = Visibility.Visible; // Включаем видемость элементу "ButtonStackPanel", в котором находятся кнопки управления;
         }
 
-        private void AddendumWorkerButton_Click(object sender, RoutedEventArgs e)
+        private void AddendumWorkerButton_Click(object sender, RoutedEventArgs e) // Событие элемента "AddendumWorkerButton"
         {
             WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem; // Обыявляем переменную "workerTable" и даём ей данные из таблицы "WorkerTable", которые выбрали в элементе "ListWorkwrListBox";
-            InformationFrame.Navigate(new AddendumWorkerPage(null)); // Переключаем в элементе "InformationFrame" страницу с имянем "InformationsWorkerPage" и передаём данные из переменной "workerTable";
-            BullshitextBlock.Visibility = Visibility.Collapsed;
-            DeliteWorkerButton.Visibility = Visibility.Visible;
-            EditInformationsWorkerButton.Visibility = Visibility.Visible;
+            FrameClass.AddEditWorkerClass.Navigate(new AddendumWorkerPage(null)); // Переключаем в элементе "InformationFrame" страницу с имянем "InformationsWorkerPage" и передаём данные из переменной "workerTable";
+            ButtonStackPanel.Visibility = Visibility.Collapsed; // Выключаем видемость элементу "ButtonStackPanel", в котором находятся кнопки управления;
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e) // Событие элемента "SearchTextBox";
@@ -43,27 +42,26 @@ namespace BarberShop.ViewingFolder.PageFolder
             }
             else
             {
+                ButtonStackPanel.Visibility = Visibility.Collapsed; // Выключаем видемость элементу "ButtonStackPanel", в котором находятся кнопки управления;
+                FrameClass.AddEditWorkerClass.Navigate(new NextTextPage()); // Открываем страницу "NextTextPage";
                 SearchTextTextBlock.Visibility = Visibility.Hidden; // Прячем подсказку;
                 GetSearch(); // Вызываем метод поиска "GetSearch";
             }
         }
 
-        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) // Событие страницы;
         {
-            if(Visibility == Visibility.Visible)
+            if(Visibility == Visibility.Visible) // Если страница в статусе "Видно";
             {
-                OnlineWorkerTextBlock.Text = AppConnectClass.DataBase.WorkerTable.Count().ToString();
-            }
-            
+                OnlineWorkerTextBlock.Text = AppConnectClass.DataBase.WorkerTable.Count().ToString(); // Делаем подсчёт всего сотрудников;
+            } 
         }
 
         private void EditInformationsWorkerButton_Click(object sender, RoutedEventArgs e)
         {
             WorkerTable workerTable = (WorkerTable)ListWorkwrListBox.SelectedItem; // Обыявляем переменную "workerTable" и даём ей данные из таблицы "WorkerTable", которые выбрали в элементе "ListWorkwrListBox";
-            InformationFrame.Navigate(new AddendumWorkerPage(workerTable)); // Переключаем в элементе "InformationFrame" страницу с имянем "AddendumWorkerPage" и передаём данные из переменной "workerTable";
-            BullshitextBlock.Visibility = Visibility.Collapsed;
-            DeliteWorkerButton.Visibility = Visibility.Visible;
-            EditInformationsWorkerButton.Visibility = Visibility.Visible;
+            FrameClass.AddEditWorkerClass.Navigate(new AddendumWorkerPage(workerTable)); // Переключаем в элементе "InformationFrame" страницу с имянем "AddendumWorkerPage" и передаём данные из переменной "workerTable";
+            ButtonStackPanel.Visibility = Visibility.Collapsed; // Выключаем видемость элементу "ButtonStackPanel", в котором находятся кнопки управления;
         }
 
         private void DeliteWorkerButton_Click(object sender, RoutedEventArgs e) // Событие кнопки "DeliteWorkerButton";
@@ -79,10 +77,8 @@ namespace BarberShop.ViewingFolder.PageFolder
                 AppConnectClass.DataBase.SalaryCardTable.Remove(DaliteSalaryCard); // Удаляем сотрудника из таблицы "DaliteWorker";
                 AppConnectClass.DataBase.SaveChanges(); // Сохраняем БД;
                 ListWorkwrListBox.ItemsSource = AppConnectClass.DataBase.WorkerTable.ToList(); // Выводим в элемент "ListWorkwrListBox" данные из таблицы "WorkerTable";
-
-                BullshitextBlock.Visibility = Visibility.Collapsed;
-                DeliteWorkerButton.Visibility = Visibility.Visible;
-                EditInformationsWorkerButton.Visibility = Visibility.Visible;
+                FrameClass.AddEditWorkerClass.Navigate(new NextTextPage()); // Открываем страницу "NextTextPage";
+                ButtonStackPanel.Visibility = Visibility.Collapsed; // ВЫключаем видемость элементу "ButtonStackPanel", в котором находятся кнопки управления;
             }
         }
         private void GetSearch() // Метод для поиска

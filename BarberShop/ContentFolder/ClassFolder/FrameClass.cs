@@ -4,6 +4,6 @@ namespace BarberShop.ContentFolder.ClassFolder
 {
     internal class FrameClass
     {
-        public static Frame NavigationAutorizationFrameClass;
+        public static Frame AddEditWorkerClass;
     }
 }

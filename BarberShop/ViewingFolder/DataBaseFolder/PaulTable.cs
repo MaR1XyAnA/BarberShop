@@ -21,8 +21,8 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
             this.PassportWorkerTable = new HashSet<PassportWorkerTable>();
         }
     
-        public string NamePaul { get; set; }
         public int PersonalNumberPaul { get; set; }
+        public string NamePaul { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClientTable> ClientTable { get; set; }

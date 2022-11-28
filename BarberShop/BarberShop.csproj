@@ -194,6 +194,9 @@
     <Compile Include="ViewingFolder\PageFolder\ListShopButtonPage.xaml.cs">
       <DependentUpon>ListShopButtonPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\PageFolder\NextTextPage.xaml.cs">
+      <DependentUpon>NextTextPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\PageFolder\SessionsPage.xaml.cs">
       <DependentUpon>SessionsPage.xaml</DependentUpon>
     </Compile>
@@ -356,6 +359,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\PageFolder\ListShopButtonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\NextTextPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

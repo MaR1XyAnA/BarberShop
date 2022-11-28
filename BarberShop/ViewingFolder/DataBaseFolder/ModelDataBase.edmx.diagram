@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c3c7c6855db0426092c648b380b4b090" Name="Diagram1" ZoomLevel="45">
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.ClientTable" Width="1.5" PointX="3" PointY="1.875" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.HaircutTable" Width="1.5" PointX="3" PointY="22.375" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.PassportWorkerTable" Width="1.5" PointX="3" PointY="5" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.PaulTable" Width="1.5" PointX="0.75" PointY="4.625" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.PostTable" Width="1.5" PointX="3" PointY="12.5" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.ResultTable" Width="1.5" PointX="5.25" PointY="1.5" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.SalaryCardTable" Width="1.5" PointX="3" PointY="18.375" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.StatusResultTable" Width="1.5" PointX="3" PointY="10.25" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.StatusTable" Width="1.5" PointX="3" PointY="16" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.WorkerTable" Width="1.5" PointX="5.25" PointY="5.75" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.CutTheFilter" Width="1.5" PointX="7.75" PointY="3.75" />
-        <EntityTypeShape EntityType="BarberShopDataBaseModel.DoNotCutTheFilter" Width="1.5" PointX="7.75" PointY="7.75" />
+      <Diagram DiagramId="c3c7c6855db0426092c648b380b4b090" Name="Diagram1" ZoomLevel="88" DisplayType="true">
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.ClientTable" Width="1.5" PointX="3" PointY="3.25" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.HaircutTable" Width="1.5" PointX="3" PointY="20" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.PassportWorkerTable" Width="1.5" PointX="3" PointY="6.375" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.PaulTable" Width="1.5" PointX="0.75" PointY="5.875" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.PostTable" Width="1.5" PointX="3" PointY="12.125" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.ResultTable" Width="1.5" PointX="5.25" PointY="2.875" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.SalaryCardTable" Width="1.5" PointX="3" PointY="14.625" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.StatusResultTable" Width="1.5" PointX="3" PointY="17.875" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.StatusTable" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="2" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.WorkerTable" Width="1.5" PointX="5.25" PointY="7" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.CutTheFilter" Width="1.5" PointX="7.75" PointY="5" />
+        <EntityTypeShape EntityType="BarberShopDataBaseModel.DoNotCutTheFilter" Width="1.5" PointX="7.75" PointY="9" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_ClientTable_PaulTable" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_ResultTable_ClientTable" />
         <AssociationConnector Association="BarberShopDataBaseModel.FK_ResultTable_HaircutTable" />

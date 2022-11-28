@@ -1,6 +1,8 @@
-﻿using BarberShop.ViewingFolder.DataBaseFolder;
+﻿using BarberShop.ContentFolder.ClassFolder;
+using BarberShop.ViewingFolder.DataBaseFolder;
 using Microsoft.Win32;
 using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -13,14 +15,17 @@ namespace BarberShop.ViewingFolder.PageFolder
 {
     public partial class AddendumWorkerPage : Page
     {
+        int IdNull = 0;
         public AddendumWorkerPage(WorkerTable workerTable)
         {
             InitializeComponent();
             AppConnectClass.DataBase = new BarberShopDataBaseEntities();
+            IdTExtBox.IsEnabled = false;
             if (workerTable != null)
             {
                 workerTable = workerTable;
                 DataContext = workerTable;
+                IdNull = workerTable.PersonalNumberWorker;
             }
             PaulComboBox.ItemsSource = AppConnectClass.DataBase.PaulTable.ToList();
             PostComboBox.ItemsSource = AppConnectClass.DataBase.PostTable.ToList();
@@ -80,77 +85,89 @@ namespace BarberShop.ViewingFolder.PageFolder
 
         private void NewWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-            ////GETERROR();
-            //if (AppConnectClass.DataBase.WorkerTable.Count(data =>
-            //        data.LoginWorker == LogintextBox.Text && data.PasswordWorker == PasswordTextBox.Text ||
-            //        data.SurnameWorker == SurnameTextBox.Text && data.NameWorker == NameTextBox.Text && data.MiddlenameWorker == MiddleNameTextBox.Text ||
-            //        data.PassportSeries == PassportSeriesTextBox.Text && data.PassportNumber == PassportNumberTextBox.Text ||
-            //        data.CardNumberWorker == NumberCardTextBox.Text) > 0)
-            //{
-            //    MessageBox.Show("Данный пользователь уже есть", "ОШИБКА ДОБАВЛЕНИЯ");
-            //    return;
-            //}
-            //else
-            //{
-            //    DateTime DatePassportIssuedDateTime, DateOfBirthDateTime;
-            //    DatePassportIssuedDateTime = Convert.ToDateTime(DatePassportIssuedTextBox.Text);
-            //    DateOfBirthDateTime = Convert.ToDateTime(DateOfBirthTExtBox.Text);
+            DateTime DatePassportIssuedDateTime, DateOfBirthDateTime;
+            DatePassportIssuedDateTime = Convert.ToDateTime(DatePassportIssuedTextBox.Text);
+            DateOfBirthDateTime = Convert.ToDateTime(DateOfBirthTExtBox.Text);
 
-            //    PassportWorkerTable passportWorkerTable = new PassportWorkerTable()
-            //    {
-            //        PassportSeriesWorker = PassportSeriesTextBox.Text,
-            //        PassportNumberWorker = PassportNumberTextBox.Text,
-            //        PassportIssuedWorker = PassportIssuedTextBox.Text,
-            //        DateOfIssueWorker = DatePassportIssuedDateTime,
-            //        DivisionCodeWorker = DivisionСodeTextBox.Text,
-            //        PaulTable = PaulComboBox.SelectedItem as PaulTable,
-            //        PlaceOfBirthWorker = PassportPlaceOfBirthTextBox.Text,
-            //        RegistrationRegionWorker = PassportRegionTextBox.Text,
-            //        RegistrationPointWorker = PassportPointTextBox.Text,
-            //        RegistrationStreetWorker = PassportStreetTextBox.Text,
-            //        RegistrationHouseWorker = PassportHouseTextBox.Text,
-            //        RegistrationApartmentWorker = RegistrationApartmentWorkerTextBox.Text,
-            //        DateOfBirthWorker = DateOfBirthDateTime,
-            //        DistrictWorker = PassportDistrictTextBox.Text
-            //    };
-            //    SalaryCardTable salaryCardTable = new SalaryCardTable()
-            //    {
-            //        CardNumber = NumberCardTextBox.Text,
-            //        CardValidMonth = CardValidMonthTextBox.Text,
-            //        CardValidYears = CardValidYearTextBox.Text,
-            //        CardKeeperName = NameCardHolderTextBox.Text,
-            //        CardKeeperSurname = SurnameCardHolderTextBox.Text,
-            //        CardCode = CodeCardTextBox.Text
-            //    };
-            //    WorkerTable workerTable = new WorkerTable()
-            //    {
-            //        SurnameWorker = SurnameTextBox.Text,
-            //        NameWorker = NameTextBox.Text,
-            //        MiddlenameWorker = MiddleNameTextBox.Text,
-            //        PassportSeries = PassportSeriesTextBox.Text,
-            //        PassportNumber = PassportNumberTextBox.Text,
-            //        StatusWorker = 1,
-            //        PostTable = PostComboBox.SelectedItem as PostTable,
-            //        CardNumberWorker = NumberCardTextBox.Text,
-            //        LoginWorker = LogintextBox.Text,
-            //        PasswordWorker = PasswordTextBox.Text,
-            //        NumberPhoneWorker = NumberPhoneTextBox.Text,
-            //        EmailWorker = EmailTextBox.Text
-            //    };
+            var salaryCardTable = new SalaryCardTable()
+            {
+                CardNumber = NumberCardTextBox.Text,
+                CardValidMonth = CardValidMonthTextBox.Text,
+                CardValidYears = CardValidYearTextBox.Text,
+                CardKeeperName = NameCardHolderTextBox.Text,
+                CardKeeperSurname = SurnameCardHolderTextBox.Text,
+                CardCode = CodeCardTextBox.Text
+            };
+            var workerTable = new WorkerTable()
+            {
+                PersonalNumberWorker = IdNull,
+                SurnameWorker = SurnameTextBox.Text,
+                NameWorker = NameTextBox.Text,
+                MiddlenameWorker = MiddleNameTextBox.Text,
+                PassportSeries = PassportSeriesTextBox.Text,
+                PassportNumber = PassportNumberTextBox.Text,
+                StatusWorker = 1,
+                PostWorker = (PostComboBox.SelectedItem as PostTable).PersonalNumberPost,
+                CardNumberWorker = NumberCardTextBox.Text,
+                LoginWorker = LogintextBox.Text,
+                PasswordWorker = PasswordTextBox.Text,
+                NumberPhoneWorker = NumberPhoneTextBox.Text,
+                EmailWorker = EmailTextBox.Text
+            };
 
-            //    WorkerTable SeartheID = AppConnectClass.DataBase.WorkerTable.Find();
-            //    try
-            //    {
-            //        AppConnectClass.DataBase.PassportWorkerTable.Add(passportWorkerTable);
-            //        AppConnectClass.DataBase.SalaryCardTable.Add(salaryCardTable);
-            //        AppConnectClass.DataBase.WorkerTable.Add(workerTable);
-            //        AppConnectClass.DataBase.SaveChanges();
-            //    }
-            //    catch
-            //    {
-            //        MessageBox.Show("Ошибка добавления");
-            //    }
-            //}
+            var passportWorkerTable = new PassportWorkerTable()
+            {
+                PassportSeriesWorker = PassportSeriesTextBox.Text,
+                PassportNumberWorker = PassportNumberTextBox.Text,
+                PassportIssuedWorker = PassportIssuedTextBox.Text,
+                DateOfIssueWorker = DatePassportIssuedDateTime,
+                DivisionCodeWorker = DivisionСodeTextBox.Text,
+                PaulWorker = (PaulComboBox.SelectedItem as PaulTable).PersonalNumberPaul,
+                PlaceOfBirthWorker = PassportPlaceOfBirthTextBox.Text,
+                RegistrationRegionWorker = PassportRegionTextBox.Text,
+                RegistrationPointWorker = PassportPointTextBox.Text,
+                RegistrationStreetWorker = PassportStreetTextBox.Text,
+                RegistrationHouseWorker = PassportHouseTextBox.Text,
+                RegistrationApartmentWorker = RegistrationApartmentWorkerTextBox.Text,
+                DateOfBirthWorker = DateOfBirthDateTime,
+                DistrictWorker = PassportDistrictTextBox.Text
+            };
+
+            WorkerTable WorkerSearth = AppConnectClass.DataBase.WorkerTable.Find(IdNull);
+            try
+            {
+                if (WorkerSearth != null)
+                {
+                    AppConnectClass.DataBase.PassportWorkerTable.AddOrUpdate(passportWorkerTable);
+                    AppConnectClass.DataBase.SalaryCardTable.AddOrUpdate(salaryCardTable);
+                    AppConnectClass.DataBase.WorkerTable.AddOrUpdate(workerTable);
+                }
+                else
+                {
+                    if (AppConnectClass.DataBase.WorkerTable.Count(data =>
+                            data.LoginWorker == LogintextBox.Text && data.PasswordWorker == PasswordTextBox.Text ||
+                            data.SurnameWorker == SurnameTextBox.Text && data.NameWorker == NameTextBox.Text && data.MiddlenameWorker == MiddleNameTextBox.Text ||
+                            data.PassportSeries == PassportSeriesTextBox.Text && data.PassportNumber == PassportNumberTextBox.Text ||
+                            data.CardNumberWorker == NumberCardTextBox.Text) > 0)
+                    {
+                        MessageBox.Show("Данный пользователь уже есть", "ОШИБКА ДОБАВЛЕНИЯ");
+                        return;
+                    }
+                    else
+                    {
+                        AppConnectClass.DataBase.PassportWorkerTable.Add(passportWorkerTable);
+                        AppConnectClass.DataBase.SalaryCardTable.Add(salaryCardTable);
+                        AppConnectClass.DataBase.WorkerTable.Add(workerTable);
+                    }
+                }
+                AppConnectClass.DataBase.SaveChanges();
+                MessageBox.Show("Данные успешно сохранены");
+                FrameClass.AddEditWorkerClass.Navigate(new NextTextPage());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex + "", "Ошибка добавления");
+            }
         }
     }
 }

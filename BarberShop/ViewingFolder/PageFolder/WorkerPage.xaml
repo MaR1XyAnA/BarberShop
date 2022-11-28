@@ -30,97 +30,103 @@
                 </Grid>
             </StackPanel>
             <Border Grid.Row="1" Height="auto" VerticalAlignment="Top" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
-                <StackPanel>
-                    <ListBox
-                        Margin="0 20 0 0"
-                        Height="750"
-                        x:Name="ListWorkwrListBox"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        BorderThickness="0"
-                        SelectionChanged ="ListWorkwrListBox_SelectionChanged">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Style.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="20"/>
-                                    </Style>
-                                </Style.Resources>
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Border Margin="10 15 10 15" Height="Auto" CornerRadius="0" Width="900" BorderBrush="Transparent">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="230"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Border x:Name="MaskMorderBorder" Style="{StaticResource MaskBorder}"/>
-                                        <StackPanel>
-                                            <StackPanel.OpacityMask>
-                                                <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
-                                            </StackPanel.OpacityMask>
-                                            <Image
-                                                Style="{StaticResource ImageDataBase}"
-                                                Source="{Binding ImageWorker}"/>
-                                        </StackPanel>
-                                        <TextBlock 
-                                            VerticalAlignment="Bottom"
-                                            HorizontalAlignment="Center"
-                                            Margin="0 0 0 0"
-                                            FontSize="15"
-                                            Style="{StaticResource InfoDataBaseTextBlockFalse}"
-                                            Text="{Binding StatusTable.NameStatus}"/>
-                                        <Grid Grid.Column="1">
-                                            <StackPanel Style="{StaticResource InfoDataBase}" Orientation="Vertical" Margin="10 10 0 10">
-                                                <StackPanel Margin="0 0 0 3" Style="{StaticResource StackPanelDataBase}">
-                                                    <TextBlock 
-                                                        Text="ФИО:"
-                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                    <TextBlock
-                                                        Text="{Binding SurnameWorker}"
-                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                    <TextBlock
-                                                        Text="{Binding NameWorker}"
-                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                    <TextBlock 
-                                                        Text="{Binding MiddlenameWorker}"
-                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                </StackPanel>
-                                                <StackPanel Style="{StaticResource StackPanelDataBase}">
-                                                    <TextBlock 
-                                                        Text="ДАТА РОЖДЕНИЯ:"
-                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                    <TextBlock
-                                                        Text="{Binding PassportWorkerTable.DateOfBirthWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
-                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                </StackPanel>
-                                                <StackPanel Style="{StaticResource StackPanelDataBase}">
-                                                    <TextBlock 
-                                                        Text="НОМЕР ТЕЛЕФОНА:"
-                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                    <TextBlock
-                                                        Text="{Binding NumberPhoneWorker}"
-                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                </StackPanel>
-                                                <StackPanel Margin="0 3 0 0" Style="{StaticResource StackPanelDataBase}">
-                                                    <TextBlock 
-                                                        Text="ДОЛЖНОСТЬ:"
-                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                    <TextBlock
-                                                        Text="{Binding PostTable.NamePost}"
-                                                        Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                </StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0">
+                        <ListBox
+                            Margin="0 20 0 0"
+                            Height="750"
+                            x:Name="ListWorkwrListBox"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            SelectionChanged ="ListWorkwrListBox_SelectionChanged">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Style.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="20"/>
+                                        </Style>
+                                    </Style.Resources>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Margin="10 15 10 15" Height="Auto" CornerRadius="0" Width="900" BorderBrush="Transparent">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="230"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="MaskMorderBorder" Style="{StaticResource MaskBorder}"/>
+                                            <StackPanel>
+                                                <StackPanel.OpacityMask>
+                                                    <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
+                                                </StackPanel.OpacityMask>
+                                                <Image
+                                                    Style="{StaticResource ImageDataBase}"
+                                                    Source="{Binding ImageWorker}"/>
                                             </StackPanel>
+                                            <TextBlock 
+                                                VerticalAlignment="Bottom"
+                                                HorizontalAlignment="Center"
+                                                Margin="0 0 0 0"
+                                                FontSize="15"
+                                                Style="{StaticResource InfoDataBaseTextBlockFalse}"
+                                                Text="{Binding StatusTable.NameStatus}"/>
+                                            <Grid Grid.Column="1">
+                                                <StackPanel Style="{StaticResource InfoDataBase}" Orientation="Vertical" Margin="10 10 0 10">
+                                                    <StackPanel Margin="0 0 0 3" Style="{StaticResource StackPanelDataBase}">
+                                                        <TextBlock 
+                                                            Text="ФИО:"
+                                                            Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                        <TextBlock
+                                                            Text="{Binding SurnameWorker}"
+                                                            Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                        <TextBlock
+                                                            Text="{Binding NameWorker}"
+                                                            Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                        <TextBlock 
+                                                            Text="{Binding MiddlenameWorker}"
+                                                            Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                    </StackPanel>
+                                                    <StackPanel Style="{StaticResource StackPanelDataBase}">
+                                                        <TextBlock 
+                                                            Text="ДАТА РОЖДЕНИЯ:"
+                                                            Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                        <TextBlock
+                                                            Text="{Binding PassportWorkerTable.DateOfBirthWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                                            Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                    </StackPanel>
+                                                    <StackPanel Style="{StaticResource StackPanelDataBase}">
+                                                        <TextBlock 
+                                                            Text="НОМЕР ТЕЛЕФОНА:"
+                                                            Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                        <TextBlock
+                                                            Text="{Binding NumberPhoneWorker}"
+                                                            Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                    </StackPanel>
+                                                    <StackPanel Margin="0 3 0 0" Style="{StaticResource StackPanelDataBase}">
+                                                        <TextBlock 
+                                                            Text="ДОЛЖНОСТЬ:"
+                                                            Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                        <TextBlock
+                                                            Text="{Binding PostTable.NamePost}"
+                                                            Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                </Border>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                    <StackPanel Margin="0 0 5 15" HorizontalAlignment="Right" Orientation="Horizontal">
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Margin="0 0 10 0" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
                         <TextBlock
                             Text="ВСЕГО СОТРУДНИКОВ:"
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
@@ -129,7 +135,7 @@
                             Text="123"
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
                     </StackPanel>
-                </StackPanel>
+                </Grid>
             </Border>
         </Grid>
         <Button 
@@ -143,22 +149,14 @@
             Height="50"/>
         <Border MaxHeight="700" VerticalAlignment="Top" Height="Auto" Grid.Column="1" Margin="10 79.7 10 0" CornerRadius="15" BorderBrush="#33FFFFFF" BorderThickness="2">
             <Grid>
-                <TextBlock
-                    Visibility="Visible"
-                    x:Name="BullshitextBlock"
-                    Text="ВЫБЕРИТЕ СОТРУДНИКА ДЛЯ ПРОСМОТРА ПОДРОБНОЙ ИНФОРМАЦИИ О НЁМ" 
-                    HorizontalAlignment="Center"
-                    Margin="0 10 0 10"
-                    Style="{StaticResource TextTextBlock}"/>
                 <Frame
                     x:Name="InformationFrame"
                     Margin="5"
                     NavigationUIVisibility="Hidden"/>
             </Grid>
         </Border>
-        <StackPanel Orientation="Horizontal" Grid.Column="2" VerticalAlignment="Bottom" Margin="0 0 0 30">
+        <StackPanel Visibility="Collapsed" x:Name="ButtonStackPanel" Orientation="Horizontal" Grid.Column="2" VerticalAlignment="Bottom" Margin="0 0 0 30">
             <Button
-                Visibility="Collapsed"
                 x:Name="EditInformationsWorkerButton"
                 Click="EditInformationsWorkerButton_Click"
                 Content="РЕДАКТИРОВАТЬ СОТРУДНИКА"
@@ -166,7 +164,6 @@
                 Width="500"
                 Margin="0 0 10 0"/>
             <Button 
-                Visibility="Collapsed"
                 x:Name="DeliteWorkerButton"
                 Click="DeliteWorkerButton_Click"
                 Height="60"

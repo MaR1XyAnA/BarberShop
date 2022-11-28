@@ -50,16 +50,16 @@
           <Key>
             <PropertyRef Name="PersonalNumberPaul" />
           </Key>
-          <Property Name="NamePaul" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="PersonalNumberPaul" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamePaul" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="PostTable">
           <Key>
             <PropertyRef Name="PersonalNumberPost" />
           </Key>
+          <Property Name="PersonalNumberPost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NamePost" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="DescriptionPost" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="PersonalNumberPost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="ResultTable">
           <Key>
@@ -94,8 +94,8 @@
           <Key>
             <PropertyRef Name="IdStatus" />
           </Key>
-          <Property Name="NameStatus" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="IdStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameStatus" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -552,8 +552,8 @@
           <Key>
             <PropertyRef Name="PersonalNumberPaul" />
           </Key>
-          <Property Name="NamePaul" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="PersonalNumberPaul" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamePaul" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ClientTable" Relationship="BarberShopDataBaseModel.FK_ClientTable_PaulTable" FromRole="PaulTable" ToRole="ClientTable" />
           <NavigationProperty Name="PassportWorkerTable" Relationship="BarberShopDataBaseModel.FK_PassportWorkerTable_PaulTable" FromRole="PaulTable" ToRole="PassportWorkerTable" />
         </EntityType>
@@ -561,9 +561,9 @@
           <Key>
             <PropertyRef Name="PersonalNumberPost" />
           </Key>
+          <Property Name="PersonalNumberPost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NamePost" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DescriptionPost" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="PersonalNumberPost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_PostTable1" FromRole="PostTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="ResultTable">
@@ -605,8 +605,8 @@
           <Key>
             <PropertyRef Name="IdStatus" />
           </Key>
-          <Property Name="NameStatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="IdStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameStatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="WorkerTable" Relationship="BarberShopDataBaseModel.FK_WorkerTable_StatusTable" FromRole="StatusTable" ToRole="WorkerTable" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -883,17 +883,17 @@
           <EntitySetMapping Name="PaulTable">
             <EntityTypeMapping TypeName="BarberShopDataBaseModel.PaulTable">
               <MappingFragment StoreEntitySet="PaulTable">
-                <ScalarProperty Name="PersonalNumberPaul" ColumnName="PersonalNumberPaul" />
                 <ScalarProperty Name="NamePaul" ColumnName="NamePaul" />
+                <ScalarProperty Name="PersonalNumberPaul" ColumnName="PersonalNumberPaul" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PostTable">
             <EntityTypeMapping TypeName="BarberShopDataBaseModel.PostTable">
               <MappingFragment StoreEntitySet="PostTable">
-                <ScalarProperty Name="PersonalNumberPost" ColumnName="PersonalNumberPost" />
                 <ScalarProperty Name="DescriptionPost" ColumnName="DescriptionPost" />
                 <ScalarProperty Name="NamePost" ColumnName="NamePost" />
+                <ScalarProperty Name="PersonalNumberPost" ColumnName="PersonalNumberPost" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -932,8 +932,8 @@
           <EntitySetMapping Name="StatusTable">
             <EntityTypeMapping TypeName="BarberShopDataBaseModel.StatusTable">
               <MappingFragment StoreEntitySet="StatusTable">
-                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
                 <ScalarProperty Name="NameStatus" ColumnName="NameStatus" />
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
