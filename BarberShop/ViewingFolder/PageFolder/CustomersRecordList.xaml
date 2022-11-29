@@ -8,7 +8,7 @@
       Style="{StaticResource MainPage}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="2.5*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
@@ -30,173 +30,131 @@
                 </Grid>
             </StackPanel>
             <Border Grid.Row="1" VerticalAlignment="Top" Margin="20" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
-                <StackPanel>
-                    <ListBox 
-                        Margin="5 10 5 0"
-                        Width="1400"
-                        Height="750"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        x:Name="ListRecordListBox"
-                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="IsSelected" Value="{Binding Content.IsSelected, Mode=TwoWay, RelativeSource={RelativeSource Self}}"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="ListBoxItem">
-                                            <ContentPresenter/>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="BorderBrush" Value="Red"/>
-                                                    <Setter Property="BorderThickness" Value="1"/>
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent"/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Grid VerticalAlignment="Top">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="450"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <Border CornerRadius="10" Background="#161b22" Margin="5 0 5 10" VerticalAlignment="Top">
-                                        <Grid x:Name="Grid2" VerticalAlignment="Top" HorizontalAlignment="Center" Background="Transparent">
-                                            <Border CornerRadius="30" Height="auto" Width="400">
-                                                <Grid x:Name="Grid1" Width="400" VerticalAlignment="Top" Margin="5 10 5 2">
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition Height="55"/>
-                                                        <RowDefinition Height="*"/>
-                                                        <RowDefinition Height="30"/>
-                                                        <RowDefinition Height="*"/>
-                                                    </Grid.RowDefinitions>
-                                                    <TextBlock
-                                                        FontSize="30"
-                                                        Margin="0 0 2 0"
-                                                        Text="{Binding PersonalNumberResult}"
-                                                        Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                    <Border Grid.Row="1" Background="#161b22" BorderThickness="1" Width="340" Height="200" CornerRadius="20" x:Name="MaskMorderBorder" Style="{StaticResource MaskBorder}"/>
-                                                    <StackPanel Grid.Row="1">
-                                                        <StackPanel.OpacityMask>
-                                                            <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
-                                                        </StackPanel.OpacityMask>
-                                                        <Image 
-                                                            Width="340"
-                                                            Height="200"
-                                                            VerticalAlignment="Top"
-                                                            Source="{Binding HaircutTable.PhotoHaircut}"
-                                                            Stretch="UniformToFill"/>
-                                                    </StackPanel>
-                                                    <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0">
+                        <ListBox 
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Margin="5 10 5 10"
+                            Height="750"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            x:Name="ListRecordListBox"
+                            SelectionChanged="ListRecordListBox_SelectionChanged"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="IsSelected" Value="{Binding Content.IsSelected, Mode=TwoWay, RelativeSource={RelativeSource Self}}"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListBoxItem">
+                                                <ContentPresenter/>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="BorderBrush" Value="Red"/>
+                                                        <Setter Property="BorderThickness" Value="1"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel IsItemsHost="True" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid VerticalAlignment="Top">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="400"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Border CornerRadius="10" Background="#161b22" Margin="5 0 5 10" VerticalAlignment="Top">
+                                            <Grid x:Name="Grid2" VerticalAlignment="Top" HorizontalAlignment="Center" Background="Transparent">
+                                                <Border CornerRadius="30" Height="auto" Width="400">
+                                                    <Grid x:Name="Grid1" Width="390" VerticalAlignment="Top" Margin="5 10 5 2">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="40"/>
+                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="30"/>
+                                                            <RowDefinition Height="*"/>
+                                                        </Grid.RowDefinitions>
                                                         <TextBlock
-                                                            TextWrapping="Wrap"
-                                                            TextAlignment="Center"
-                                                            FontSize="25"
-                                                            Text="{Binding HaircutTable.NameHaircut}"
+                                                            FontSize="30"
+                                                            Margin="10 0 0 10"
+                                                            Text="{Binding PersonalNumberResult}"
                                                             Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                    </StackPanel>
-                                                    <StackPanel Width="400" Margin="0 30 0 10" Grid.Row="3" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                                                        <TextBlock
-                                                            Margin="0 0 2 0"
-                                                            Text="СОТРУДНИК:"
-                                                            Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                                                            <TextBlock
-                                                                Margin="0 0 2 0"
-                                                                Text="{Binding WorkerTable.SurnameWorker}"
-                                                                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                            <TextBlock
-                                                                Margin="2 0 2 0"
-                                                                Text="{Binding WorkerTable.NameWorker}"
-                                                                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                            <TextBlock
-                                                                Margin="2 0 0 0"
-                                                                Text="{Binding WorkerTable.MiddlenameWorker}"
-                                                                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                        <Border Grid.Row="1" Background="#161b22" BorderThickness="1" Width="390" Height="200" CornerRadius="20" x:Name="MaskMorderBorder" Style="{StaticResource MaskBorder}"/>
+                                                        <StackPanel HorizontalAlignment="Center" Grid.Row="1">
+                                                            <StackPanel.OpacityMask>
+                                                                <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
+                                                            </StackPanel.OpacityMask>
+                                                            <Image 
+                                                                Width="350"
+                                                                Height="210"
+                                                                VerticalAlignment="Top"
+                                                                Source="{Binding HaircutTable.PhotoHaircut}"
+                                                                Stretch="UniformToFill"/>
                                                         </StackPanel>
-                                                        <TextBlock
-                                                            Margin="0 10 2 0"
-                                                            Text="КЛИЕНТ:"
-                                                            Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                                                        <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
                                                             <TextBlock
-                                                                Margin="0 0 2 0"
-                                                                Text="{Binding ClientTable.SurnameClient}"
-                                                                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                            <TextBlock
-                                                                Margin="2 0 2 0"
-                                                                Text="{Binding ClientTable.NameClient}"
-                                                                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                            <TextBlock
-                                                                Margin="2 0 0 0"
-                                                                Text="{Binding ClientTable.MiddleNameClient}"
-                                                                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                        </StackPanel>
-                                                        <StackPanel Margin="0 10 0 0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                                                            <TextBlock
-                                                                Margin="0 0 0 0"
-                                                                Text="ЦЕНА:"
-                                                                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                            <TextBlock
-                                                                Margin="2 0 0 0"
-                                                                Text="{Binding HaircutTable.PriceHaircut, StringFormat={}{0}₽}"
-                                                                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                        </StackPanel>
-                                                        <StackPanel Margin="0 10 0 0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                                                            <TextBlock
-                                                                Margin="0 0 0 0"
-                                                                Text="СТАТУС:"
-                                                                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                            <TextBlock
-                                                                Margin="2 0 0 0"
-                                                                Text="{Binding StatusResultTable.NameStatus}"
-                                                                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                        </StackPanel>
-                                                        <StackPanel Margin="0 10 0 0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                                                            <TextBlock
-                                                                Margin="0 0 0 0"
-                                                                Text="ДАТА ЗАПИСИ:"
-                                                                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                            <TextBlock
-                                                                Margin="2 0 0 0"
-                                                                Text="{Binding DataResult, StringFormat='{}{0:dd/MM/yyyy}'}"
-                                                                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
-                                                        </StackPanel>
-                                                        <StackPanel Margin="0 10 0 0" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                                                            <TextBlock
-                                                                Margin="0 0 0 0"
-                                                                Text="КОММЕНТАРИЙ:"
-                                                                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
-                                                            <TextBlock
-                                                                x:Name="TextCommentTextBlock"
-                                                                Margin="2 0 0 0"
-                                                                Text="{Binding CommentResult}"
-                                                                Height="auto"
                                                                 TextWrapping="Wrap"
-                                                                Width="300"
-                                                                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                                TextAlignment="Center"
+                                                                FontSize="25"
+                                                                Text="{Binding HaircutTable.NameHaircut}"
+                                                                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
                                                         </StackPanel>
-                                                    </StackPanel>
-                                                </Grid>
-                                            </Border>
-                                        </Grid>
-                                    </Border>
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                    <StackPanel Margin="0 0 5 15" HorizontalAlignment="Right" Orientation="Horizontal">
+                                                        <StackPanel Width="400" Margin="10 10 0 10" Grid.Row="3" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                                                                <TextBlock
+                                                                    Margin="0 0 2 0"
+                                                                    Text="КЛИЕНТ:"
+                                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                                <TextBlock
+                                                                    Margin="0 0 2 0"
+                                                                    Text="{Binding ClientTable.SurnameClient}"
+                                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                                <TextBlock
+                                                                    Margin="2 0 2 0"
+                                                                    Text="{Binding ClientTable.NameClient}"
+                                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                                <TextBlock
+                                                                    TextTrimming="CharacterEllipsis"
+                                                                    Width="30"
+                                                                    Margin="2 0 0 0"
+                                                                    Text="{Binding ClientTable.MiddleNameClient}"
+                                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                            </StackPanel>
+                                                            <StackPanel Margin="0 10 0 0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                                                                <TextBlock
+                                                                    Margin="0 0 0 0"
+                                                                    Text="СТАТУС:"
+                                                                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                                                                <TextBlock
+                                                                    Margin="2 0 0 0"
+                                                                    Text="{Binding StatusResultTable.NameStatus}"
+                                                                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+                                                            </StackPanel>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </Border>
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Margin="0 0 10 0" HorizontalAlignment="Right" Orientation="Horizontal">
                         <TextBlock
                             Text="ВСЕГО ЗАПИСЕЙ:"
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
@@ -205,7 +163,7 @@
                             Text="123"
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
                     </StackPanel>
-                </StackPanel>
+                </Grid>
             </Border>
         </Grid>
         <StackPanel Orientation="Vertical" Grid.Column="2" VerticalAlignment="Bottom" Margin="0 0 0 30">
@@ -227,5 +185,11 @@
                 Margin="10 0 0 0"
                 Style="{StaticResource DeliteButton}"/>
         </StackPanel>
+        <Border VerticalAlignment="Top" Margin="0 79.9 5 0" Grid.Column="1" MinHeight="60" Height="auto" CornerRadius="20" BorderBrush="#33FFFFFF" BorderThickness="2">
+            <Frame
+                NavigationUIVisibility="Hidden"
+                x:Name="InformationRecordFrame"
+                Grid.Column="1"/>
+        </Border>
     </Grid>
 </Page>

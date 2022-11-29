@@ -1,0 +1,49 @@
+﻿<Page x:Class="BarberShop.ViewingFolder.PageFolder.InformationRecordPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="504">
+
+    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+        <StackPanel HorizontalAlignment="Left" Margin="10 10 0 0">
+            <TextBlock
+                Text="ПАРИКХМАХЕР:"
+                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+            <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="10 0 0 0">
+                <TextBlock
+                    Margin="10 0 0 0"
+                    Text="{Binding WorkerTable.SurnameWorker}"
+                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                <TextBlock
+                    Margin="4 0 0 0"
+                    Text="{Binding WorkerTable.NameWorker}"
+                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                <TextBlock
+                    Margin="4 0 0 0"
+                    Text="{Binding WorkerTable.MiddlenameWorker}"
+                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Margin="10 10 0 0" HorizontalAlignment="Left">
+            <TextBlock
+                Text="КЛИЕНТ:"
+                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+            <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="10 0 0 0">
+                <TextBlock
+                    Margin="10 0 0 0"
+                    Text="{Binding ClientTable.SurnameClient}"
+                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                <TextBlock
+                    Margin="4 0 0 0"
+                    Text="{Binding ClientTable.NameClient}"
+                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                <TextBlock
+                    Margin="4 0 0 0"
+                    Text="{Binding ClientTable.MiddleNameClient}"
+                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Page>
