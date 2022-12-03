@@ -158,7 +158,7 @@
         <StackPanel Visibility="Collapsed" x:Name="ButtonStackPanel" Orientation="Horizontal" Grid.Column="2" VerticalAlignment="Bottom" Margin="0 0 0 30">
             <Button
                 x:Name="EditInformationsWorkerButton"
-                Click="EditInformationsWorkerButton_Click"
+                   Click="EditInformationsWorkerButton_Click"
                 Content="РЕДАКТИРОВАТЬ СОТРУДНИКА"
                 Height="60"
                 Width="500"

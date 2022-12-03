@@ -109,7 +109,7 @@
         </Grid>
         <StackPanel VerticalAlignment="Top" Margin="0 79.9 0 0" Grid.Column="1">
             <Border
-                MaxHeight="757"
+                MaxHeight="700"
                 Height="Auto"
                 Width="470"
                 MinHeight="40"

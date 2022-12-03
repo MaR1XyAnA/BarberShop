@@ -176,6 +176,9 @@
     <Compile Include="ViewingFolder\DataBaseFolder\WorkerTable.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewingFolder\PageFolder\AddendumServisePage.xaml.cs">
+      <DependentUpon>AddendumServisePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewingFolder\PageFolder\AddendumWorkerPage.xaml.cs">
       <DependentUpon>AddendumWorkerPage.xaml</DependentUpon>
     </Compile>
@@ -354,6 +357,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Style\WindowStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewingFolder\PageFolder\AddendumServisePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
