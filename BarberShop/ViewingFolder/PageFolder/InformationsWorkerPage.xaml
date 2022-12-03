@@ -24,10 +24,6 @@
                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
                                 Text="{Binding PersonalNumberWorker}"
                                 x:Name="PersonalNumberWorkerTextBlock"/>
-                            <TextBox
-                                Width="170"
-                                Visibility="Collapsed"
-                                Name="PersonalNumberWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
@@ -37,10 +33,6 @@
                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
                                 Text="{Binding StatusTable.NameStatus}"
                                 x:Name="StatusWorkerTextBlock"/>
-                            <TextBox
-                                Width="323"
-                                Visibility="Collapsed"
-                                Name="StatusWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
@@ -50,10 +42,6 @@
                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
                                 Text="{Binding SurnameWorker}"
                                 x:Name="SurnameWorkerWorkerTextBlock"/>
-                            <TextBox
-                                Width="295"
-                                Visibility="Collapsed"
-                                x:Name="SurnameWorkerWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
@@ -63,10 +51,6 @@
                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
                                 Text="{Binding NameWorker}"
                                 x:Name="NameWorkerTextBlock"/>
-                            <TextBox
-                                Width="349"
-                                Visibility="Collapsed"
-                                x:Name="NameWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
@@ -76,10 +60,6 @@
                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
                                 Text="{Binding MiddlenameWorker}"
                                 x:Name="MiddleNameWorkerTextBlock"/>
-                            <TextBox
-                                Width="300"
-                                Visibility="Collapsed"
-                                x:Name="MiddleNameWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
@@ -89,10 +69,6 @@
                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
                                 Text="{Binding PassportWorkerTable.PaulTable.NamePaul}"
                                 x:Name="PaulWorkerTextBlock"/>
-                            <TextBox
-                                Width="351"
-                                Visibility="Collapsed"
-                                x:Name="PaulWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
@@ -102,10 +78,6 @@
                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
                                 Text="{Binding PassportWorkerTable.DateOfBirthWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
                                 x:Name="DateOfBirthWorkerTextBlock"/>
-                            <TextBox
-                                Width="226"
-                                Visibility="Collapsed"
-                                x:Name="DateOfBirthWorkerTextBox"/>
                         </StackPanel>
                         <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                             <TextBlock 
@@ -115,10 +87,6 @@
                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
                                 Text="{Binding PostTable.NamePost}"
                                 x:Name="PostWorkerTextBlock"/>
-                            <TextBox
-                                Width="270"
-                                Visibility="Collapsed"
-                                x:Name="PostWorkerTextBox"/>
                         </StackPanel>
                     </StackPanel>
                     <Border Margin="0 10 0 0" BorderThickness="1" Background="#161b22" CornerRadius="20" Grid.Column="1"  HorizontalAlignment="Center" Height="280" Width="230" x:Name="MaskkMorderBorder" Style="{StaticResource MaskBorder}"/>
@@ -160,10 +128,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding LoginWorker}"
                         Name="LoginWorkerTextBlock"/>
-                    <TextBox
-                        Width="600"
-                        Visibility="Collapsed"
-                        x:Name="LoginWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -173,10 +137,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PasswordWorker}"
                         Name="PasswordWorkerTextBlock"/>
-                    <TextBox
-                        Width="587"
-                        Visibility="Collapsed"
-                        x:Name="PasswordWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                     <Line/>
@@ -193,10 +153,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding NumberPhoneWorker}"
                         Name="NumberPhoneWorkerTextBlock"/>
-                    <TextBox
-                        Width="498"
-                        Visibility="Collapsed"
-                        x:Name="NumberPhoneWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -206,10 +162,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding EmailWorker}"
                         Name="EmailWorkerTextBlock"/>
-                    <TextBox
-                        Width="467"
-                        Visibility="Collapsed"
-                        x:Name="EmailWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                     <Line/>
@@ -226,10 +178,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.PassportSeriesWorker}"
                         Name="PSWorkerTextBlock"/>
-                    <TextBox
-                        Width="502"
-                        Visibility="Collapsed"
-                        x:Name="PSWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -239,10 +187,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.PassportSeriesWorker}"
                         Name="PNWorkerTextBlock"/>
-                    <TextBox
-                        Width="498"
-                        Visibility="Collapsed"
-                        x:Name="PNWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -252,10 +196,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.PassportIssuedWorker}"
                         Name="PassportIssuedWorkerTextBlock"/>
-                    <TextBox
-                        Width="501"
-                        Visibility="Collapsed"
-                        x:Name="PassportIssuedWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -265,10 +205,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.DateOfIssueWorker, StringFormat='{}{0:dd/MM/yyyy}'}"
                         Name="DateOfIssueWorkerTextBlock"/>
-                    <TextBox
-                        Width="422"
-                        Visibility="Collapsed"
-                        x:Name="DateOfIssueWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -278,10 +214,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.DivisionCodeWorker}"
                         Name="DivisionCodeWorkerTextBlock"/>
-                    <TextBox
-                        Width="447"
-                        Visibility="Collapsed"
-                        x:Name="DivisionCodeWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -291,10 +223,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.PlaceOfBirthWorker}"
                         Name="PlaceOfBirthWorkerTextBlock"/>
-                    <TextBox
-                        Width="488"
-                        Visibility="Collapsed"
-                        x:Name="PlaceOfBirthWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                     <Line/>
@@ -311,10 +239,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.RegistrationRegionWorker}"
                         Name="RegistrationRegionWorkerTextBlock"/>
-                    <TextBox
-                        Width="594"
-                        Visibility="Collapsed"
-                        x:Name="RegistrationRegionWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -324,10 +248,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.DistrictWorker}"
                         Name="DistrictWorkerTextBlock"/>
-                    <TextBox
-                        Width="603"
-                        Visibility="Collapsed"
-                        x:Name="DistrictWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -337,10 +257,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.RegistrationPointWorker}"
                         Name="RegistrationPointWorkerTextBlock"/>
-                    <TextBox
-                        Width="605"
-                        Visibility="Collapsed"
-                        x:Name="RegistrationPointWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -350,10 +266,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.RegistrationStreetWorker}"
                         Name="RegistrationStreetWorkerTextBlock"/>
-                    <TextBox
-                        Width="601"
-                        Visibility="Collapsed"
-                        x:Name="RegistrationStreetWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -363,10 +275,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.RegistrationHouseWorker}"
                         Name="RegistrationHouseWorkerTextBlock"/>
-                    <TextBox
-                        Width="618"
-                        Visibility="Collapsed"
-                        x:Name="RegistrationHouseWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -376,10 +284,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding PassportWorkerTable.RegistrationApartmentWorker}"
                         Name="RegistrationApartmentWorkerTextBlock"/>
-                    <TextBox
-                        Width="570"
-                        Visibility="Collapsed"
-                        x:Name="RegistrationApartmentWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                     <Line/>
@@ -396,10 +300,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding CardNumberWorker}"
                         Name="CardNumberWorkerTextBlock"/>
-                    <TextBox
-                        Width="536"
-                        Visibility="Collapsed"
-                        x:Name="CardNumberWorkerTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -409,10 +309,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding SalaryCardTable.CardValidMonth}"
                         Name="CardValidMonthTextBlock"/>
-                    <TextBox
-                        Width="481"
-                        Visibility="Collapsed"
-                        x:Name="CardValidMonthTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -422,10 +318,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding SalaryCardTable.CardValidYears}"
                         Name="CardValidYearsTextBlock"/>
-                    <TextBox
-                        Width="506"
-                        Visibility="Collapsed"
-                        x:Name="CardValidYearsTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -435,10 +327,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding SalaryCardTable.CardKeeperName}"
                         Name="CardKeeperNameTextBlock"/>
-                    <TextBox
-                        Width="439"
-                        Visibility="Collapsed"
-                        x:Name="CardKeeperNameTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -448,10 +336,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding SalaryCardTable.CardKeeperSurname}"
                         Name="CardKeeperSurnameTextBlock"/>
-                    <TextBox
-                        Width="386"
-                        Visibility="Collapsed"
-                        x:Name="CardKeeperSurnameTextBox"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                     <TextBlock 
@@ -461,10 +345,6 @@
                         Style="{StaticResource InfoDataBaseTextBlockTrue}"
                         Text="{Binding SalaryCardTable.CardCode}"
                         Name="CardCodeTextBlock"/>
-                    <TextBox
-                        Width="559"
-                        Visibility="Collapsed"
-                        x:Name="CardCodeTextBox"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

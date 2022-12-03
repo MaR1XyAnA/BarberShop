@@ -24,7 +24,7 @@
           <Property Name="TimeHaircut" Type="time" Precision="2" Nullable="false" />
           <Property Name="DescriptionHaircut" Type="nvarchar" MaxLength="2000" />
           <Property Name="PriceHaircut" Type="decimal" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="PhotoHaircut" Type="image" Nullable="false" />
+          <Property Name="PhotoHaircut" Type="image" />
         </EntityType>
         <EntityType Name="PassportWorkerTable">
           <Key>
@@ -216,7 +216,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ResultTable_HaircutTable">
-          <End Role="HaircutTable" Type="Self.HaircutTable" Multiplicity="1" />
+          <End Role="HaircutTable" Type="Self.HaircutTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ResultTable" Type="Self.ResultTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HaircutTable">
@@ -542,7 +544,7 @@
           <Property Name="TimeHaircut" Type="Time" Nullable="false" Precision="2" />
           <Property Name="DescriptionHaircut" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="PriceHaircut" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
-          <Property Name="PhotoHaircut" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="PhotoHaircut" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="ResultTable" Relationship="BarberShopDataBaseModel.FK_ResultTable_HaircutTable" FromRole="HaircutTable" ToRole="ResultTable" />
         </EntityType>
         <EntityType Name="PassportWorkerTable">
@@ -734,7 +736,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ResultTable_HaircutTable">
-          <End Type="BarberShopDataBaseModel.HaircutTable" Role="HaircutTable" Multiplicity="1" />
+          <End Type="BarberShopDataBaseModel.HaircutTable" Role="HaircutTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="BarberShopDataBaseModel.ResultTable" Role="ResultTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HaircutTable">
