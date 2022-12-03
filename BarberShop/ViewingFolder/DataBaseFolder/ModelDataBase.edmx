@@ -168,6 +168,17 @@
           <Property Name="StatusRezult" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CommentResult" Type="nvarchar" MaxLength="300" />
         </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "BarberShopDataBase.dbo.FilterWorker" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="FilterWorker">
+          <Key>
+            <PropertyRef Name="SurnameWorker" />
+            <PropertyRef Name="NameWorker" />
+          </Key>
+          <Property Name="SurnameWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameWorker" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddlenameWorker" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK_ClientTable_PaulTable">
           <End Role="PaulTable" Type="Self.PaulTable" Multiplicity="1" />
           <End Role="ClientTable" Type="Self.ClientTable" Multiplicity="*" />
@@ -361,6 +372,13 @@
     [DoNotCutTheFilter].[CommentResult] AS [CommentResult]
     FROM [dbo].[DoNotCutTheFilter] AS [DoNotCutTheFilter]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="FilterWorker" EntityType="Self.FilterWorker" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FilterWorker].[SurnameWorker] AS [SurnameWorker], 
+    [FilterWorker].[NameWorker] AS [NameWorker], 
+    [FilterWorker].[MiddlenameWorker] AS [MiddlenameWorker]
+    FROM [dbo].[FilterWorker] AS [FilterWorker]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_ClientTable_PaulTable" Association="Self.FK_ClientTable_PaulTable">
             <End Role="PaulTable" EntitySet="PaulTable" />
             <End Role="ClientTable" EntitySet="ClientTable" />
@@ -450,6 +468,7 @@
           <EntitySet Name="WorkerTable" EntityType="BarberShopDataBaseModel.WorkerTable" />
           <EntitySet Name="CutTheFilter" EntityType="BarberShopDataBaseModel.CutTheFilter" />
           <EntitySet Name="DoNotCutTheFilter" EntityType="BarberShopDataBaseModel.DoNotCutTheFilter" />
+          <EntitySet Name="FilterWorker" EntityType="BarberShopDataBaseModel.FilterWorker" />
           <AssociationSet Name="FK_ClientTable_PaulTable" Association="BarberShopDataBaseModel.FK_ClientTable_PaulTable">
             <End Role="PaulTable" EntitySet="PaulTable" />
             <End Role="ClientTable" EntitySet="ClientTable" />
@@ -680,6 +699,15 @@
           <Property Name="DataResult" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="StatusRezult" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CommentResult" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FilterWorker">
+          <Key>
+            <PropertyRef Name="SurnameWorker" />
+            <PropertyRef Name="NameWorker" />
+          </Key>
+          <Property Name="SurnameWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameWorker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddlenameWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_ClientTable_PaulTable">
           <End Type="BarberShopDataBaseModel.PaulTable" Role="PaulTable" Multiplicity="1" />
@@ -993,6 +1021,15 @@
                 <ScalarProperty Name="PNWorker" ColumnName="PNWorker" />
                 <ScalarProperty Name="PersonalNumberResult" ColumnName="PersonalNumberResult" />
                 <ScalarProperty Name="NameStatus" ColumnName="NameStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilterWorker">
+            <EntityTypeMapping TypeName="BarberShopDataBaseModel.FilterWorker">
+              <MappingFragment StoreEntitySet="FilterWorker">
+                <ScalarProperty Name="MiddlenameWorker" ColumnName="MiddlenameWorker" />
+                <ScalarProperty Name="NameWorker" ColumnName="NameWorker" />
+                <ScalarProperty Name="SurnameWorker" ColumnName="SurnameWorker" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

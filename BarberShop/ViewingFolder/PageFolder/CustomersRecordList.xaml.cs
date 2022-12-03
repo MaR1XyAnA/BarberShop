@@ -41,6 +41,8 @@ namespace BarberShop.ViewingFolder.PageFolder
                 SearchTextTextBlock.Visibility = Visibility.Hidden; // Прячем подсказку;
                 GetSearch(); // Вызываем метод поиска "GetSearch";
             }
+            ButtonStackPanel.Visibility = Visibility.Collapsed;
+            FrameClass.AddEditRecordClass.Navigate(new NextThoTextPage());
         }
 
         private void GetSearch() // Метод для поиска
@@ -62,20 +64,19 @@ namespace BarberShop.ViewingFolder.PageFolder
             //ListRecordListBox.ItemsSource = Sweep.OrderBy(Cookie => Cookie.PersonalNumberResult).ToList(); // в ListWorkwrListBox выводим переменную "Sweep" и сгруперованными данными из метода "Cookie" и ищем сотрудника по атрибуту "PersonalNumberWorker" и получаем список;
         }
 
-        private void EditInformationsRecordButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void DeliteRecordButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ButtonStackPanel.Visibility = Visibility.Collapsed;
+            ButtonStackPanel.Visibility = Visibility.Collapsed;
+            FrameClass.AddEditRecordClass.Navigate(new NextThoTextPage());
         }
 
         private void ListRecordListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ResultTable resultTable = (ResultTable)ListRecordListBox.SelectedItem;
             FrameClass.AddEditRecordClass.Navigate(new InformationRecordPage(resultTable));
+            ButtonStackPanel.Visibility = Visibility.Visible;
         }
+
     }
 }

@@ -22,6 +22,8 @@
                 <ResourceDictionary Source="\Style\ImageStyle.xaml"/>
                 <ResourceDictionary Source="\Style\PolygonStyle.xaml"/>
                 <ResourceDictionary Source="\Style\LineStyle.xaml"/>
+                <ResourceDictionary Source="\Style\DatePickerTextBoxStyle.xaml"/>
+                <ResourceDictionary Source="\Style\RichTextBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

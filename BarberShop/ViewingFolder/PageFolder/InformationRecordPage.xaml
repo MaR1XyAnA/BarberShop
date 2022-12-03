@@ -7,23 +7,57 @@
       d:DesignHeight="1000" d:DesignWidth="504">
 
     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10 10 0 0">
+            <TextBlock
+                Text="НОМЕР:"
+                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+            <TextBlock
+                Margin="10 0 0 0"
+                Text="{Binding PersonalNumberResult}"
+                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10 10 0 0">
+            <TextBlock
+                Text="УСЛУГА:"
+                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+            <TextBlock
+                Margin="10 0 0 0"
+                Text="{Binding HaircutTable.NameHaircut}"
+                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Margin="10 10 0 0" HorizontalAlignment="Left">
+            <TextBlock
+                Text="ДАТА ЗАПИСИ:"
+                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+            <TextBlock
+                Text="{Binding DataResult, StringFormat='{}{0:dd/MM/yyyy}'}"
+                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Margin="10 10 0 0" HorizontalAlignment="Left">
+            <TextBlock
+                Text="СТОИМОСТЬ:"
+                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+            <TextBlock
+                Text="{Binding HaircutTable.PriceHaircut, StringFormat={}{0}₽}"
+                Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+        </StackPanel>
         <StackPanel HorizontalAlignment="Left" Margin="10 10 0 0">
             <TextBlock
                 Text="ПАРИКХМАХЕР:"
                 Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
             <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="10 0 0 0">
                 <TextBlock
-                    Margin="10 0 0 0"
+                    Margin="0 0 0 0"
                     Text="{Binding WorkerTable.SurnameWorker}"
-                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
                 <TextBlock
                     Margin="4 0 0 0"
                     Text="{Binding WorkerTable.NameWorker}"
-                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
                 <TextBlock
                     Margin="4 0 0 0"
                     Text="{Binding WorkerTable.MiddlenameWorker}"
-                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Margin="10 10 0 0" HorizontalAlignment="Left">
@@ -32,17 +66,30 @@
                 Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
             <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="10 0 0 0">
                 <TextBlock
-                    Margin="10 0 0 0"
+                    Margin="0 0 0 0"
                     Text="{Binding ClientTable.SurnameClient}"
-                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
                 <TextBlock
                     Margin="4 0 0 0"
                     Text="{Binding ClientTable.NameClient}"
-                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
                 <TextBlock
                     Margin="4 0 0 0"
                     Text="{Binding ClientTable.MiddleNameClient}"
-                    Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Margin="10 10 0 0" HorizontalAlignment="Left">
+            <TextBlock
+                Text="КОММЕНТАРИЙ:"
+                Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
+            <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="10 0 0 0">
+                <TextBlock
+                    Width="410"
+                    TextWrapping="Wrap"
+                    Margin="0 0 0 20"
+                    Text="{Binding CommentResult}"
+                    Style="{StaticResource InfoDataBaseTextBlockTrue}"/>
             </StackPanel>
         </StackPanel>
     </StackPanel>

@@ -40,6 +40,7 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
         public virtual DbSet<WorkerTable> WorkerTable { get; set; }
         public virtual DbSet<CutTheFilter> CutTheFilter { get; set; }
         public virtual DbSet<DoNotCutTheFilter> DoNotCutTheFilter { get; set; }
+        public virtual DbSet<FilterWorker> FilterWorker { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

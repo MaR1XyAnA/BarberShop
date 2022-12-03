@@ -6,5 +6,6 @@ namespace BarberShop.ContentFolder.ClassFolder
     {
         public static Frame AddEditWorkerClass;
         public static Frame AddEditRecordClass;
+        public static Frame AddEditServiseClass;
     }
 }

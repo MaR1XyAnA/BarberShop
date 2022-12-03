@@ -1,4 +1,5 @@
-﻿using BarberShop.ViewingFolder.DataBaseFolder;
+﻿using BarberShop.ContentFolder.ClassFolder;
+using BarberShop.ViewingFolder.DataBaseFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,13 +22,14 @@ namespace BarberShop.ViewingFolder.PageFolder
         public ListShopButtonPage()
         {
             InitializeComponent();
+            FrameClass.AddEditServiseClass = InformationServisFrame;
             AppConnectClass.DataBase = new BarberShopDataBaseEntities(); // Подключаем Базу Данных к этой странице.
             ListShopButtonListBox.ItemsSource = AppConnectClass.DataBase.HaircutTable.ToList(); // В ListWorkwrListBox, в ItemsSource выводим всю информацию из таблицы WorkerTable в виде списка.
         }
 
-        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-       
+
         }
     }
 }
