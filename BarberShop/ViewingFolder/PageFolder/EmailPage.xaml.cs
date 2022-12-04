@@ -1,10 +1,10 @@
-﻿using BarberShop.ViewingFolder.DataBaseFolder;
-using System;
-using System.Linq;
-using System.Net.Mail;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using BarberShop.ViewingFolder.DataBaseFolder; // Подключаем библеотеку;
+using System; // Подключаем библеотеку;
+using System.Linq; // Подключаем библеотеку;
+using System.Net.Mail; // Подключаем библеотеку;
+using System.Windows; // Подключаем библеотеку;
+using System.Windows.Controls; // Подключаем библеотеку;
+using System.Windows.Input; // Подключаем библеотеку;
 
 namespace BarberShop.ViewingFolder.PageFolder
 {

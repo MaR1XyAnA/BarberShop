@@ -1,9 +1,9 @@
-﻿using BarberShop.ContentFolder.ClassFolder;
-using BarberShop.ViewingFolder.DataBaseFolder;
-using System.ComponentModel;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
+﻿using BarberShop.ContentFolder.ClassFolder; // Подключаем библеотеку;
+using BarberShop.ViewingFolder.DataBaseFolder; // Подключаем библеотеку;
+using System.ComponentModel; // Подключаем библеотеку;
+using System.Linq; // Подключаем библеотеку;
+using System.Windows; // Подключаем библеотеку;
+using System.Windows.Controls; // Подключаем библеотеку;
 
 namespace BarberShop.ViewingFolder.PageFolder
 {

@@ -1,17 +1,16 @@
-﻿using BarberShop.ViewingFolder.WindowsFolder;
-using System;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media.Animation;
+﻿using BarberShop.ViewingFolder.WindowsFolder; // Подключаем библеотеку;
+using System; // Подключаем библеотеку;
+using System.Linq; // Подключаем библеотеку;
+using System.Windows; // Подключаем библеотеку;
+using System.Windows.Controls; // Подключаем библеотеку;
+using System.Windows.Input; // Подключаем библеотеку;
+using System.Windows.Media.Animation; // Подключаем библеотеку;
 
 namespace BarberShop.ViewingFolder.PageFolder
 {
     public partial class AutorizationPage : Page
     {
         string Password;
-
         public AutorizationPage()
         {
             InitializeComponent();

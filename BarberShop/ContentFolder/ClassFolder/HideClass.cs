@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BarberShop.ContentFolder.ClassFolder
+﻿namespace BarberShop.ContentFolder.ClassFolder // Подключаем библеотеку;
 {
     internal class HideClass
     {
-        public static int InfoWindows { get; set; }
+        public static int InfoWindows { get; set; } //публичная статичная переменная с имяним "InfoWindows";
     }
 }

@@ -1,6 +1,6 @@
-﻿using BarberShop.ViewingFolder.WindowsFolder;
-using System.Windows;
-using System.Windows.Controls;
+﻿using BarberShop.ViewingFolder.WindowsFolder; // Подключаем библеотеку;
+using System.Windows; // Подключаем библеотеку;
+using System.Windows.Controls; // Подключаем библеотеку;
 
 namespace BarberShop.ViewingFolder.PageFolder
 {

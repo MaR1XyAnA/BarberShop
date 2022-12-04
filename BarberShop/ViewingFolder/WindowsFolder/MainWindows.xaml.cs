@@ -1,7 +1,7 @@
-﻿using BarberShop.ContentFolder.ClassFolder;
-using BarberShop.ViewingFolder.PageFolder;
-using System.Windows;
-using System.Windows.Input;
+﻿using BarberShop.ContentFolder.ClassFolder; // Подключаем библеотеку;
+using BarberShop.ViewingFolder.PageFolder; // Подключаем библеотеку;
+using System.Windows; // Подключаем библеотеку;
+using System.Windows.Input; // Подключаем библеотеку;
 
 namespace BarberShop.ViewingFolder.WindowsFolder
 {

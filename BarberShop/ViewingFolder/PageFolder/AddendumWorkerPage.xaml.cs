@@ -1,14 +1,10 @@
-﻿using BarberShop.ContentFolder.ClassFolder;
-using BarberShop.ViewingFolder.DataBaseFolder;
-using Microsoft.Win32;
-using System;
-using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using BarberShop.ContentFolder.ClassFolder; // Подключаем библеотеку;
+using BarberShop.ViewingFolder.DataBaseFolder; // Подключаем библеотеку;
+using System; // Подключаем библеотеку;
+using System.Data.Entity.Migrations; // Подключаем библеотеку;
+using System.Linq; // Подключаем библеотеку;
+using System.Windows; // Подключаем библеотеку;
+using System.Windows.Controls; // Подключаем библеотеку;
 
 
 namespace BarberShop.ViewingFolder.PageFolder
@@ -29,13 +25,6 @@ namespace BarberShop.ViewingFolder.PageFolder
             }
             PaulComboBox.ItemsSource = AppConnectClass.DataBase.PaulTable.ToList();
             PostComboBox.ItemsSource = AppConnectClass.DataBase.PostTable.ToList();
-            //DataContext = GetWorker;
-            //DataContext = GetSalaryCard;
-            //DataContext = GetPassport;
-            //if (PhotoProfileImage.Source != null)
-            //{
-            //    UploadingPhotosButton.Content = "ИЗМЕНИТЬ ФОТО";
-            //}
         }
         //StringBuilder Error = new StringBuilder(); // Создаём переменную для подсчёта ошибок
         //private WorkerTable GetWorker = new WorkerTable();

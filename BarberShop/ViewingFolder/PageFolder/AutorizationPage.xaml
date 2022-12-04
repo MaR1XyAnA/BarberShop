@@ -5,8 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BarberShop.ViewingFolder.PageFolder"
       mc:Ignorable="d" 
-      Style="{StaticResource PageAutorization}"
-      >
+      Style="{StaticResource PageAutorization}">
     <Grid>
         <StackPanel Margin="0 0 0 100">
             <Grid Margin="0 0 0 10">

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BarberShop.ViewingFolder.DataBaseFolder
+﻿namespace BarberShop.ViewingFolder.DataBaseFolder // Подключаем библеотеку;
 {
     internal class AppConnectClass
     {
-        public static BarberShopDataBaseEntities DataBase;
+        public static BarberShopDataBaseEntities DataBase; // Публичная статичная переменная с имяним "DataBase";
     }
 }
