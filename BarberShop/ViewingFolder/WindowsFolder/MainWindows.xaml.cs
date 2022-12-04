@@ -32,10 +32,10 @@ namespace BarberShop.ViewingFolder.WindowsFolder
 
         private void CloseButton_Click(object sender, RoutedEventArgs e) // Для того, что бы закрыть окно
         {
-            this.Close();
             HideClass.InfoWindows = 0;
             AuthorizationWindows authorizationWindows = new AuthorizationWindows();
             authorizationWindows.Show();
+            this.Close();
         }
 
         private void RollUpButton_Click(object sender, RoutedEventArgs e) // Для того, чтобы свернуть окно

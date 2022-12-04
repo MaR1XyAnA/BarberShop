@@ -7,28 +7,14 @@
       d:DesignHeight="0" d:DesignWidth="470">
     <ScrollViewer>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 10 0 0">
-            <!--<Grid>
-                <Border Background="#161b22" BorderThickness="1" Width="390" Height="260" CornerRadius="20" x:Name="MaskMorderBorder" Style="{StaticResource MaskBorder}"/>
-                <StackPanel>
-                    <StackPanel.OpacityMask>
-                        <VisualBrush Visual="{Binding ElementName=MaskMorderBorder}"/>
-                    </StackPanel.OpacityMask>
-                    <Image 
-                        Width="390"
-                        Height="260"
-                        VerticalAlignment="Top"
-                        Source="{Binding PhotoHaircut}"
-                        Stretch="UniformToFill"/>
-                </StackPanel>
-            </Grid>
-            <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 30 0 0">
+            <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 0 0 0">
                 <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockFalse}"
                     Text="НАЗВАНИЕ:"/>
                 <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockTrue}"
                     Text="{Binding NameHaircut}"/>
-            </StackPanel>-->
+            </StackPanel>
             <StackPanel Style="{StaticResource InfoDataBase}" Margin="0 3 0 0">
                 <TextBlock 
                     Style="{StaticResource InfoDataBaseTextBlockFalse}"

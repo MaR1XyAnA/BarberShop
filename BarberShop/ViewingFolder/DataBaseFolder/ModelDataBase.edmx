@@ -21,7 +21,7 @@
           </Key>
           <Property Name="PersonalNumberHaircut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameHaircut" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="TimeHaircut" Type="time" Precision="2" Nullable="false" />
+          <Property Name="TimeHaircut" Type="time" Precision="2" />
           <Property Name="DescriptionHaircut" Type="nvarchar" MaxLength="2000" />
           <Property Name="PriceHaircut" Type="decimal" Precision="5" Scale="0" Nullable="false" />
           <Property Name="PhotoHaircut" Type="image" />
@@ -541,7 +541,7 @@
           </Key>
           <Property Name="PersonalNumberHaircut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameHaircut" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="TimeHaircut" Type="Time" Nullable="false" Precision="2" />
+          <Property Name="TimeHaircut" Type="Time" Precision="2" />
           <Property Name="DescriptionHaircut" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="PriceHaircut" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
           <Property Name="PhotoHaircut" Type="Binary" MaxLength="Max" FixedLength="false" />

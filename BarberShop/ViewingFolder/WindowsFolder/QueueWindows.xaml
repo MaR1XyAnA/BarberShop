@@ -70,7 +70,7 @@
                         <DataTemplate>
                             <Grid VerticalAlignment="Top" HorizontalAlignment="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="295"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
@@ -82,7 +82,7 @@
                                                 HorizontalAlignment="Center"
                                                 Style="{StaticResource InfoDataBaseTextBlockTrue}"
                                                 Text="{Binding PersonalNumberResult}"
-                                                FontSize="200"/>
+                                                FontSize="100"/>
                                          </Border>
                                     </Grid>
                                 </Border>
@@ -125,7 +125,7 @@
                             <DataTemplate>
                                 <Grid VerticalAlignment="Top" HorizontalAlignment="Center">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="295"/>
+                                        <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
@@ -137,7 +137,7 @@
                                                     HorizontalAlignment="Center"
                                                     Style="{StaticResource InfoDataBaseTextBlockFalse}"
                                                     Text="{Binding PersonalNumberResult}"
-                                                    FontSize="200"/>
+                                                    FontSize="100"/>
                                             </Border>
                                         </Grid>
                                     </Border>

@@ -22,7 +22,7 @@ namespace BarberShop.ViewingFolder.DataBaseFolder
     
         public int PersonalNumberHaircut { get; set; }
         public string NameHaircut { get; set; }
-        public System.TimeSpan TimeHaircut { get; set; }
+        public Nullable<System.TimeSpan> TimeHaircut { get; set; }
         public string DescriptionHaircut { get; set; }
         public decimal PriceHaircut { get; set; }
         public byte[] PhotoHaircut { get; set; }
