@@ -215,9 +215,6 @@
     <Compile Include="ViewingFolder\PageFolder\NextThreeTextPage.xaml.cs">
       <DependentUpon>NextThreeTextPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewingFolder\PageFolder\SessionsPage.xaml.cs">
-      <DependentUpon>SessionsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewingFolder\PageFolder\WorkerPage.xaml.cs">
       <DependentUpon>WorkerPage.xaml</DependentUpon>
     </Compile>
@@ -406,10 +403,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewingFolder\PageFolder\NextThreeTextPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ViewingFolder\PageFolder\SessionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

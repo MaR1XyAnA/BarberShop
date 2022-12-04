@@ -16,12 +16,13 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Margin="0 10 0 0" Orientation="Vertical">
+            <StackPanel Margin="20 10 20 0" Orientation="Vertical">
                 <Grid>
                     <TextBox
                         TextChanged="SearchTextBox_TextChanged"
                         x:Name="SearchTextBox"
-                        Width="972" Cursor="IBeam"/>
+                        Width="1244.95"
+                        Cursor="IBeam"/>
                     <TextBlock 
                         Style="{StaticResource TextTextBlock}"
                         Width="140"
@@ -160,7 +161,7 @@
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
                         <TextBlock
                             x:Name="OnlineRecordTextBlock"
-                            Text="123"
+                            Text="0"
                             Style="{StaticResource InfoDataBaseTextBlockFalse}"/>
                     </StackPanel>
                 </Grid>

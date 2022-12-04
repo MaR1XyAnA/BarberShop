@@ -1,19 +1,8 @@
 ﻿using BarberShop.ContentFolder.ClassFolder;
 using BarberShop.ViewingFolder.DataBaseFolder;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BarberShop.ViewingFolder.PageFolder
 {
@@ -40,28 +29,20 @@ namespace BarberShop.ViewingFolder.PageFolder
             {
                 SearchTextTextBlock.Visibility = Visibility.Hidden; // Прячем подсказку;
                 GetSearch(); // Вызываем метод поиска "GetSearch";
+                ButtonStackPanel.Visibility = Visibility.Collapsed;
+                FrameClass.AddEditRecordClass.Navigate(new NextThoTextPage());
             }
-            ButtonStackPanel.Visibility = Visibility.Collapsed;
-            FrameClass.AddEditRecordClass.Navigate(new NextThoTextPage());
         }
 
         private void GetSearch() // Метод для поиска
         {
-            //var Sweep = AppConnectClass.DataBase.ResultTable.ToList(); // Получаем данные из "WorkerTable" в переиенную "Sweep"
+            var Sweep = AppConnectClass.DataBase.ResultTable.ToList(); // Получаем данные из "WorkerTable" в переиенную "Sweep"
 
-            //Sweep = Sweep.Where(Cookie => // метод для поиска по атрибутам
-            //Cookie.LoginWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) || // Ищем в атрибуте "LoginWorker" данные из элемента "SearchTextBox" или
-            //Cookie.PasswordWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) || // Ищем в атрибуте "PasswordWorker" данные из элемента "SearchTextBox" или
-            //Cookie.CommentResult.ToLower().Contains(SearchTextBox.Text.ToLower()) || // Ищем в атрибуте "NumberPhoneWorker" данные из элемента "SearchTextBox" или
-            //Cookie.PassportSeries.ToLower().Contains(SearchTextBox.Text.ToLower()) || // Ищем в атрибуте "PassportSeries" данные из элемента "SearchTextBox" или
-            //Cookie.PassportNumber.ToLower().Contains(SearchTextBox.Text.ToLower()) || // Ищем в атрибуте "PassportNumber" данные из элемента "SearchTextBox" или
-            //Cookie.SurnameWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) || // Ищем в атрибуте "SurnameWorker" данные из элемента "SearchTextBox" или
-            //Cookie.NameWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) || // Ищем в атрибуте "NameWorker" данные из элемента "SearchTextBox" или
-            //Cookie.MiddlenameWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) || // Ищем в атрибуте "MiddlenameWorker" данные из элемента "SearchTextBox" или
-            //Cookie.EmailWorker.ToLower().Contains(SearchTextBox.Text.ToLower()) || // Ищем в атрибуте "EmailWorker" данные из элемента "SearchTextBox" или
-            //Cookie.CardNumberWorker.ToLower().Contains(SearchTextBox.Text.ToLower())).ToList(); // Ищем в CardNumberWorker "LoginWorker" данные из элемента "SearchTextBox" и выводим листом;
+            Sweep = Sweep.Where(Cookie => // метод для поиска по атрибутам
+            Cookie.PersonalNumberResult.ToString().Contains(SearchTextBox.Text.ToLower()) || // Ищем в атрибуте "PersonalNumberResult" данные из элемента "SearchTextBox";
+            Cookie.StatusRezult.ToLower().Contains(SearchTextBox.Text.ToLower())).ToList(); // Ищем в атрибуте "StatusRezult" данные из элемента "SearchTextBox" и выводим в ввиде листа;
 
-            //ListRecordListBox.ItemsSource = Sweep.OrderBy(Cookie => Cookie.PersonalNumberResult).ToList(); // в ListWorkwrListBox выводим переменную "Sweep" и сгруперованными данными из метода "Cookie" и ищем сотрудника по атрибуту "PersonalNumberWorker" и получаем список;
+            ListRecordListBox.ItemsSource = Sweep.OrderBy(Cookie => Cookie.PersonalNumberResult).ToList(); // в ListWorkwrListBox выводим переменную "Sweep" и сгруперованными данными из метода "Cookie" и ищем сотрудника по атрибуту "PersonalNumberWorker" и получаем список;
         }
 
         private void DeliteRecordButton_Click(object sender, RoutedEventArgs e)
